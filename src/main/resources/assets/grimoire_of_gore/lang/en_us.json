@@ -1,0 +1,13 @@
+{
+ "effect.grimoire_of_gore.undead_pact": "Undead Pact",
+ "effect.grimoire_of_gore.undead_rampage": "Undead Rampage",
+ "effect.grimoire_of_gore.bane_of_the_dead": "Undead Bane",
+
+
+ "spell.grimoire_of_gore.pact_of_the_dead": "Pact of the Dead",
+ "spell.grimoire_of_gore.pact_of_the_dead.guide": "A vile pact with an undead long dead. During the night, imbue your attacks with a violent and powerful rampage, and during the day, wither and burn for your atrocities.",
+ "spell.grimoire_of_gore.rip_and_tear": "Rip and Tear",
+ "spell.grimoire_of_gore.rip_and_tear.guide": "Enhance one of your arms, allowing fingers to become razor sharp claws, and while under a rampage, the souls of the dead fill your claws with strength. Your claws will not come out if there is an item in the way.",
+
+ "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way."
+}

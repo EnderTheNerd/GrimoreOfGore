@@ -18,6 +18,32 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+
+    flatDir {
+        dir 'libs'
+    }
+
+    maven {
+        name = "Iron's Maven - Release"
+        url = "https://code.redspace.io/releases"
+    }
+
+    maven {
+        name = "Iron's Maven - Snapshots"
+        url = "https://code.redspace.io/snapshots"
+    }
+
+    maven { url = "https://maven.enginehub.org/repo/" }
+    maven {
+        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+        content {
+            includeGroup("software.bernie.geckolib")
+        }
+    }
+    maven { url = "https://maven.theillusivec4.top" }
+    maven { url = "https://cursemaven.com" }
+    maven { url = "https://maven.blamejared.com" }
+    maven { url = "https://maven.kosmx.dev/" }
 }
 
 base {
@@ -112,27 +138,41 @@ configurations {
 }
 
 dependencies {
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
+    // ISS ***************************************************************************************************
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:6556085"
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+    //NEAT
+    implementation "curse.maven:neat-238372:5838045"
 
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
+    //MMMMMMM
+    implementation "curse.maven:mmmmmmmmmmmm-225738:6237115"
 
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
+    //SELENE
+    implementation "curse.maven:selene-499980:6224057"
 
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    //APOTHIC ATTRIBUTES
+    implementation "curse.maven:apothic-attributes-898963:6514649"
+
+    // PLAYER ANIMATOR ********************************************************************************************
+    //compileOnly "dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}"
+    implementation "dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}"
+    //jarJar(group: "dev.kosmx.player-anim", name: "player-animation-lib-forge", version: "[${player_animator_version},${player_animator_version}]")
+
+    //PLACEBO
+    implementation "curse.maven:placebo-283644:6446766"
+
+    //BIG MAN GAMETECH
+    implementation "curse.maven:gtbcs-spelllib-1194714:6164512"
+
+    // GECKOLIB ***************************************************************************************************
+    implementation "curse.maven:geckolib-388172:6304958"
+
+    // CAELUS *****************************************************************************************************
+    compileOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}:api"
+    localRuntime "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"
+
+     //CURIOS
+    implementation "curse.maven:curios-309927:6529130"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

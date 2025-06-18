@@ -1,0 +1,14 @@
+{
+  "claw_attack": {
+    "subtitle": "sounds.grimoire_of_gore:claw_cast",
+    "sounds": [
+      "grimoire_of_gore:claw_attack_spell"
+    ]
+  },
+  "pact_cast": {
+    "subtitle": "sounds.grimoire_of_gore:pact_cast",
+    "sounds": [
+      "grimoire_of_gore:pact_cast"
+    ]
+  }
+}
