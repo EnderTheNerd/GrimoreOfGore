@@ -139,13 +139,10 @@ configurations {
 
 dependencies {
     // ISS ***************************************************************************************************
-    implementation "curse.maven:irons-spells-n-spellbooks-855414:6556085"
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:6769020"
 
     //NEAT
     implementation "curse.maven:neat-238372:5838045"
-
-    //MMMMMMM
-    implementation "curse.maven:mmmmmmmmmmmm-225738:6237115"
 
     //SELENE
     implementation "curse.maven:selene-499980:6224057"
@@ -160,6 +157,9 @@ dependencies {
 
     //PLACEBO
     implementation "curse.maven:placebo-283644:6446766"
+
+    //ACE
+    implementation "curse.maven:aces-spell-utils-1299492:6726513"
 
     //BIG MAN GAMETECH
     implementation "curse.maven:gtbcs-spelllib-1194714:6164512"

@@ -1,0 +1,21 @@
+{
+  "claw_attack": {
+    "subtitle": "sounds.ess_requiem:claw_cast",
+    "sounds": [
+      "grimoire_of_gore:claw_attack_spell"
+    ]
+  },
+  "pact_cast": {
+    "subtitle": "sounds.ess_requiem:pact_cast",
+    "sounds": [
+      "ess_requiem:pact_cast"
+    ]
+  },
+
+  "mind_generic_cast": {
+    "subtitle": "sounds.ess_requiem:mind_generic_cast",
+    "sounds": [
+      "ess_requiem:mind_generic_cast"
+    ]
+  }
+}

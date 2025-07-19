@@ -1,0 +1,22 @@
+{
+ "effect.ess_requiem.undead_pact": "Undead Pact",
+ "effect.ess_requiem.undead_rampage": "Undead Rampage",
+ "effect.ess_requiem.bane_of_the_dead": "Undead Bane",
+ "effect.ess_requiem.strained": "Strained",
+ "effect.ess_requiem.reaper": "Reaper",
+
+ "entity.ess_requiem.hopping_skull": "Cursed Skull",
+ "entity.ess_requiem.skull_mass": "Skull Mass",
+
+ "spell.ess_requiem.pact_of_the_dead": "Pact of the Dead",
+ "spell.ess_requiem.pact_of_the_dead.guide": "A vile pact with an undead long dead. During the night, imbue your attacks with a violent and powerful rampage, and during the day, wither and burn for your atrocities.",
+ "spell.ess_requiem.rip_and_tear": "Rip and Tear",
+ "spell.ess_requiem.rip_and_tear.guide": "Enhance one of your arms, allowing fingers to become razor sharp claws, and while under a rampage, the souls of the dead fill your claws with strength. Your claws will not come out if there is an item in the way.",
+ "spell.ess_requiem.strain": "Strain",
+ "spell.ess_requiem.strain.guide": "Strain your muscles, pushing your body to it's limit to enhance blood spell power. Power is not without cost, and you lose max HP casting this spell.",
+ "spell.ess_requiem.reaper": "Reaper",
+ "spell.ess_requiem.reaper.guide": "Temporarily become a reaper, when your summons perish, harvest their souls to regain mana.",
+ "spell.ess_requiem.summon_skulls": "Conjure Cursed Skulls",
+ "spell.ess_requiem.summon_skulls.guide": "Summon Cursed Skulls from nothingness that will cast spells at your foes. The skulls aren't the best at holding themselves up with magic, and will fall or drag themselves across the ground on occasion. While under a rampage, summon a singular, high flying, stronger skull.",
+ "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way."
+}
