@@ -10,12 +10,15 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearModel;
 import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntityRenderer;
+import net.ender.ess_requiem.particle.ConfusionEyeParticle;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
+import net.ender.ess_requiem.registries.GGParticleRegistry;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
-@EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID)
 public class ClientSetup {
 
     @SubscribeEvent
@@ -26,6 +29,13 @@ public class ClientSetup {
         event.registerEntityRenderer(GGEntityRegistry.HOPPING_SKULL.get(), context -> {return new HoppingSkullRenderer(context, new HoppingSkullModel());});
         event.registerEntityRenderer(GGEntityRegistry.SKULL_MASS.get(), context -> {return new SkullMassRenderer(context, new SkullMassModel());});
         event.registerEntityRenderer(GGEntityRegistry.BONE_SPEAR.get(), context -> {return new BoneSpearRenderer(context, new BoneSpearModel());});
+    }
+
+    @SubscribeEvent
+    public static void registerParticles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(GGParticleRegistry.CONFUSION_EYE_PARTICLE.get(), ConfusionEyeParticle.Provider::new);
+
+
     }
 
 }

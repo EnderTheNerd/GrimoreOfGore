@@ -10,7 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
-@EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID)
 public class CommonSetup {
     @SubscribeEvent
     public static void onAttributeCreate(EntityAttributeCreationEvent event) {

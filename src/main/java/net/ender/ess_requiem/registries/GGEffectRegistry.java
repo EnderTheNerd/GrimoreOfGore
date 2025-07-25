@@ -41,4 +41,13 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> MENTAL_CRUSHING = MOB_EFFECT_DEFERRED_REGISTER.register("mental_crushing",
         ()-> new MentalCrushingEffect(MobEffectCategory.HARMFUL, 3193312));
 
+    public static final DeferredHolder<MobEffect, MobEffect> CONFUSED = MOB_EFFECT_DEFERRED_REGISTER.register("confused",
+            ()-> new ConfusedEffect(MobEffectCategory.HARMFUL,16566413));
+
+    public static final DeferredHolder<MobEffect, MobEffect> THOUGHT = MOB_EFFECT_DEFERRED_REGISTER.register("thought",
+            ()-> new ThoughtEffect(MobEffectCategory.BENEFICIAL, 16773065));
+
+    public static final DeferredHolder<MobEffect, MobEffect> WEIGHED_DOWN = MOB_EFFECT_DEFERRED_REGISTER.register("weighed_down",
+            ()-> new WeighedDownEffect(MobEffectCategory.HARMFUL, 5533306));
+
 }

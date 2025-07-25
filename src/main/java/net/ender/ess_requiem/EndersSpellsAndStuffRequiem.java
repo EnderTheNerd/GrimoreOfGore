@@ -48,6 +48,8 @@ public class EndersSpellsAndStuffRequiem
 
         GGAttributeRegistry.register(modEventBus);
 
+        GGParticleRegistry.register(modEventBus);
+
 
 
         // Register the item to a creative tab

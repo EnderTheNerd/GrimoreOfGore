@@ -2,6 +2,8 @@ package net.ender.ess_requiem.events;
 
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 
 import net.ender.ess_requiem.effects.MentalCrushingEffect;
@@ -42,7 +44,16 @@ public class ModEvents {
     }
 
 
+    @SubscribeEvent
+    public static void onPlayerLivingDamage1(LivingDamageEvent.Post event) {
+        var attacker = event.getSource().getDirectEntity();
 
+        if (attacker instanceof LivingEntity livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.CONFUSED)) {
+          ((LivingEntity) attacker).addEffect(new MobEffectInstance(MobEffects.HARM, 1, 0));
+        }
+
+
+    }
 
         @SubscribeEvent
     public static void PactAttackNight(LivingDamageEvent.Post event) {
