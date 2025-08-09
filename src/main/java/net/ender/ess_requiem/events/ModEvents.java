@@ -2,29 +2,25 @@ package net.ender.ess_requiem.events;
 
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
-import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 
-import net.ender.ess_requiem.effects.MentalCrushingEffect;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
+import net.ender.ess_requiem.registries.GGSoundRegistry;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
-import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
-import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 
 @EventBusSubscriber
 public class ModEvents {
@@ -42,6 +38,20 @@ public class ModEvents {
 
         }
     }
+
+    @SubscribeEvent
+    public static void MindRevive(LivingDeathEvent event) {
+        if (event.getEntity() instanceof ServerPlayer livingEntity) {
+            if (livingEntity.hasEffect(GGEffectRegistry.PRESERVED_STATE)){
+
+                event.setCanceled(true);
+                livingEntity.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "The Mind Preserves")
+                        .withStyle(s -> s.withColor(TextColor.fromRgb(15556694))), true);
+                livingEntity.removeEffect(GGEffectRegistry.PRESERVED_STATE);
+                livingEntity.setHealth(5.0F);
+                livingEntity.playSound(GGSoundRegistry.CLOCK_TICKING.get(), 0.8f, 1.3F);
+            }}}
+
 
 
     @SubscribeEvent

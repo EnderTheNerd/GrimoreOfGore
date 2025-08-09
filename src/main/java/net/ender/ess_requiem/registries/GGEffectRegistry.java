@@ -32,14 +32,6 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> REAPER = MOB_EFFECT_DEFERRED_REGISTER.register("reaper",
             ()-> new ReaperEffect(MobEffectCategory.BENEFICIAL, 12851903));
 
-    public static final DeferredHolder<MobEffect, MobEffect> SOUL_SHIELD = MOB_EFFECT_DEFERRED_REGISTER.register("soul_shield",
-            ()-> new SoulShieldEffect(MobEffectCategory.BENEFICIAL, 4487841));
-
-    public static final DeferredHolder<MobEffect, MobEffect> CURSED_SKULL_TIMER = MOB_EFFECT_DEFERRED_REGISTER.register("cursed_skull_timer",
-            ()-> new SoulShieldEffect(MobEffectCategory.BENEFICIAL, 13750177));
-
-    public static final DeferredHolder<MobEffect, MobEffect> MENTAL_CRUSHING = MOB_EFFECT_DEFERRED_REGISTER.register("mental_crushing",
-        ()-> new MentalCrushingEffect(MobEffectCategory.HARMFUL, 3193312));
 
     public static final DeferredHolder<MobEffect, MobEffect> CONFUSED = MOB_EFFECT_DEFERRED_REGISTER.register("confused",
             ()-> new ConfusedEffect(MobEffectCategory.HARMFUL,16566413));
@@ -49,5 +41,8 @@ public class GGEffectRegistry {
 
     public static final DeferredHolder<MobEffect, MobEffect> WEIGHED_DOWN = MOB_EFFECT_DEFERRED_REGISTER.register("weighed_down",
             ()-> new WeighedDownEffect(MobEffectCategory.HARMFUL, 5533306));
+
+    public static final DeferredHolder<MobEffect, MobEffect> PRESERVED_STATE = MOB_EFFECT_DEFERRED_REGISTER.register("preserved_state",
+            ()-> new PreservedStateEffect(MobEffectCategory.NEUTRAL, 15094016));
 
 }

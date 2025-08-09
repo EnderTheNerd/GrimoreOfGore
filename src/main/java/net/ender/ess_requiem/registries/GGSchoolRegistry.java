@@ -48,7 +48,7 @@ public class GGSchoolRegistry extends SchoolRegistry {
     public static final Supplier<SchoolType> MIND = (Supplier<SchoolType>) registerSchool(new SchoolType(
             MIND_RESOURCE,
             GGTags.MIND_FOCUS,
-            Component.translatable("school.endersequipment.mind").withColor(15556694),
+            Component.translatable("school.ess_requiem.mind").withColor(15556694),
             GGAttributeRegistry.MIND_SPELL_POWER,
             GGAttributeRegistry.MIND_MAGIC_RESIST,
             GGSoundRegistry.MIND_GENERIC_CAST,

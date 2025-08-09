@@ -172,7 +172,7 @@ public class SkullMassEntity  extends AbstractSpellCastingMob implements IMagicS
     @Override
     public void onRemovedFromLevel() {
 
-        this.onRemovedHelper(this, GGEffectRegistry.CURSED_SKULL_TIMER);
+
         super.onRemovedFromLevel();
     }
 

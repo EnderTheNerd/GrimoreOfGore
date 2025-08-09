@@ -20,6 +20,10 @@ public class GGSoundRegistry {
 
     public static DeferredHolder<SoundEvent, SoundEvent> MIND_GENERIC_CAST = registerSoundEvent("mind_generic_cast");
 
+    public static DeferredHolder<SoundEvent, SoundEvent> CLOCK_TICKING = registerSoundEvent("preserved_clock");
+
+    public static DeferredHolder<SoundEvent, SoundEvent> BONES_SHATTER = registerSoundEvent("bone_shatter");
+
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {

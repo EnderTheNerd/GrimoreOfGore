@@ -17,5 +17,17 @@
     "sounds": [
       "ess_requiem:mind_generic_cast"
     ]
+  },
+  "preserved_clock": {
+    "subtitle": "sounds.ess_requiem:clock_ticking",
+    "sounds": [
+      "ess_requiem:clock_ticking_cast"
+    ]
+  },
+  "bone_shatter": {
+    "subtitle": "sounds.ess_requiem:bones_shatter",
+    "sounds": [
+      "ess_requiem:bone_shatter"
+    ]
   }
 }

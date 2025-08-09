@@ -165,7 +165,7 @@ public class HoppingSkullEntity extends AbstractSpellCastingMob implements IMagi
     @Override
     public void onRemovedFromLevel() {
 
-        this.onRemovedHelper(this, GGEffectRegistry.CURSED_SKULL_TIMER);
+
         super.onRemovedFromLevel();
     }
 

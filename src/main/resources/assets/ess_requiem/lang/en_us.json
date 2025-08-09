@@ -7,6 +7,7 @@
  "effect.ess_requiem.thought": "Thought",
  "effect.ess_requiem.confused": "Confused",
  "effect.ess_requiem.weighed_down": "Weighed Down",
+"effect.ess_requiem.preserved_state": "Preserved State",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -21,13 +22,21 @@
  "spell.ess_requiem.reaper.guide": "Temporarily become a reaper, when your summons perish, harvest their souls to regain mana.",
  "spell.ess_requiem.summon_skulls": "Conjure Cursed Skulls",
  "spell.ess_requiem.summon_skulls.guide": "Summon Cursed Skulls from nothingness that will cast spells at your foes. The skulls aren't the best at holding themselves up with magic, and will fall or drag themselves across the ground on occasion. While under a rampage, summon a singular, high flying, stronger skull.",
+ "spell.ess_requiem.wretch": "Wretch",
+ "spell.ess_requiem.wretch.guide": "Spew magical blood forth from your body, dealing damage. When low HP, switch damage to Desperation Damage, doing more damage.",
+
  "spell.ess_requiem.weight_of_the_world": "Weight of the World",
-
-
  "spell.ess_requiem.weight_of_the_world.guide": "Unleash powerful mental energy, sending everything around you skyrocketing into the air.",
  "spell.ess_requiem.overload": "Overload",
  "spell.ess_requiem.overload.guide": "Project your chaotic and endless thoughts into a targets mind, damaging and confusing them. Being confused causes them to hit themselves when they attack.",
  "spell.ess_requiem.to_stand_before_me": "To Stand Before I",
  "spell.ess_requiem.to_stand_before_me.guide": "Channel your mind and unleash waves of mental energy, dramatically slowing down all they touch, as well as slowly hitting them with mental waves. ",
- "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way."
+ "spell.ess_requiem.a_moment_in_time": "A Moment in Time",
+ "spell.ess_requiem.a_moment_in_time.guide": "Using mental energy, pause your current state, preventing death once.",
+
+
+ "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
+ "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
+
+ "school.ess_requiem.mind": "Mind"
 }

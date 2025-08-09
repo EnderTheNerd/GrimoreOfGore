@@ -7,6 +7,10 @@ import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.RecastInstance;
+import io.redspace.ironsspellbooks.capabilities.magic.RecastResult;
+import io.redspace.ironsspellbooks.capabilities.magic.SummonManager;
+import io.redspace.ironsspellbooks.capabilities.magic.SummonedEntitiesCastData;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.spells.ASSpellAnimations;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
@@ -15,32 +19,38 @@ import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullEntity;
 
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassEntity;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
+import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
 @AutoSpellConfig
 public class SummonSkullsSpell extends AbstractSpell {
-    private final ResourceLocation spellId =  ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "summon_skulls");
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "summon_skulls");
 
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-        (Component.translatable("ui.irons_spellbooks.summon_count", spellLevel))
+                (Component.translatable("ui.irons_spellbooks.summon_count", spellLevel))
         );
     }
 
@@ -80,50 +90,86 @@ public class SummonSkullsSpell extends AbstractSpell {
     }
 
     @Override
-    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        if (entity.hasEffect(GGEffectRegistry.UNDEAD_RAMPAGE)) {
-            int summonTime = 100;
-
-            SkullMassEntity skull = new SkullMassEntity(world, entity);
-            skull.setPos(entity.position());
-            skull.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
-            var event = NeoForge.EVENT_BUS.post(new SpellSummonEvent<SkullMassEntity>(entity, skull, this.spellId, spellLevel));
-            world.addFreshEntity(event.getCreature());
-            skull.addEffect(new MobEffectInstance(GGEffectRegistry.CURSED_SKULL_TIMER, summonTime, 0, false, false, false));
-
-            int effectAmplifier = spellLevel - 1;
-            if (entity.hasEffect(GGEffectRegistry.CURSED_SKULL_TIMER))
-                effectAmplifier += entity.getEffect(GGEffectRegistry.CURSED_SKULL_TIMER).getAmplifier() + 1;
-            entity.addEffect(new MobEffectInstance(GGEffectRegistry.CURSED_SKULL_TIMER, summonTime, effectAmplifier, false, false, true));
-            super.onCast(world, spellLevel, entity, castSource, playerMagicData);
-
-
-
-        }
-        else {
-            int summonTime = 20 * 50 * 8;
-            for (int i = -0; i < spellLevel; i++) {
-                HoppingSkullEntity skull = new HoppingSkullEntity(world, entity);
-                skull.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
-                var event = NeoForge.EVENT_BUS.post(new SpellSummonEvent<HoppingSkullEntity>(entity, skull, this.spellId, spellLevel));
-                world.addFreshEntity(event.getCreature());
-                skull.addEffect(new MobEffectInstance(GGEffectRegistry.CURSED_SKULL_TIMER, summonTime, 0, false, false, false));
-
-
-                super.onCast(world, spellLevel, entity, castSource, playerMagicData);
-            }
-
-
-        }
-
+    public Optional<SoundEvent> getCastFinishSound() {
+        return Optional.of(SoundRegistry.RAISE_DEAD_START.get());
     }
+
 
 
     @Override
-    public AnimationHolder getCastStartAnimation() {
-        return ASSpellAnimations.ANIMATION_CONSTRUCT_SUMMON;
+    public int getRecastCount(int spellLevel, @Nullable LivingEntity entity) {
+        return 2;
     }
+
+    @Override
+    public void onRecastFinished(ServerPlayer serverPlayer, RecastInstance recastInstance, RecastResult recastResult, ICastDataSerializable castDataSerializable) {
+        if (SummonManager.recastFinishedHelper(serverPlayer, recastInstance, recastResult, castDataSerializable)) {
+            super.onRecastFinished(serverPlayer, recastInstance, recastResult, castDataSerializable);
+        }
     }
+
+    @Override
+    public ICastDataSerializable getEmptyCastData() {
+        return new SummonedEntitiesCastData();
+    }
+
+    public int getSummonCount(int spellLevel, LivingEntity caster) {
+        return spellLevel;
+    }
+
+    @Override
+    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        if (entity.hasEffect(GGEffectRegistry.UNDEAD_RAMPAGE)) {
+
+        var recasts = playerMagicData.getPlayerRecasts();
+        if (!recasts.hasRecastForSpell(this)) {
+            SummonedEntitiesCastData summonedEntitiesCastData = new SummonedEntitiesCastData();
+            int summonTime = 20 * 60 * 10;
+            int count = 1;
+            for (int i = 0; i < count; i++) {
+                SkullMassEntity skull = new SkullMassEntity(world, entity);
+                skull.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
+                skull.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(skull.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
+                var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, skull, this.spellId, spellLevel)).getCreature();
+                world.addFreshEntity(creature);
+                SummonManager.initSummon(entity, creature, summonTime, summonedEntitiesCastData);
+            }
+            RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, getRecastCount(spellLevel, entity), summonTime, castSource, summonedEntitiesCastData);
+            recasts.addRecast(recastInstance, playerMagicData);
+        }
+        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+
+
+
+    }
+
+        else {
+            var recasts = playerMagicData.getPlayerRecasts();
+            if (!recasts.hasRecastForSpell(this)) {
+                SummonedEntitiesCastData summonedEntitiesCastData = new SummonedEntitiesCastData();
+                int summonTime = 20 * 60 * 10;
+                int count = getSummonCount(spellLevel, entity);
+                for (int i = 0; i < count; i++) {
+                    HoppingSkullEntity skull = new HoppingSkullEntity(world, entity);
+                    skull.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
+                    skull.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(skull.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
+                    var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, skull, this.spellId, spellLevel)).getCreature();
+                    world.addFreshEntity(creature);
+                    SummonManager.initSummon(entity, creature, summonTime, summonedEntitiesCastData);
+                }
+                RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, getRecastCount(spellLevel, entity), summonTime, castSource, summonedEntitiesCastData);
+                recasts.addRecast(recastInstance, playerMagicData);
+            }
+            super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+
+
+        }
+
+    }
+
+}
+
+
 
 
 
