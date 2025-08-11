@@ -24,6 +24,8 @@
  "spell.ess_requiem.summon_skulls.guide": "Summon Cursed Skulls from nothingness that will cast spells at your foes. The skulls aren't the best at holding themselves up with magic, and will fall or drag themselves across the ground on occasion. While under a rampage, summon a singular, high flying, stronger skull.",
  "spell.ess_requiem.wretch": "Wretch",
  "spell.ess_requiem.wretch.guide": "Spew magical blood forth from your body, dealing damage. When low HP, switch damage to Desperation Damage, doing more damage.",
+ "spell.ess_requiem.boiling_blood": "Boil Blood",
+ "spell.ess_requiem.boiling_blood.guide": "Boil a targets blood, dealing damage and setting them aflame. Targets with boiled blood find their mana regeneration compromised.",
 
  "spell.ess_requiem.weight_of_the_world": "Weight of the World",
  "spell.ess_requiem.weight_of_the_world.guide": "Unleash powerful mental energy, sending everything around you skyrocketing into the air.",
@@ -37,6 +39,8 @@
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
+ "ui.ess_requiem.rampage_damage": "%d Rampage Damage",
+ "ui.ess_requiem.rampage_summon": "1 Rampage Summon",
 
  "school.ess_requiem.mind": "Mind"
 }

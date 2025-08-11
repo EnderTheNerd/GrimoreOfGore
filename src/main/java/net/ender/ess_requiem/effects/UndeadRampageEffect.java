@@ -13,7 +13,7 @@ public class UndeadRampageEffect extends MagicMobEffect {
     public UndeadRampageEffect(MobEffectCategory pCategory, int pColor) {
         super(MobEffectCategory.BENEFICIAL, 9833514);
 
-        this.addAttributeModifier(ALObjects.Attributes.LIFE_STEAL, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "undead_rampage"), .12,
+        this.addAttributeModifier(ALObjects.Attributes.LIFE_STEAL, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "undead_rampage"), .15,
                 AttributeModifier.Operation.ADD_VALUE);
         this.addAttributeModifier(Attributes.ATTACK_DAMAGE, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "undead_rampage"), 5,
                 AttributeModifier.Operation.ADD_VALUE);

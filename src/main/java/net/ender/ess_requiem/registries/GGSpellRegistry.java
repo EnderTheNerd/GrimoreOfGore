@@ -32,13 +32,10 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> REAPER = registerSpell(new ReaperSpell());
     public static final Supplier <AbstractSpell> SKULLS =registerSpell(new SummonSkullsSpell());
     public static final Supplier <AbstractSpell> WRETCH =registerSpell(new WretchSpell());
+    public static final Supplier <AbstractSpell> BOILING_BLOOD =registerSpell(new BoilingBloodSpell());
 
     //CRAFTABLE MIND
-    public static final Supplier <AbstractSpell> WEIGHT_OF_THE_WORLD = registerSpell(new WeightOfTheWorldSpell());
-    public static final Supplier <AbstractSpell> OVERLOAD = registerSpell(new OverloadSpell());
-    public static final Supplier<AbstractSpell> TO_STAND_BEFORE_ME =registerSpell(new ToStandBeforeMeSpell());
-    public static final Supplier<AbstractSpell> A_MOMENT_IN_TIME =registerSpell(new AMomentInTimeSpell());
-    public static final Supplier<AbstractSpell> MENTAL_SHATTER =registerSpell(new MentalShatterSpell());
+    //IMPLEMENTED, NOT FINISHED
 
 
     public static void register(IEventBus eventBus)

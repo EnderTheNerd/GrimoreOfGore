@@ -4,6 +4,7 @@ import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
@@ -47,7 +48,8 @@ public class RipAndTearSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                (Component.translatable("ui.irons_spellbooks.damage", getDamage(spellLevel, caster))));
+                (Component.translatable("ui.irons_spellbooks.damage", getDamage(spellLevel, caster))),
+                (Component.translatable("ui.ess_requiem.rampage_damage", getDamage(spellLevel, caster) * 1.5F)));
 
     }
 
@@ -167,7 +169,7 @@ public class RipAndTearSpell extends AbstractSpell {
                         Vec3 offsetVector = targetEntity.getBoundingBox().getCenter().subtract(entity.getEyePosition());
                         int i = getDuration(baseSpellPower, entity);
                         if (offsetVector.dot(forward) >= 0) {
-                            if (DamageSources.applyDamage(targetEntity, getDamage (spellLevel, entity), damageSource)) {
+                            if (DamageSources.applyDamage(targetEntity, getDamage (spellLevel, entity), damageSource )) {
                                 ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(ALObjects.MobEffects.BLEEDING, i , 0));
                                 MagicManager.spawnParticles(level, ParticleHelper.BLOOD_GROUND, targetEntity.getX(), targetEntity.getY() + targetEntity.getBbHeight() * .5f, targetEntity.getZ(), 50, targetEntity.getBbWidth() * .5f, targetEntity.getBbHeight() * .5f, targetEntity.getBbWidth() * .5f, .03, false);
                                 EnchantmentHelper.doPostAttackEffects((ServerLevel) level, targetEntity, damageSource);
@@ -206,7 +208,7 @@ public class RipAndTearSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return getSpellPower(spellLevel, entity) ;
+        return getSpellPower(spellLevel, entity);
     }
 
 

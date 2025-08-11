@@ -50,7 +50,8 @@ public class SummonSkullsSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                (Component.translatable("ui.irons_spellbooks.summon_count", spellLevel))
+                (Component.translatable("ui.irons_spellbooks.summon_count", spellLevel)),
+                (Component.translatable("ui.ess_requiem.rampage_summon", spellLevel))
         );
     }
 

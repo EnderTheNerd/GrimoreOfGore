@@ -59,6 +59,8 @@ public class PactOfTheDeadSpell extends AbstractSpell {
             this.baseManaCost = 50;
         }
 
+
+
         @Override
         public CastType getCastType() {
             return CastType.INSTANT;

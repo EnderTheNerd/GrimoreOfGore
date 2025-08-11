@@ -75,6 +75,7 @@ public class ReaperSpell extends AbstractSpell {
     }
 
 
+
     @Override
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.SELF_CAST_ANIMATION;
