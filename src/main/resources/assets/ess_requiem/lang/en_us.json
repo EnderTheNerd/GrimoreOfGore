@@ -7,7 +7,8 @@
  "effect.ess_requiem.thought": "Thought",
  "effect.ess_requiem.confused": "Confused",
  "effect.ess_requiem.weighed_down": "Weighed Down",
-"effect.ess_requiem.preserved_state": "Preserved State",
+ "effect.ess_requiem.preserved_state": "Preserved State",
+ "effect.ess_requiem.boiled_mana": "Boiled Mana",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -40,6 +41,7 @@
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
  "ui.ess_requiem.rampage_damage": "%d Rampage Damage",
+ "ui.ess_requiem.boil_count": "%d Boiling Shots",
  "ui.ess_requiem.rampage_summon": "1 Rampage Summon",
 
  "school.ess_requiem.mind": "Mind"

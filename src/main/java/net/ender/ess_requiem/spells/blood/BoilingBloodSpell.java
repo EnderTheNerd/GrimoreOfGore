@@ -13,10 +13,12 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
+import net.ender.ess_requiem.registries.GGEffectRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -28,15 +30,17 @@ import java.util.List;
 
 @AutoSpellConfig
 public class BoilingBloodSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "boilingblood");
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "boiling_blood");
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
-                Component.translatable("ui.irons_spellbooks.blast_count", (int) (getRecastCount(spellLevel, caster))),
-                Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel, caster), 1))
-        );
+                Component.translatable("ui.ess_requiem.boil_count", (int) (getRecastCount(spellLevel, caster))),
+                Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel, caster), 1)),
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 15, 1)));
+
+
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
@@ -71,7 +75,7 @@ public class BoilingBloodSpell extends AbstractSpell {
 
     @Override
     public int getRecastCount(int spellLevel, @Nullable LivingEntity entity) {
-        return spellLevel - 2;
+        return spellLevel - 1;
     }
 
     @Override
@@ -90,7 +94,9 @@ public class BoilingBloodSpell extends AbstractSpell {
             var targetEntity = targetData.getTarget((ServerLevel) level);
             {
                 float damage = getDamage(spellLevel, entity);
+                int i = getDuration(baseSpellPower, entity);
                 DamageSources.applyDamage(targetEntity, damage , getDamageSource(targetEntity, entity));
+                targetEntity.addEffect(new MobEffectInstance(GGEffectRegistry.BOILED_MANA, i ));
                 MagicManager.spawnParticles(level, ParticleHelper.BLOOD, targetEntity.getX(), targetEntity.getY() + .25f, targetEntity.getZ(), 100, .03, .4, .03, .4, false);
                 MagicManager.spawnParticles(level, ParticleHelper.BLOOD_GROUND, targetEntity.getX(), targetEntity.getY() + .25f, targetEntity.getZ(), 100, .03, .4, .03, .4, false);
             }
@@ -119,6 +125,9 @@ public class BoilingBloodSpell extends AbstractSpell {
         return 15;
     }
 
+    public int getDuration(int spellLevel, LivingEntity caster) {
+        return (int) (getSpellPower(spellLevel, caster)) * 15;
+    }
 
     @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {

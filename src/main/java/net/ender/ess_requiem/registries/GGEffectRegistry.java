@@ -16,6 +16,7 @@ public class GGEffectRegistry {
         MOB_EFFECT_DEFERRED_REGISTER.register(eventBus);
     }
 
+//BLOOD EFFECTS
 
     public static final DeferredHolder<MobEffect, MobEffect> UNDEAD_PACT = MOB_EFFECT_DEFERRED_REGISTER.register("undead_pact",
             () -> new UndeadPactEffect(MobEffectCategory.NEUTRAL, 5703960));
@@ -32,6 +33,10 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> REAPER = MOB_EFFECT_DEFERRED_REGISTER.register("reaper",
             ()-> new ReaperEffect(MobEffectCategory.BENEFICIAL, 12851903));
 
+    public static final DeferredHolder<MobEffect, MobEffect> BOILED_MANA = MOB_EFFECT_DEFERRED_REGISTER.register("boiled_mana",
+            ()-> new BoilingManaEffect(MobEffectCategory.HARMFUL, 9833512));
+
+    //MIND EFFECTS
 
     public static final DeferredHolder<MobEffect, MobEffect> CONFUSED = MOB_EFFECT_DEFERRED_REGISTER.register("confused",
             ()-> new ConfusedEffect(MobEffectCategory.HARMFUL,16566413));
