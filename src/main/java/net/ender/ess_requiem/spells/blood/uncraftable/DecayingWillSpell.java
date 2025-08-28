@@ -188,6 +188,19 @@ public class DecayingWillSpell extends AbstractSpell {
         return 5 + spellPower * .5f;
     }
 
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        return false;
+    }
 
+    @Override
+    public boolean allowCrafting() {
+        return false;
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return false;
+    }
 
 }

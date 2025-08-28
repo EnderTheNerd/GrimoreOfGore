@@ -34,6 +34,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
@@ -64,11 +65,11 @@ public class CorpseExplosionSpell extends AbstractSpell {
     }
 
     public CorpseExplosionSpell() {
-        this.manaCostPerLevel = 5;
-        this.baseSpellPower = 2;
-        this.spellPowerPerLevel = 1;
+        this.manaCostPerLevel = 0;
+        this.baseSpellPower = 3;
+        this.spellPowerPerLevel = 0;
         this.castTime = 0;
-        this.baseManaCost = 25;
+        this.baseManaCost = 105;
     }
 
     @Override
@@ -110,6 +111,8 @@ public class CorpseExplosionSpell extends AbstractSpell {
         }
         return false;
     }
+
+
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
@@ -166,7 +169,20 @@ public class CorpseExplosionSpell extends AbstractSpell {
         return 2.5f;
     }
 
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        return false;
+    }
 
+    @Override
+    public boolean allowCrafting() {
+        return false;
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return false;
+    }
 }
 
 

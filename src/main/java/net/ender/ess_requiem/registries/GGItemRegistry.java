@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.item.curio.NamelessRingCurio;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.RottenSickle;
+import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ScytheOfRottenDreams;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.WhisperingHarvester;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -22,6 +23,7 @@ public class GGItemRegistry {
 
     public static final DeferredItem<Item> WHISPERING_HARVESTER = ITEMS.register("whispering_harvester", WhisperingHarvester::new);
 
+    public static final DeferredItem<Item> SCYTHE_OF_ROTTEN_DREAMS = ITEMS.register("scythe_of_rotten_dreams", ScytheOfRottenDreams::new);
 //CURIO
 
     public static final DeferredItem<CurioBaseItem> NAMELESS_RING_CURIO = ITEMS.register("nameless_ring", NamelessRingCurio::new);

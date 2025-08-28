@@ -1,0 +1,37 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:divine_soulshard"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:bloody_vellum"
+    },
+
+    "C": {
+      "item": "irons_spellbooks:blood_upgrade_orb"
+    },
+
+    "D": {
+      "item": "ess_requiem:whispering_harvester"
+    },
+    "E": {
+      "item": "irons_spellbooks:conjurers_talisman"
+    }
+  },
+  "pattern": [
+
+    "EAE",
+    "CDC",
+    "BCB"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:scythe_of_rotten_dreams"
+  }
+}

@@ -28,6 +28,7 @@ public class ModCreativeModTabs {
 
                         output.accept(GGItemRegistry.ROTTEN_SICKLE);
                         output.accept(GGItemRegistry.WHISPERING_HARVESTER);
+                        output.accept(GGItemRegistry.SCYTHE_OF_ROTTEN_DREAMS);
                         output.accept(GGItemRegistry.NAMELESS_RING_CURIO);
 
                     })

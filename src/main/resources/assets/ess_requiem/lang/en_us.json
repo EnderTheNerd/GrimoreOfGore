@@ -33,6 +33,8 @@
  "spell.ess_requiem.necrotic_burst.guide": "Release a burst of withering energy, empowered by the souls of the dead, damage and wither things around you in a radius.",
  "spell.ess_requiem.decaying_will": "Decaying Will",
  "spell.ess_requiem.decaying_will.guide": "Call upon decay itself to rebuild your summons should they fall using mana, as well as summoning an initial burst of powerful withering energy. Tales say a certain ring could stop you from decaying when using this spell.",
+ "spell.ess_requiem.corpse_explosion": "Corpse Explosion",
+ "spell.ess_requiem.corpse_explosion.guide": "Violently explode the body of a summoned creature, obliterating it, and leaving a toxic puddle of blood behind.",
 
  "spell.ess_requiem.weight_of_the_world": "Weight of the World",
  "spell.ess_requiem.weight_of_the_world.guide": "Unleash powerful mental energy, sending everything around you skyrocketing into the air.",
@@ -58,6 +60,7 @@
  "item.ess_requiem.scythe_of_rotten_dreams": "Scythe of Rotten Dreams",
  "item.ess_requiem.nameless_ring": "Nameless Ring",
  "item.ess_requiem.nameless_ring.desc": "The ring of an unnamed king. You feel the power of decay within.",
+
 
  "school.ess_requiem.mind": "Mind"
 }

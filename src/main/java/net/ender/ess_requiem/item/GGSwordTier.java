@@ -31,6 +31,11 @@ public class GGSwordTier implements Tier, IronsWeaponTier {
             () -> Ingredient.of(ItemRegistry.BLOOD_RUNE.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ExtendedWeaponTier SCYTHE_OF_ROTTEN_DREAMS = new ExtendedWeaponTier(2500, 12f, -2.6f, 35,
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            () -> Ingredient.of(ItemRegistry.BLOODY_VELLUM.get()),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
 
 
 
