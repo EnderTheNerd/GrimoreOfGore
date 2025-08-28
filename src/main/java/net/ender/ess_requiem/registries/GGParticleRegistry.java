@@ -18,4 +18,6 @@ public class GGParticleRegistry {
 
     public static final Supplier<SimpleParticleType> CONFUSION_EYE_PARTICLE = PARTICLE_TYPES.register("the_eye", () -> new SimpleParticleType(false));
 
+    public static final Supplier<SimpleParticleType> WITHER_SKULL_SMALL = PARTICLE_TYPES.register("wither_skull_small", () -> new SimpleParticleType(false));
+
 }

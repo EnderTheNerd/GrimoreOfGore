@@ -172,6 +172,8 @@ dependencies {
     compileOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}:api"
     localRuntime "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"
 
+    implementation "curse.maven:jei-238222:6829086"
+
      //CURIOS
     implementation "curse.maven:curios-309927:6529130"
 }

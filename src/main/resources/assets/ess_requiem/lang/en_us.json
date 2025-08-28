@@ -9,6 +9,8 @@
  "effect.ess_requiem.weighed_down": "Weighed Down",
  "effect.ess_requiem.preserved_state": "Preserved State",
  "effect.ess_requiem.boiled_mana": "Boiled Mana",
+ "effect.ess_requiem.decaying_might": "Decaying Might",
+ "effect.ess_requiem.lord_of_decay": "Lord of Decay",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -26,7 +28,11 @@
  "spell.ess_requiem.wretch": "Wretch",
  "spell.ess_requiem.wretch.guide": "Spew magical blood forth from your body, dealing damage. When low HP, switch damage to Desperation Damage, doing more damage.",
  "spell.ess_requiem.boiling_blood": "Boil Blood",
- "spell.ess_requiem.boiling_blood.guide": "Boil a targets blood, dealing damage and setting them aflame. Targets with boiled blood find their mana regeneration compromised.",
+ "spell.ess_requiem.boiling_blood.guide": "Boil a targets blood, dealing damage and setting them aflame. Targets with boiled blood find their mana regeneration compromised, and a weakness to blood.",
+ "spell.ess_requiem.necrotic_burst": "Necrotic Burst",
+ "spell.ess_requiem.necrotic_burst.guide": "Release a burst of withering energy, empowered by the souls of the dead, damage and wither things around you in a radius.",
+ "spell.ess_requiem.decaying_will": "Decaying Will",
+ "spell.ess_requiem.decaying_will.guide": "Call upon decay itself to rebuild your summons should they fall using mana, as well as summoning an initial burst of powerful withering energy. Tales say a certain ring could stop you from decaying when using this spell.",
 
  "spell.ess_requiem.weight_of_the_world": "Weight of the World",
  "spell.ess_requiem.weight_of_the_world.guide": "Unleash powerful mental energy, sending everything around you skyrocketing into the air.",
@@ -43,6 +49,15 @@
  "ui.ess_requiem.rampage_damage": "%d Rampage Damage",
  "ui.ess_requiem.boil_count": "%d Boiling Shots",
  "ui.ess_requiem.rampage_summon": "1 Rampage Summon",
+ "ui.ess_requiem.summon_exploded": "Summon reduced to nothingness",
+
+ "creativetab.ess_requiem.rotten_sickle": "ESS Requiem",
+
+ "item.ess_requiem.rotten_sickle": "Rotten Sickle",
+ "item.ess_requiem.whispering_harvester": "Whispering Harvester",
+ "item.ess_requiem.scythe_of_rotten_dreams": "Scythe of Rotten Dreams",
+ "item.ess_requiem.nameless_ring": "Nameless Ring",
+ "item.ess_requiem.nameless_ring.desc": "The ring of an unnamed king. You feel the power of decay within.",
 
  "school.ess_requiem.mind": "Mind"
 }

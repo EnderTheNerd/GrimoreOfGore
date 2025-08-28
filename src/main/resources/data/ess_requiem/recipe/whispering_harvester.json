@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:blood_rune"
+    },
+
+    "B": {
+      "item": "ess_requiem:rotten_sickle"
+    }
+  },
+  "pattern": [
+
+    "AAA",
+    "ABA",
+    "AAA"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:whispering_harvester"
+  }
+}

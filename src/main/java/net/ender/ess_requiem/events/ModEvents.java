@@ -117,8 +117,51 @@ public class ModEvents {
             }}}
 
 
+    @SubscribeEvent
+    public static void DecayingMightRevive(LivingDeathEvent event) {
+        if (event.getEntity() instanceof IMagicSummon) {
+            IMagicSummon summon = (IMagicSummon) event.getEntity();
+            if (summon.getSummoner() != null && summon.getSummoner() instanceof ServerPlayer) {
+                ServerPlayer summoner = (ServerPlayer) summon.getSummoner();
+                MagicData magicData = MagicData.getPlayerMagicData(summoner);
+                if (summoner.hasEffect(GGEffectRegistry.DECAYING_MIGHT) && magicData.getMana() > 25) {
+                    magicData.setMana(magicData.getMana() - 25);
 
 
+                    summoner.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "Summon Revived from Dust")
+                            .withStyle(s -> s.withColor(TextColor.fromRgb(3289650))), true);
+                    event.setCanceled(true);
+                    event.getEntity().setHealth(event.getEntity().getMaxHealth());
+                    if (event.getSource().getEntity() instanceof LivingEntity) {
+
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void LordOfDecayRevive(LivingDeathEvent event) {
+        if (event.getEntity() instanceof IMagicSummon) {
+            IMagicSummon summon = (IMagicSummon) event.getEntity();
+            if (summon.getSummoner() != null && summon.getSummoner() instanceof ServerPlayer) {
+                ServerPlayer summoner = (ServerPlayer) summon.getSummoner();
+                MagicData magicData = MagicData.getPlayerMagicData(summoner);
+                if (summoner.hasEffect(GGEffectRegistry.DECAYING_MIGHT) && magicData.getMana() > 15) {
+                    magicData.setMana(magicData.getMana() - 15);
+
+
+                    summoner.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "Summon Commanded to Live")
+                            .withStyle(s -> s.withColor(TextColor.fromRgb(3289650))), true);
+                    event.setCanceled(true);
+                    event.getEntity().setHealth(event.getEntity().getMaxHealth());
+                    if (event.getSource().getEntity() instanceof LivingEntity) {
+
+                    }
+                }
+            }
+        }
+    }
 }
 
 

@@ -14,6 +14,8 @@ public class BoilingManaEffect extends MagicMobEffect {
         super(MobEffectCategory.HARMFUL, 9833512);
         this.addAttributeModifier(AttributeRegistry.MANA_REGEN, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "boiled_mana"), -.25,
                 AttributeModifier.Operation.ADD_VALUE);
+        this.addAttributeModifier(AttributeRegistry.BLOOD_MAGIC_RESIST, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "boiled_mana"), -.15,
+                AttributeModifier.Operation.ADD_VALUE);
     }
 
 }

@@ -1,5 +1,6 @@
 package net.ender.ess_requiem;
 
+import net.ender.ess_requiem.item.ModCreativeModTabs;
 import net.ender.ess_requiem.registries.*;
 import org.slf4j.Logger;
 
@@ -49,6 +50,10 @@ public class EndersSpellsAndStuffRequiem
         GGAttributeRegistry.register(modEventBus);
 
         GGParticleRegistry.register(modEventBus);
+
+        GGItemRegistry.register(modEventBus);
+
+        ModCreativeModTabs.register(modEventBus);
 
 
 

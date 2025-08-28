@@ -7,6 +7,7 @@ import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassEntity;
 import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearEntity;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntity;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
+import net.ender.ess_requiem.entity.spells.corpse_puddle.CorpsePuddle;
 import net.ender.ess_requiem.entity.spells.wretch_breath.WretchBreath;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -34,6 +35,12 @@ public class GGEntityRegistry {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "wretch_breath").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CorpsePuddle>> CORPSE_PUDDLE =
+            ENTITIES.register("corpse_puddle", () -> EntityType.Builder.<CorpsePuddle>of(CorpsePuddle::new, MobCategory.MISC)
+                    .sized(4f, 1f)
+                    .clientTrackingRange(64)
+                    .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "corpse_puddle").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<BoneSpearEntity>> BONE_SPEAR =
             ENTITIES.register("bone_spear", () -> EntityType.Builder.<BoneSpearEntity>of(BoneSpearEntity::new, MobCategory.MISC)

@@ -11,6 +11,7 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntityRenderer;
 import net.ender.ess_requiem.particle.ConfusionEyeParticle;
+import net.ender.ess_requiem.particle.WitherSkullSmallParticle;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
 import net.ender.ess_requiem.registries.GGParticleRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -28,6 +29,7 @@ public class ClientSetup {
         event.registerEntityRenderer(GGEntityRegistry.CLAW_ENTITY.get(), ClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.BONE_CLAW_ENTITY.get(), BoneClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.WRETCH_BREATH_PROJECTILE.get(), NoopRenderer::new);
+        event.registerEntityRenderer(GGEntityRegistry.CORPSE_PUDDLE.get(), NoopRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.HOPPING_SKULL.get(), context -> {return new HoppingSkullRenderer(context, new HoppingSkullModel());});
         event.registerEntityRenderer(GGEntityRegistry.SKULL_MASS.get(), context -> {return new SkullMassRenderer(context, new SkullMassModel());});
         event.registerEntityRenderer(GGEntityRegistry.BONE_SPEAR.get(), context -> {return new BoneSpearRenderer(context, new BoneSpearModel());});
@@ -36,6 +38,7 @@ public class ClientSetup {
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(GGParticleRegistry.CONFUSION_EYE_PARTICLE.get(), ConfusionEyeParticle.Provider::new);
+        event.registerSpriteSet(GGParticleRegistry.WITHER_SKULL_SMALL.get(), WitherSkullSmallParticle.Provider::new);
 
 
     }

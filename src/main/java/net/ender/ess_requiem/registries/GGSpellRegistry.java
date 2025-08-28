@@ -5,6 +5,8 @@ import io.redspace.ironsspellbooks.api.spells.AutoSpellConfig;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
 import net.ender.ess_requiem.spells.blood.*;
+import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
+import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
 import net.ender.ess_requiem.spells.mind.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -33,8 +35,13 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> SKULLS =registerSpell(new SummonSkullsSpell());
     public static final Supplier <AbstractSpell> WRETCH =registerSpell(new WretchSpell());
     public static final Supplier <AbstractSpell> BOILING_BLOOD =registerSpell(new BoilingBloodSpell());
+    public static final Supplier<AbstractSpell> NECROTIC_BURST =registerSpell(new NecroticBurstSpell());
 
+    //UNCRAFTABLE BLOOD
+    public static final Supplier <AbstractSpell> DECAYING_WILL = registerSpell(new DecayingWillSpell());
+    public static final Supplier <AbstractSpell> CORPSE_EXPLOSION = registerSpell(new CorpseExplosionSpell());
     //CRAFTABLE MIND
+
     //IMPLEMENTED, NOT FINISHED
 
 

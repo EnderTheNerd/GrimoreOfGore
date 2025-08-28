@@ -36,6 +36,11 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> BOILED_MANA = MOB_EFFECT_DEFERRED_REGISTER.register("boiled_mana",
             ()-> new BoilingManaEffect(MobEffectCategory.HARMFUL, 9833512));
 
+    public static final DeferredHolder<MobEffect, MobEffect> DECAYING_MIGHT = MOB_EFFECT_DEFERRED_REGISTER.register("decaying_might",
+            ()-> new DecayingMightEffect(MobEffectCategory.NEUTRAL,10392961 ));
+
+    public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_DECAY = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_decay",
+            ()-> new LordOfDecayEffect(MobEffectCategory.BENEFICIAL,3353638));
     //MIND EFFECTS
 
     public static final DeferredHolder<MobEffect, MobEffect> CONFUSED = MOB_EFFECT_DEFERRED_REGISTER.register("confused",

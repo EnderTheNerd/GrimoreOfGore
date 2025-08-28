@@ -1,0 +1,37 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:poisonward_ring"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:mithril_scrap"
+    },
+
+    "C": {
+      "item": "irons_spellbooks:mithril_ingot"
+    },
+
+    "D": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "E": {
+      "item": "minecraft:wither_rose"
+    }
+  },
+  "pattern": [
+
+    " DE",
+    "BAD",
+    "CB "
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:nameless_ring"
+  }
+}

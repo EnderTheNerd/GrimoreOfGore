@@ -1,0 +1,37 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:arcane_ingot"
+    },
+
+    "B": {
+      "item": "minecraft:iron_hoe"
+    },
+
+    "C": {
+      "item": "minecraft:rotten_flesh"
+    },
+
+    "D": {
+      "item": "minecraft:bone"
+    },
+    "E": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+
+    "DDC",
+    "ABC",
+    "E  "
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:rotten_sickle"
+  }
+}
