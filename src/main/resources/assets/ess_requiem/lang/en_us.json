@@ -61,6 +61,14 @@
  "item.ess_requiem.nameless_ring": "Nameless Ring",
  "item.ess_requiem.nameless_ring.desc": "The ring of an unnamed king. You feel the power of decay within.",
 
+ "death.attack.ess_requiem.boiling_blood": "%1$s was boiled alive by %2$s",
+ "death.attack.ess_requiem.necrotic_burst": "%1$s was withered into ash by %2$s",
+ "death.attack.ess_requiem.wretch": "%1$s was covered in %2$s's blood spray",
+ "death.attack.ess_requiem.hopping_skull": "%1$s had their skull bashed in by %2$s's summoned skulls",
+ "death.attack.ess_requiem.skull_mass": "%1$s was reduced to a pile of bone meal by %2$s's skull mass",
+ "death.attack.ess_requiem.decaying_will": "%1$s felt the might of %2$s's decaying power",
+ "death.attack.ess_requiem.claw": "%1$s was ripped apart by %2$s",
+ "death.attack.ess_requiem.bone_claw": "%1$s was ripped into tiny small pieces by %2$s",
 
  "school.ess_requiem.mind": "Mind"
 }
