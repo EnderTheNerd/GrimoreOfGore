@@ -15,16 +15,18 @@ import net.ender.ess_requiem.particle.WitherSkullSmallParticle;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
 import net.ender.ess_requiem.registries.GGParticleRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
-@EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID)
+@EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID, value = Dist.CLIENT)
+
 public class ClientSetup {
 
     @SubscribeEvent
-    public static void rendererRegister(EntityRenderersEvent.RegisterRenderers event) {
+    public static void rendererRegister(EntityRenderersEvent.RegisterRenderers event ) {
 
         event.registerEntityRenderer(GGEntityRegistry.CLAW_ENTITY.get(), ClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.BONE_CLAW_ENTITY.get(), BoneClawEntityRenderer::new);
