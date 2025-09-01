@@ -74,6 +74,6 @@ public class ProtectionOfTheFallenSpell extends AbstractSpell {
 
     @Override
     public AnimationHolder getCastStartAnimation() {
-        return ASSpellAnimations.ANIMATION_WRATH_ROAR;
+        return SpellAnimations.SELF_CAST_TWO_HANDS;
     }
 }

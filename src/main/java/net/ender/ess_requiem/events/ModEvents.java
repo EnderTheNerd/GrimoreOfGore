@@ -10,10 +10,12 @@ import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
+import net.ender.ess_requiem.registries.GGParticleRegistry;
 import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
@@ -215,7 +217,8 @@ public class ModEvents {
             event.setNewDamage(0);
             attacked.level().playSound(null, attacked.getX(), attacked.getY(), attacked.getZ(),
                     SoundRegistry.KEEPER_SWORD_IMPACT, SoundSource.PLAYERS, 0.3f, 1f);
-            MagicManager.spawnParticles(attacked.level(), ParticleHelper.FIERY_SPARKS, attacker.getX(), attacker.getY() + .25f, attacker.getZ(), 100, .03, .4, .03, .4, false);
+
+            MagicManager.spawnParticles(attacked.level(), ParticleTypes.FALLING_OBSIDIAN_TEAR, attacker.getX(), attacker.getY() + .25f, attacker.getZ(), 100, .03, .4, .03, .4, false);
         }
     }
 
