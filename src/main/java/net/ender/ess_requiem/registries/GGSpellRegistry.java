@@ -7,12 +7,13 @@ import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.spells.blood.*;
 import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
-import net.ender.ess_requiem.spells.mind.*;
+import net.ender.ess_requiem.spells.eldrtich.EbonyArmorSpell;
+import net.ender.ess_requiem.spells.eldrtich.ProtectionOfTheFallenSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.checkerframework.checker.units.qual.A;
 
+import javax.print.attribute.standard.Sides;
 import java.util.function.Supplier;
 
 @AutoSpellConfig
@@ -43,6 +44,10 @@ public class GGSpellRegistry {
     //CRAFTABLE MIND
 
     //IMPLEMENTED, NOT FINISHED
+
+    //CRAFTABLE ELDRITCH
+    public static final Supplier <AbstractSpell> EBONY_ARMOR = registerSpell(new EbonyArmorSpell());
+    public static final Supplier <AbstractSpell> PROTECTION_OF_THE_FALLEN = registerSpell(new ProtectionOfTheFallenSpell());
 
 
     public static void register(IEventBus eventBus)

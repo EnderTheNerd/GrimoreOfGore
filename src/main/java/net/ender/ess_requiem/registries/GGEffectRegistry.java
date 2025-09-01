@@ -55,4 +55,11 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> PRESERVED_STATE = MOB_EFFECT_DEFERRED_REGISTER.register("preserved_state",
             ()-> new PreservedStateEffect(MobEffectCategory.NEUTRAL, 15094016));
 
+    //Eldritch Effects
+
+    public static final DeferredHolder<MobEffect, MobEffect> EBONY_ARMOR = MOB_EFFECT_DEFERRED_REGISTER.register("ebony_armor",
+            () -> new EbonyArmorEffect(MobEffectCategory.NEUTRAL, 2367002));
+
+    public static final DeferredHolder<MobEffect, MobEffect> PROTECTION_OF_ASHES = MOB_EFFECT_DEFERRED_REGISTER.register("protection_of_ash",
+            () -> new ProtectionOfAshesEffect(MobEffectCategory.BENEFICIAL, 1973790));
 }

@@ -11,6 +11,7 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntityRenderer;
 import net.ender.ess_requiem.particle.ConfusionEyeParticle;
+import net.ender.ess_requiem.particle.DarkSlashParticle;
 import net.ender.ess_requiem.particle.WitherSkullSmallParticle;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
 import net.ender.ess_requiem.registries.GGParticleRegistry;
@@ -41,6 +42,7 @@ public class ClientSetup {
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(GGParticleRegistry.CONFUSION_EYE_PARTICLE.get(), ConfusionEyeParticle.Provider::new);
         event.registerSpriteSet(GGParticleRegistry.WITHER_SKULL_SMALL.get(), WitherSkullSmallParticle.Provider::new);
+        event.registerSpriteSet(GGParticleRegistry.DARK_SLASH.get(), DarkSlashParticle.Provider::new);
 
 
     }

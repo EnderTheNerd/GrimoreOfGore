@@ -1,9 +1,13 @@
 package net.ender.ess_requiem.events;
 
+import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 
+import io.redspace.ironsspellbooks.registries.SoundRegistry;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
 import net.ender.ess_requiem.registries.GGSoundRegistry;
@@ -13,6 +17,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,6 +29,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+
+import java.util.Objects;
 
 @EventBusSubscriber
 public class ModEvents {
@@ -40,6 +50,14 @@ public class ModEvents {
     }
 
     @SubscribeEvent
+    public static void PactAttackNight(LivingDamageEvent.Post event) {
+        var attacker = event.getSource().getDirectEntity();
+        if (attacker instanceof ServerPlayer livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.UNDEAD_PACT) && isUnderMoonTick(attacker.level(), (LivingEntity) attacker)) {
+            livingAttacker.addEffect(new MobEffectInstance(GGEffectRegistry.UNDEAD_RAMPAGE, 60, 0));
+        }
+    }
+
+    @SubscribeEvent
     public static void MindRevive(LivingDeathEvent event) {
         if (event.getEntity() instanceof ServerPlayer livingEntity) {
             if (livingEntity.hasEffect(GGEffectRegistry.PRESERVED_STATE)){
@@ -55,7 +73,7 @@ public class ModEvents {
 
 
     @SubscribeEvent
-    public static void onPlayerLivingDamage1(LivingDamageEvent.Post event) {
+    public static void whyAreYouHittingYourself(LivingDamageEvent.Post event) {
         var attacker = event.getSource().getDirectEntity();
 
         if (attacker instanceof LivingEntity livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.CONFUSED)) {
@@ -64,17 +82,6 @@ public class ModEvents {
 
 
     }
-
-        @SubscribeEvent
-    public static void PactAttackNight(LivingDamageEvent.Post event) {
-        var attacker = event.getSource().getDirectEntity();
-        if (attacker instanceof ServerPlayer livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.UNDEAD_PACT) && isUnderMoonTick(attacker.level(), (LivingEntity) attacker)) {
-            livingAttacker.addEffect(new MobEffectInstance(GGEffectRegistry.UNDEAD_RAMPAGE, 60, 0));
-        }
-    }
-
-
-
 
 
     private static boolean isUnderSunTick(Level level, LivingEntity entity) {
@@ -102,7 +109,7 @@ public class ModEvents {
 
 
     @SubscribeEvent
-    public static void onLivingDeath(LivingDeathEvent event) {
+    public static void Reaper(LivingDeathEvent event) {
 
         if (event.getEntity() instanceof IMagicSummon summon) {
             if (summon.getSummoner() != null && summon.getSummoner() instanceof ServerPlayer player) {
@@ -147,7 +154,7 @@ public class ModEvents {
             if (summon.getSummoner() != null && summon.getSummoner() instanceof ServerPlayer) {
                 ServerPlayer summoner = (ServerPlayer) summon.getSummoner();
                 MagicData magicData = MagicData.getPlayerMagicData(summoner);
-                if (summoner.hasEffect(GGEffectRegistry.DECAYING_MIGHT) && magicData.getMana() > 15) {
+                if (summoner.hasEffect(GGEffectRegistry.LORD_OF_DECAY) && magicData.getMana() > 15) {
                     magicData.setMana(magicData.getMana() - 15);
 
 
@@ -162,6 +169,56 @@ public class ModEvents {
             }
         }
     }
+
+
+    @SubscribeEvent
+    public static void EbonyArmor(SpellPreCastEvent event) {
+        var entity = event.getEntity();
+        boolean hasEbonyEffect = entity.hasEffect(GGEffectRegistry.EBONY_ARMOR);
+        if (entity instanceof ServerPlayer player && !player.level().isClientSide) {
+            if (hasEbonyEffect) {
+                event.setCanceled(true);
+                int time = Objects.requireNonNull(player.getEffect(GGEffectRegistry.EBONY_ARMOR)).getDuration();
+                String formattedTime = convertTicksToTime(time);
+                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "Your body trembles, and your spells do not work. Keep attacking for : " + formattedTime)
+                        .withStyle(s -> s.withColor(TextColor.fromRgb(3289650))), true);
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
+                        SoundEvents.WITHER_HURT, SoundSource.PLAYERS, 0.3f, 1f);
+            }
+        }
+    }
+
+    public static String convertTicksToTime(int ticks) {
+        // Convert ticks to seconds
+        int totalSeconds = ticks / 20;
+
+        // Calculate minutes and seconds
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+
+        // Format the result as mm:ss
+        return String.format("%02d:%02d", minutes, seconds);
+    }
+
+
+
+
+    @SubscribeEvent
+    public static void AshesOfTheFallen(LivingDamageEvent.Pre event) {
+        var attacked = event.getEntity();
+        var attacker = event.getSource().getDirectEntity();
+        MagicData magicData = MagicData.getPlayerMagicData(attacked);
+        if ((attacked.hasEffect(GGEffectRegistry.PROTECTION_OF_ASHES) && magicData.getMana() > 100) ) {
+            magicData.setMana(magicData.getMana() - 100);
+            assert attacker != null;
+            attacker.hurt(attacker.damageSources().magic(), 5);
+            event.setNewDamage(0);
+            attacked.level().playSound(null, attacked.getX(), attacked.getY(), attacked.getZ(),
+                    SoundRegistry.KEEPER_SWORD_IMPACT, SoundSource.PLAYERS, 0.3f, 1f);
+            MagicManager.spawnParticles(attacked.level(), ParticleHelper.FIERY_SPARKS, attacker.getX(), attacker.getY() + .25f, attacker.getZ(), 100, .03, .4, .03, .4, false);
+        }
+    }
+
 }
 
 

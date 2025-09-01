@@ -1,6 +1,7 @@
 package net.ender.ess_requiem.registries;
 
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
+import net.ender.ess_requiem.particle.DarkSlashParticle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
@@ -20,4 +21,5 @@ public class GGParticleRegistry {
 
     public static final Supplier<SimpleParticleType> WITHER_SKULL_SMALL = PARTICLE_TYPES.register("wither_skull_small", () -> new SimpleParticleType(false));
 
+    public static final Supplier<SimpleParticleType> DARK_SLASH = PARTICLE_TYPES.register("dark_slash", () -> new SimpleParticleType(false));
 }
