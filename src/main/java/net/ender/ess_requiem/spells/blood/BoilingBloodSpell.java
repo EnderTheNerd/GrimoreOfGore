@@ -114,7 +114,12 @@ public class BoilingBloodSpell extends AbstractSpell {
 
     public static float getDamageForAttribute(BoilingBloodSpell spell, LivingEntity entity, int spellLevel, DeferredHolder<Attribute, Attribute> attr1, float modifier)
     {
-        double attrValue1 = entity.getAttributeValue(AttributeRegistry.FIRE_SPELL_POWER);
+        double attrValue1;
+        if(entity != null) {
+            attrValue1 = entity.getAttributeValue(AttributeRegistry.FIRE_SPELL_POWER);
+        }else{
+            attrValue1 = 1;
+        }
 
         float damage = (float) (modifier * (spell.getSpellPower(spellLevel, entity) + attrValue1));
 
