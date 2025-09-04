@@ -130,19 +130,19 @@ public class NecroticBurstSpell extends AbstractSpell {
 
     private float getDamage(int spellLevel, LivingEntity entity)
     {
-        float damage;
-        if(entity != null) {
-            damage = getDamageForAttribute(this, entity, spellLevel, AttributeRegistry.SUMMON_DAMAGE, 1);
-            System.out.println(damage);
-        }else{
-            damage = 19;
-        }
+        float damage = getDamageForAttribute(this, entity, spellLevel, AttributeRegistry.SUMMON_DAMAGE, 1);
+
         return damage;
     }
 
     public static float getDamageForAttribute(NecroticBurstSpell spell, LivingEntity entity, int spellLevel, DeferredHolder<Attribute, Attribute> attr1, float modifier)
     {
-        double attrValue1 = entity.getAttributeValue(AttributeRegistry.SUMMON_DAMAGE);
+        double attrValue1;
+        if(entity != null) {
+            attrValue1 = entity.getAttributeValue(AttributeRegistry.SUMMON_DAMAGE);
+        }else{
+            attrValue1 = 1;
+        }
 
         float damage = (float) (modifier * (spell.getSpellPower(spellLevel, entity) + attrValue1));
 
