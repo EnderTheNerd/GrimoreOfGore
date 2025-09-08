@@ -9,6 +9,8 @@ import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
 import net.ender.ess_requiem.spells.eldrtich.EbonyArmorSpell;
 import net.ender.ess_requiem.spells.eldrtich.ProtectionOfTheFallenSpell;
+import net.ender.ess_requiem.spells.eldrtich.SpikesOfAgonySpell;
+import net.ender.ess_requiem.spells.eldrtich.TentacleWhipSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -48,7 +50,8 @@ public class GGSpellRegistry {
     //CRAFTABLE ELDRITCH
     public static final Supplier <AbstractSpell> EBONY_ARMOR = registerSpell(new EbonyArmorSpell());
     public static final Supplier <AbstractSpell> PROTECTION_OF_THE_FALLEN = registerSpell(new ProtectionOfTheFallenSpell());
-
+    public static final Supplier <AbstractSpell> SPIKES_OF_AGONY = registerSpell(new SpikesOfAgonySpell());
+    public static final Supplier <AbstractSpell> TENTACLE_WHIP = registerSpell(new TentacleWhipSpell());
 
     public static void register(IEventBus eventBus)
     {

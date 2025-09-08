@@ -39,7 +39,7 @@ public class ProtectionOfTheFallenSpell extends AbstractSpell {
     public ProtectionOfTheFallenSpell() {
         this.manaCostPerLevel = 25;
         this.baseSpellPower = 10;
-        this.spellPowerPerLevel = 2;
+        this.spellPowerPerLevel = 0;
         this.castTime = 0;
         this.baseManaCost = 350;
     }

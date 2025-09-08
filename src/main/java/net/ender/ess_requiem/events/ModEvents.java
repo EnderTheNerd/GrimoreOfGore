@@ -26,6 +26,7 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -209,16 +210,37 @@ public class ModEvents {
     public static void AshesOfTheFallen(LivingDamageEvent.Pre event) {
         var attacked = event.getEntity();
         var attacker = event.getSource().getDirectEntity();
-        MagicData magicData = MagicData.getPlayerMagicData(attacked);
-        if ((attacked.hasEffect(GGEffectRegistry.PROTECTION_OF_ASHES) && magicData.getMana() > 100) ) {
-            magicData.setMana(magicData.getMana() - 100);
-            assert attacker != null;
-            attacker.hurt(attacker.damageSources().magic(), 5);
-            event.setNewDamage(0);
-            attacked.level().playSound(null, attacked.getX(), attacked.getY(), attacked.getZ(),
-                    SoundRegistry.KEEPER_SWORD_IMPACT, SoundSource.PLAYERS, 0.3f, 1f);
 
-            MagicManager.spawnParticles(attacked.level(), ParticleTypes.FALLING_OBSIDIAN_TEAR, attacker.getX(), attacker.getY() + .25f, attacker.getZ(), 100, .03, .4, .03, .4, false);
+        MagicData magicData = MagicData.getPlayerMagicData(attacked);
+        if ((attacked.hasEffect(GGEffectRegistry.PROTECTION_OF_ASHES) && magicData.getMana() > 75)) {
+
+            if (attacker instanceof Projectile projectile) {
+                var attacker2 = projectile.getOwner();
+                assert attacker2 != null;
+
+                magicData.setMana(magicData.getMana() - 75);
+                attacker2.hurt(attacker2.damageSources().magic(), 3);
+                attacked.level().playSound(null, attacked.getX(), attacked.getY(), attacked.getZ(),
+                        SoundRegistry.KEEPER_SWORD_IMPACT, SoundSource.PLAYERS, 0.3f, 1f);
+                event.setNewDamage(event.getOriginalDamage() * .5F);
+
+
+                MagicManager.spawnParticles(attacked.level(), ParticleTypes.FALLING_OBSIDIAN_TEAR, attacker2.getX(), attacker2.getY() + .25f, attacker2.getZ(), 100, .03, .4, .03, .4, false);
+
+            }
+
+            else {  magicData.setMana(magicData.getMana() - 75);
+                assert attacker != null;
+                attacker.hurt(attacker.damageSources().magic(), 3);
+                attacked.level().playSound(null, attacked.getX(), attacked.getY(), attacked.getZ(),
+                        SoundRegistry.KEEPER_SWORD_IMPACT, SoundSource.PLAYERS, 0.3f, 1f);
+                event.setNewDamage(event.getOriginalDamage() * .5F);
+
+
+                MagicManager.spawnParticles(attacked.level(), ParticleTypes.FALLING_OBSIDIAN_TEAR, attacker.getX(), attacker.getY() + .25f, attacker.getZ(), 100, .03, .4, .03, .4, false);}
+
+
+
         }
     }
 

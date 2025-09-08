@@ -11,6 +11,7 @@
  "effect.ess_requiem.boiled_mana": "Boiled Mana",
  "effect.ess_requiem.decaying_might": "Decaying Might",
  "effect.ess_requiem.lord_of_decay": "Lord of Decay",
+ "effect.ess_requiem.protection_of_ash": "Spirit Protection",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -47,6 +48,12 @@
 
  "spell.ess_requiem.ebony_armor": "Ebony Armor",
  "spell.ess_requiem.ebony_armor.guide": "Take on cursed Ebony Plating upon your body, enhancing all your physical aspects to the supreme. However, the plates shackle your spell casting, preventing it in full.",
+ "spell.ess_requiem.protection_of_the_fallen": "Protection of the Fallen",
+ "spell.ess_requiem.protection_of_the_fallen.guide": "Call upon ancient spirits to protect you from harm. Uses mana to reduce oncoming damage, and retaliates against attackers using sharp purple spikes.",
+ "spell.ess_requiem.spikes_of_agony": "Spikes of Agony",
+ "spell.ess_requiem.spikes_of_agony.guide": "Unleash a wave of Eldritch energy, whatever the wave hits, stab with an eldritch spike, dealing damage.",
+ "spell.ess_requiem.tentacle_whip": "Tentacle Whip",
+ "spell.ess_requiem.tentacle_whip.guide": "Send forth a singular tentacle to tear from the ground and whip a target, dealing damage.",
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
