@@ -10,6 +10,7 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearModel;
 import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntityRenderer;
+import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlameRenderer;
 import net.ender.ess_requiem.particle.ConfusionEyeParticle;
 import net.ender.ess_requiem.particle.DarkSlashParticle;
 import net.ender.ess_requiem.particle.WitherSkullSmallParticle;
@@ -29,6 +30,7 @@ public class ClientSetup {
     @SubscribeEvent
     public static void rendererRegister(EntityRenderersEvent.RegisterRenderers event ) {
 
+        event.registerEntityRenderer(GGEntityRegistry.PALE_FLAME.get(), PaleFlameRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.CLAW_ENTITY.get(), ClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.BONE_CLAW_ENTITY.get(), BoneClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.WRETCH_BREATH_PROJECTILE.get(), NoopRenderer::new);

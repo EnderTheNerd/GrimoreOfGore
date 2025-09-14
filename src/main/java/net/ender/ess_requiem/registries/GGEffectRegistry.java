@@ -5,6 +5,7 @@ import net.ender.ess_requiem.effects.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.Mob;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -62,4 +63,9 @@ public class GGEffectRegistry {
 
     public static final DeferredHolder<MobEffect, MobEffect> PROTECTION_OF_ASHES = MOB_EFFECT_DEFERRED_REGISTER.register("protection_of_ash",
             () -> new ProtectionOfAshesEffect(MobEffectCategory.BENEFICIAL, 1973790));
+
+
+    //ICE EFFECTS
+    public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_FROST = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_frost",
+            () -> new LordOfTheFinalFrost(MobEffectCategory.BENEFICIAL, 11131887));
 }

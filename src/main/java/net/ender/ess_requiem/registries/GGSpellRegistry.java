@@ -7,10 +7,8 @@ import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.spells.blood.*;
 import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
-import net.ender.ess_requiem.spells.eldrtich.EbonyArmorSpell;
-import net.ender.ess_requiem.spells.eldrtich.ProtectionOfTheFallenSpell;
-import net.ender.ess_requiem.spells.eldrtich.SpikesOfAgonySpell;
-import net.ender.ess_requiem.spells.eldrtich.TentacleWhipSpell;
+import net.ender.ess_requiem.spells.eldrtich.*;
+import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -52,6 +50,13 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> PROTECTION_OF_THE_FALLEN = registerSpell(new ProtectionOfTheFallenSpell());
     public static final Supplier <AbstractSpell> SPIKES_OF_AGONY = registerSpell(new SpikesOfAgonySpell());
     public static final Supplier <AbstractSpell> TENTACLE_WHIP = registerSpell(new TentacleWhipSpell());
+    public static final Supplier <AbstractSpell> PALE_FLAME = registerSpell(new PaleFlameSpell());
+
+    //UNCRAFTABLE ICE
+    public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());
+
+
+
 
     public static void register(IEventBus eventBus)
     {

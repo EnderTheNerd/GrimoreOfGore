@@ -13,16 +13,23 @@ public class GGSoundRegistry {
     private static final DeferredRegister<SoundEvent> SOUND_EVENT = DeferredRegister.create(Registries.SOUND_EVENT, EndersSpellsAndStuffRequiem.MOD_ID);
 
 
-
+    //BLOOD
     public static DeferredHolder<SoundEvent, SoundEvent> CLAW_SPELL_CAST = registerSoundEvent("claw_attack");
 
     public static DeferredHolder<SoundEvent, SoundEvent> PACT_SPELL_CAST = registerSoundEvent("pact_cast");
 
+    //MIND
     public static DeferredHolder<SoundEvent, SoundEvent> MIND_GENERIC_CAST = registerSoundEvent("mind_generic_cast");
 
     public static DeferredHolder<SoundEvent, SoundEvent> CLOCK_TICKING = registerSoundEvent("preserved_clock");
 
     public static DeferredHolder<SoundEvent, SoundEvent> BONES_SHATTER = registerSoundEvent("bone_shatter");
+
+
+    //PALE FLAME
+    public static DeferredHolder<SoundEvent, SoundEvent> PALE_FLAME_START =registerSoundEvent("pale_flame_start");
+
+    public static DeferredHolder<SoundEvent, SoundEvent> PALE_FLAME_END =registerSoundEvent("pale_flame_end");
 
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)

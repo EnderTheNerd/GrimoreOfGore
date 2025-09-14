@@ -54,6 +54,11 @@
  "spell.ess_requiem.spikes_of_agony.guide": "Unleash a wave of Eldritch energy, whatever the wave hits, stab with an eldritch spike, dealing damage.",
  "spell.ess_requiem.tentacle_whip": "Tentacle Whip",
  "spell.ess_requiem.tentacle_whip.guide": "Send forth a singular tentacle to tear from the ground and whip a target, dealing damage.",
+ "spell.ess_requiem.pale_flame": "Pale Flame",
+ "spell.ess_requiem.pale_flame.guide": "paling my flame all over",
+
+
+
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",

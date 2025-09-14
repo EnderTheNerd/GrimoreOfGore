@@ -29,5 +29,23 @@
     "sounds": [
       "ess_requiem:bone_shatter"
     ]
+  },
+
+  "pale_flame_start":
+  {
+    "subtitle": "sounds.ess_requiem.pale_flame_start",
+    "sounds":
+    [
+      "ess_requiem:pale_flame_start"
+    ]
+  },
+
+  "pale_flame_end":
+  {
+    "subtitle": "sounds.ess_requiem.pale_flame_end",
+    "sounds":
+    [
+      "ess_requiem:pale_flame_end"
+    ]
   }
 }
