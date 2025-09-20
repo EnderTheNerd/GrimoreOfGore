@@ -37,7 +37,11 @@ public class GGSwordTier implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
 
-
+   //ICE
+   public static ExtendedWeaponTier SCYTHE_OF_FROZEN_DREAMS = new ExtendedWeaponTier(2500, 13f, -2.4f, 30,
+       BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+           () -> Ingredient.of(ItemRegistry.FROZEN_BONE_SHARD.get()),
+           new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
 
 

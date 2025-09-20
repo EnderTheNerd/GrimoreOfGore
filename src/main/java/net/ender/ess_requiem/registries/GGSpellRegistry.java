@@ -9,6 +9,7 @@ import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
 import net.ender.ess_requiem.spells.eldrtich.*;
 import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
+import net.ender.ess_requiem.spells.ice.uncraftable.LordOfTheFinalFrostSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -54,7 +55,7 @@ public class GGSpellRegistry {
 
     //UNCRAFTABLE ICE
     public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());
-
+    public static final Supplier <AbstractSpell> LORD_OF_FROST = registerSpell(new LordOfTheFinalFrostSpell());
 
 
 

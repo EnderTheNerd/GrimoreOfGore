@@ -59,7 +59,8 @@
 
  "spell.ess_requiem.glacial_sculpting": "Glacial Sculpting",
  "spell.ess_requiem.glacial.sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",
-
+ "spell.ess_requiem.lord_of_the_final_frost": "Lord of the Final Frost",
+ "spell.ess_requiem.lord_of_the_fina_frost.guide": "A frozen version of decaying will. They say a frozen Queen of the North created it. Summons who die violently explode in ice.",
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
@@ -73,8 +74,11 @@
  "item.ess_requiem.rotten_sickle": "Rotten Sickle",
  "item.ess_requiem.whispering_harvester": "Whispering Harvester",
  "item.ess_requiem.scythe_of_rotten_dreams": "Scythe of Rotten Dreams",
+ "item.ess_requiem.scythe_of_frozen_dreams": "Scythe of Frozen Dreams",
  "item.ess_requiem.nameless_ring": "Nameless Ring",
  "item.ess_requiem.nameless_ring.desc": "The ring of an unnamed king. You feel the power of decay within.",
+ "item.ess_requiem.fragment_of_clarity": "Fragment of Clarity",
+
 
  "death.attack.ess_requiem.boiling_blood": "%1$s was boiled alive by %2$s",
  "death.attack.ess_requiem.necrotic_burst": "%1$s was withered into ash by %2$s",

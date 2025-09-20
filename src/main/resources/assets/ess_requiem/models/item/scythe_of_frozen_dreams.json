@@ -4,14 +4,14 @@
   "base": {
     "parent": "irons_spellbooks:item/template_verylarge_sword",
     "textures": {
-      "layer0": "ess_requiem:item/scythe_of_rotten_dreams"
+      "layer0": "ess_requiem:item/scythe_of_frozen_dreams"
     }
   },
   "perspectives": {
     "gui": {
       "parent": "minecraft:item/handheld",
       "textures": {
-        "layer0": "ess_requiem:item/scythe_of_rotten_dreams_gui"
+        "layer0": "ess_requiem:item/scythe_of_frozen_dreams_gui"
       }
     }
   }

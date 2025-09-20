@@ -49,7 +49,7 @@ public class GlacialStatueSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(1)
-            .setCooldownSeconds(5)
+            .setCooldownSeconds(10)
             .build();
 
     @Override
@@ -59,6 +59,8 @@ public class GlacialStatueSpell extends AbstractSpell {
                 Component.translatable("ui.irons_spellbooks.radius", 3)
         );
     }
+
+
 
     public GlacialStatueSpell() {
         this.manaCostPerLevel = 0;
