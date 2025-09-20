@@ -3,14 +3,15 @@ package net.ender.ess_requiem.events;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
+import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 
+import io.redspace.ironsspellbooks.entity.mobs.frozen_humanoid.FrozenHumanoid;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
-import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
-import net.ender.ess_requiem.registries.GGParticleRegistry;
+
 import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -21,8 +22,7 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
+
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -168,6 +168,30 @@ public class ModEvents {
                     if (event.getSource().getEntity() instanceof LivingEntity) {
 
                     }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void FreezeStatueExplode(LivingDeathEvent event) {
+        if (event.getEntity() instanceof IMagicSummon) {
+            IMagicSummon summon = (IMagicSummon) event.getEntity();
+            if (summon.getSummoner() != null && summon.getSummoner() instanceof ServerPlayer) {
+                ServerPlayer summoner = (ServerPlayer) summon.getSummoner();
+                MagicData magicData = MagicData.getPlayerMagicData(summoner);
+                if (summoner.hasEffect(GGEffectRegistry.LORD_OF_FROST) && magicData.getMana() > 10) {
+                    magicData.setMana(magicData.getMana() - 10);
+                    summoner.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "Summon condemned to frost")
+                            .withStyle(s -> s.withColor(TextColor.fromRgb(11131887))), true);
+
+                    FrozenHumanoid iceClone = new FrozenHumanoid(summoner.level(), (LivingEntity) summon);
+                    iceClone.setSummoner(summoner);
+                    iceClone.setShatterDamage(25);
+                    iceClone.setDeathTimer(5);
+                    summoner.level().addFreshEntity(iceClone);
+                    iceClone.deathTime = 1000;
+                    iceClone.playSound(SoundRegistry.FROSTBITE_FREEZE.get(), 2, Utils.random.nextInt(9, 11) * .1f);
                 }
             }
         }
