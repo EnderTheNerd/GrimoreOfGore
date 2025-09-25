@@ -42,6 +42,16 @@ public class GGEffectRegistry {
 
     public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_DECAY = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_decay",
             ()-> new LordOfDecayEffect(MobEffectCategory.BENEFICIAL,3353638));
+
+    public static final DeferredHolder<MobEffect, MobEffect> FINALITY_OF_DECAY = MOB_EFFECT_DEFERRED_REGISTER.register("finality_of_decay",
+            ()-> new FinalityOfDecayEffect(MobEffectCategory.BENEFICIAL,3353638));
+
+    public static final DeferredHolder<MobEffect, MobEffect> MARK_OF_DECAY = MOB_EFFECT_DEFERRED_REGISTER.register("mark_of_decay",
+            ()-> new MarkOfDecayEffect(MobEffectCategory.HARMFUL,9833512));
+
+
+
+
     //MIND EFFECTS
 
     public static final DeferredHolder<MobEffect, MobEffect> CONFUSED = MOB_EFFECT_DEFERRED_REGISTER.register("confused",

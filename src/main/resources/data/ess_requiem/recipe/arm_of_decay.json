@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ess_requiem:completed_clarity"
+  },
+  "base": {
+    "item": "ess_requiem:scythe_of_rotten_dreams"
+  },
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:arm_of_decay"
+  },
+  "template": {
+    "item": "irons_spellbooks:blood_rune"
+  }
+}

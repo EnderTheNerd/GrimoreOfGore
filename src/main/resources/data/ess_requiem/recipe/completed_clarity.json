@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "ess_requiem:fragment_of_clarity"
+    },
+
+    "B": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+
+    "AAA",
+    "ABA",
+    "AAA"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:completed_clarity"
+  }
+}

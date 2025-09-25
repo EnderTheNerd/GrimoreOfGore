@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "ess_requiem:fragment_of_clarity"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:frozen_bone"
+    },
+    "C": {
+      "item": "minecraft:blue_ice"
+    },
+    "D": {
+      "item": "ess_requiem:scythe_of_rotten_dreams"
+    }
+  },
+  "pattern": [
+
+    "CAB",
+    "BDB",
+    "BCC"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:scythe_of_frozen_dreams"
+  }
+}

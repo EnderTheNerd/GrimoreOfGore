@@ -32,6 +32,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 
 import java.util.Objects;
 
@@ -73,6 +74,24 @@ public class ModEvents {
                 livingEntity.playSound(GGSoundRegistry.CLOCK_TICKING.get(), 0.8f, 1.3F);
             }}}
 
+    @SubscribeEvent
+    public static void FinalityOfDecay(MobEffectEvent.Expired event) {
+        if (event.getEntity() instanceof LivingEntity livingEntity) {
+            if (livingEntity.hasEffect(GGEffectRegistry.FINALITY_OF_DECAY)) {
+
+
+                livingEntity.hurt(livingEntity.damageSources().magic(), 15);
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300, 5));
+                livingEntity.addEffect(new MobEffectInstance(GGEffectRegistry.MARK_OF_DECAY, 300, 0));
+
+                livingEntity.playSound(GGSoundRegistry.CLOCK_TICKING.get(), 0.8f, 1.3F);
+
+                if (livingEntity instanceof ServerPlayer serverPlayer){
+                serverPlayer.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "The Clock Strikes Nil")
+                        .withStyle(s -> s.withColor(TextColor.fromRgb(15556694))), true);
+                    serverPlayer.playSound(GGSoundRegistry.CLOCK_TICKING.get(), 0.8f, 1.3F);
+                }
+            }}}
 
 
     @SubscribeEvent

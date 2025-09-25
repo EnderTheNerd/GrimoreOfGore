@@ -26,10 +26,12 @@ public class ModCreativeModTabs {
                     .title(Component.translatable("creativetab.ess_requiem.rotten_sickle"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(GGItemRegistry.FRAGMENT_OF_CLARITY);
+                        output.accept(GGItemRegistry.COMPLETED_CLARITY);
                         output.accept(GGItemRegistry.ROTTEN_SICKLE);
                         output.accept(GGItemRegistry.WHISPERING_HARVESTER);
                         output.accept(GGItemRegistry.SCYTHE_OF_ROTTEN_DREAMS);
                         output.accept(GGItemRegistry.SCYTHE_OF_FROZEN_DREAMS);
+                        output.accept(GGItemRegistry.ARM_OF_DECAY);
                         output.accept(GGItemRegistry.NAMELESS_RING_CURIO);
 
                     })

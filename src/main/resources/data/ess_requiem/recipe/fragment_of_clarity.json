@@ -1,0 +1,30 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:arcane_essence"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:divine_soulshard"
+    },
+
+    "C": {
+      "item": "irons_spellbooks:mithril_scrap"
+    }
+  },
+  "pattern": [
+
+    "AAA",
+    "CBC",
+    "AAA"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:fragment_of_clarity"
+  }
+}

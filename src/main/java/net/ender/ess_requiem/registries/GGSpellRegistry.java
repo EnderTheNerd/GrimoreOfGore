@@ -7,6 +7,7 @@ import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.spells.blood.*;
 import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
+import net.ender.ess_requiem.spells.blood.uncraftable.TheFinalityOfDecaySpell;
 import net.ender.ess_requiem.spells.eldrtich.*;
 import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.LordOfTheFinalFrostSpell;
@@ -42,6 +43,7 @@ public class GGSpellRegistry {
     //UNCRAFTABLE BLOOD
     public static final Supplier <AbstractSpell> DECAYING_WILL = registerSpell(new DecayingWillSpell());
     public static final Supplier <AbstractSpell> CORPSE_EXPLOSION = registerSpell(new CorpseExplosionSpell());
+    public static final Supplier <AbstractSpell> FINALITY_OF_DECAY = registerSpell(new TheFinalityOfDecaySpell());
     //CRAFTABLE MIND
 
     //IMPLEMENTED, NOT FINISHED

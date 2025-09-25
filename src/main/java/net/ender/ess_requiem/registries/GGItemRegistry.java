@@ -1,8 +1,10 @@
 package net.ender.ess_requiem.registries;
 
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.item.curio.NamelessRingCurio;
+import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ArmOfDecay;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.RottenSickle;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ScytheOfRottenDreams;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.WhisperingHarvester;
@@ -26,6 +28,8 @@ public class GGItemRegistry {
 
     public static final DeferredItem<Item> SCYTHE_OF_ROTTEN_DREAMS = ITEMS.register("scythe_of_rotten_dreams", ScytheOfRottenDreams::new);
 
+    public static final DeferredItem<Item> ARM_OF_DECAY = ITEMS.register("arm_of_decay", ArmOfDecay::new);
+
     //ICE
     public static final DeferredItem<Item> SCYTHE_OF_FROZEN_DREAMS = ITEMS.register("scythe_of_frozen_dreams", ScytheOfFrozenDreams::new);
 
@@ -40,8 +44,11 @@ public class GGItemRegistry {
     //CRAFTING -She craft on my table till I item
 
     public static final DeferredItem<Item> FRAGMENT_OF_CLARITY = ITEMS.register("fragment_of_clarity",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())));
 
+
+    public static final DeferredItem<Item> COMPLETED_CLARITY = ITEMS.register("completed_clarity",
+            () -> new Item(new Item.Properties().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

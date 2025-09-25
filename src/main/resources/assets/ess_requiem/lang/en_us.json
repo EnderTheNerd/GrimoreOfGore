@@ -12,6 +12,9 @@
  "effect.ess_requiem.decaying_might": "Decaying Might",
  "effect.ess_requiem.lord_of_decay": "Lord of Decay",
  "effect.ess_requiem.protection_of_ash": "Spirit Protection",
+ "effect.ess_requiem.lord_of_frost": "Lord of the Final Frost",
+ "effect.ess_requiem.finality_of_decay": "Finality Of Decay",
+ "effect.ess_requiem.mark_of_decay": "Mark Of Decay",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -36,6 +39,8 @@
  "spell.ess_requiem.decaying_will.guide": "Call upon decay itself to rebuild your summons should they fall using mana, as well as summoning an initial burst of powerful withering energy. Tales say a certain ring could stop you from decaying when using this spell.",
  "spell.ess_requiem.corpse_explosion": "Corpse Explosion",
  "spell.ess_requiem.corpse_explosion.guide": "Violently explode the body of a summoned creature, obliterating it, and leaving a toxic puddle of blood behind.",
+ "spell.ess_requiem.finality_of_decay": "The Finality of Decay",
+ "spell.ess_requiem.finality_of_decay.guide": "Unleash a countdown upon a target. Once the countdown reaches zero, the target takes heavy damage, and begins to rot and wither away rapidly.",
 
  "spell.ess_requiem.weight_of_the_world": "Weight of the World",
  "spell.ess_requiem.weight_of_the_world.guide": "Unleash powerful mental energy, sending everything around you skyrocketing into the air.",
@@ -68,6 +73,7 @@
  "ui.ess_requiem.boil_count": "%d Boiling Shots",
  "ui.ess_requiem.rampage_summon": "1 Rampage Summon",
  "ui.ess_requiem.summon_exploded": "Summon reduced to nothingness",
+ "ui.enders_spells.marked_for_decay": "You've been marked for decay, rid yourself of the effect or suffer.",
 
  "creativetab.ess_requiem.rotten_sickle": "ESS Requiem",
 
@@ -77,7 +83,9 @@
  "item.ess_requiem.scythe_of_frozen_dreams": "Scythe of Frozen Dreams",
  "item.ess_requiem.nameless_ring": "Nameless Ring",
  "item.ess_requiem.nameless_ring.desc": "The ring of an unnamed king. You feel the power of decay within.",
+ "item.ess_requiem.arm_of_decay": "Arm of Decay",
  "item.ess_requiem.fragment_of_clarity": "Fragment of Clarity",
+ "item.ess_requiem.completed_clarity": "Completed Clarity",
 
 
  "death.attack.ess_requiem.boiling_blood": "%1$s was boiled alive by %2$s",

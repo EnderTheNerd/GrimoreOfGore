@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
 import io.redspace.ironsspellbooks.item.weapons.IronsWeaponTier;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.ender.ess_requiem.registries.GGItemRegistry;
+import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -31,10 +32,17 @@ public class GGSwordTier implements Tier, IronsWeaponTier {
             () -> Ingredient.of(ItemRegistry.BLOOD_RUNE.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ExtendedWeaponTier SCYTHE_OF_ROTTEN_DREAMS = new ExtendedWeaponTier(2500, 12f, -2.6f, 35,
+    public static ExtendedWeaponTier SCYTHE_OF_ROTTEN_DREAMS = new ExtendedWeaponTier(2500, 12f, -2.2f, 35,
             BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
             () -> Ingredient.of(ItemRegistry.BLOODY_VELLUM.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+
+    public static ExtendedWeaponTier ARM_OF_DECAY = new ExtendedWeaponTier(3000, 13f, -2.6f, 40,
+            BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
+            () -> Ingredient.of(GGItemRegistry.FRAGMENT_OF_CLARITY),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(AttributeRegistry.SUMMON_DAMAGE, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
 
    //ICE
