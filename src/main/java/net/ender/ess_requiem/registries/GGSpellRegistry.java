@@ -49,11 +49,11 @@ public class GGSpellRegistry {
     //IMPLEMENTED, NOT FINISHED
 
     //CRAFTABLE ELDRITCH
-    //public static final Supplier <AbstractSpell> EBONY_ARMOR = registerSpell(new EbonyArmorSpell());
-    //public static final Supplier <AbstractSpell> PROTECTION_OF_THE_FALLEN = registerSpell(new ProtectionOfTheFallenSpell());
-    //public static final Supplier <AbstractSpell> SPIKES_OF_AGONY = registerSpell(new SpikesOfAgonySpell());
-    //public static final Supplier <AbstractSpell> TENTACLE_WHIP = registerSpell(new TentacleWhipSpell());
-    //public static final Supplier <AbstractSpell> PALE_FLAME = registerSpell(new PaleFlameSpell());
+    public static final Supplier <AbstractSpell> EBONY_ARMOR = registerSpell(new EbonyArmorSpell());
+    public static final Supplier <AbstractSpell> PROTECTION_OF_THE_FALLEN = registerSpell(new ProtectionOfTheFallenSpell());
+    public static final Supplier <AbstractSpell> SPIKES_OF_AGONY = registerSpell(new SpikesOfAgonySpell());
+    public static final Supplier <AbstractSpell> TENTACLE_WHIP = registerSpell(new TentacleWhipSpell());
+    public static final Supplier <AbstractSpell> PALE_FLAME = registerSpell(new PaleFlameSpell());
 
     //UNCRAFTABLE ICE
     public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());

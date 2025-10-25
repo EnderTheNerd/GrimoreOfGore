@@ -52,7 +52,7 @@ public class WitherSkullSmallParticle extends TextureSheetParticle {
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level,
                                        double x, double y, double z,
                                        double dx, double dy, double dz) {
-            return new ConfusionEyeParticle(level, x, y, z, this.sprites, dx, dy, dz);
+            return new WitherSkullSmallParticle(level, x, y, z, this.sprites, dx, dy, dz);
         }
 
     }

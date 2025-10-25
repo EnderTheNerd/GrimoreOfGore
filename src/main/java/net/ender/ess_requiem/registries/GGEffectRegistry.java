@@ -74,6 +74,9 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> PROTECTION_OF_ASHES = MOB_EFFECT_DEFERRED_REGISTER.register("protection_of_ash",
             () -> new ProtectionOfAshesEffect(MobEffectCategory.BENEFICIAL, 1973790));
 
+    public static final DeferredHolder<MobEffect, MobEffect> CURSED_IMMORTALITY = MOB_EFFECT_DEFERRED_REGISTER.register("cursed_immortality",
+            () -> new CursedImmortalityEffect(MobEffectCategory.NEUTRAL, 2033979));
+
 
     //ICE EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_FROST = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_frost",

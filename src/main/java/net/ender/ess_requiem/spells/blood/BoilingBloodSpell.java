@@ -90,6 +90,8 @@ public class BoilingBloodSpell extends AbstractSpell {
         if (!playerMagicData.getPlayerRecasts().hasRecastForSpell(getSpellId())) {
             playerMagicData.getPlayerRecasts().addRecast(new RecastInstance(getSpellId(), spellLevel, getRecastCount(spellLevel, entity), 80, castSource, null), playerMagicData);
         }
+
+
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData targetData) {
             var targetEntity = targetData.getTarget((ServerLevel) level);
             {

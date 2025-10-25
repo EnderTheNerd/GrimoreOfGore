@@ -41,6 +41,11 @@ repositories {
             includeGroup("software.bernie.geckolib")
         }
     }
+
+
+
+
+    maven { url = "https://maven.firstdarkdev.xyz/snapshots" } // LDLib2, Photon2
     maven { url = "https://maven.theillusivec4.top" }
     maven { url = "https://cursemaven.com" }
     maven { url = "https://maven.blamejared.com" }
@@ -141,6 +146,8 @@ configurations {
 dependencies {
     // ISS ***************************************************************************************************
     implementation "curse.maven:irons-spells-n-spellbooks-855414:6834357"
+
+
 
     //NEAT
     implementation "curse.maven:neat-238372:5838045"

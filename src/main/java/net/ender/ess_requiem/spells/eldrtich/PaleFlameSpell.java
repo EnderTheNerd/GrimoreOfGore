@@ -1,5 +1,6 @@
 package net.ender.ess_requiem.spells.eldrtich;
 
+import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
@@ -8,6 +9,7 @@ import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlame;
 import net.ender.ess_requiem.registries.GGSoundRegistry;
@@ -47,16 +49,16 @@ public class PaleFlameSpell extends AbstractSpell {
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.ELDRITCH_RESOURCE)
-            .setMaxLevel(1)
-            .setCooldownSeconds(200)
+            .setMaxLevel(3)
+            .setCooldownSeconds(30)
             .build();
 
     public PaleFlameSpell() {
-        this.manaCostPerLevel = 0;
-        this.baseSpellPower = 6;
-        this.spellPowerPerLevel = 2;
+        this.manaCostPerLevel = 15;
+        this.baseSpellPower = 38;
+        this.spellPowerPerLevel = 5;
         this.castTime = 10;
-        this.baseManaCost = 450;
+        this.baseManaCost = 120;
     }
 
     @Override
@@ -102,7 +104,7 @@ public class PaleFlameSpell extends AbstractSpell {
         final float MAX_HEALTH = entity.getMaxHealth();
         float baseHealth = entity.getHealth();
         double percent = (baseHealth / MAX_HEALTH) * 100;
-
+        int i = getDuration(baseSpellPower, entity)/2;
         if (percent <= 100) {
             float radius = 3.25f;
             float distance = 1.9f;
@@ -111,6 +113,7 @@ public class PaleFlameSpell extends AbstractSpell {
             var entities = level.getEntities(entity, AABB.ofSize(hitLocation, radius * 2, radius, radius * 2));
             var damageSource = this.getDamageSource(entity);
             for (
+
                     Entity targetEntity : entities) {
                 if (targetEntity instanceof LivingEntity && targetEntity.isAlive() && entity.isPickable() && targetEntity.position().subtract(entity.getEyePosition()).dot(forward) >= 0 && entity.distanceToSqr(targetEntity) < radius * radius && Utils.hasLineOfSight(level, entity.getEyePosition(), targetEntity.getBoundingBox().getCenter(), true)) {
                     Vec3 offsetVector = targetEntity.getBoundingBox().getCenter().subtract(entity.getEyePosition());
@@ -119,31 +122,36 @@ public class PaleFlameSpell extends AbstractSpell {
                             ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.GLOWING, 120, 1));
                             ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 1));
                             EnchantmentHelper.doPostAttackEffects((ServerLevel) level, targetEntity, damageSource);
-
+                            entity.addEffect(new MobEffectInstance(MobEffectRegistry.ABYSSAL_SHROUD, 50));
                         }
                     }
                 }
             }
             boolean mirrored = playerMagicData.getCastingEquipmentSlot().equals(SpellSelectionManager.OFFHAND);
-            PaleFlame over = new PaleFlame(level, mirrored);
-            over.moveTo(hitLocation);
-            over.setYRot(entity.getYRot());
-            over.setXRot(entity.getXRot());
-            level.addFreshEntity(over);
+            PaleFlame pale = new PaleFlame(level, mirrored);
+            if (percent <= 40) {pale.setDamage(getDamage(spellLevel, entity) * 2);}
+            pale.moveTo(hitLocation);
+            pale.setYRot(entity.getYRot());
+            pale.setXRot(entity.getXRot());
+            level.addFreshEntity(pale);
             level.getEntities(entity, entity.getBoundingBox().inflate(radius, 4, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
 
 
                 super.onCast(level, spellLevel, entity, castSource, playerMagicData);
 
             });
+
         }
 
 
     }
 
+
+
     private float getDamage(int spellLevel, LivingEntity entity) {
         return getSpellPower(spellLevel, entity) + getWeaponDamage(entity);
     }
+
 
     private float getWeaponDamage(LivingEntity entity) {
         if (entity == null) {
@@ -152,7 +160,7 @@ public class PaleFlameSpell extends AbstractSpell {
         float weaponDamage = Utils.getWeaponDamage(entity);
         var weaponItem = entity.getWeaponItem();
         if (!weaponItem.isEmpty() && weaponItem.has(DataComponents.ENCHANTMENTS)) {
-            weaponDamage += Utils.processEnchantment(entity.level(), Enchantments.FIRE_ASPECT, EnchantmentEffectComponents.DAMAGE, weaponItem.get(DataComponents.ENCHANTMENTS));
+            weaponDamage += Utils.processEnchantment(entity.level(), Enchantments.VANISHING_CURSE, EnchantmentEffectComponents.DAMAGE, weaponItem.get(DataComponents.ENCHANTMENTS));
         }
         return weaponDamage;
     }
@@ -169,6 +177,11 @@ public class PaleFlameSpell extends AbstractSpell {
             return damage + plus;
         }
         return "" + getSpellPower(spellLevel, entity);
+    }
+
+
+    public int getDuration(int spellLevel, LivingEntity caster) {
+        return (int) (getSpellPower(spellLevel, caster) * 25);
     }
 
     @Override
