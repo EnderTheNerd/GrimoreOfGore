@@ -8,6 +8,7 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 
 import io.redspace.ironsspellbooks.entity.mobs.frozen_humanoid.FrozenHumanoid;
+import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
@@ -23,6 +24,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -61,18 +63,40 @@ public class ModEvents {
         }
     }
 
+
+
     @SubscribeEvent
-    public static void MindRevive(LivingDeathEvent event) {
-        if (event.getEntity() instanceof ServerPlayer livingEntity) {
-            if (livingEntity.hasEffect(GGEffectRegistry.PRESERVED_STATE)){
+    public static void CursedRevive(LivingDeathEvent event) {
+        if (event.getEntity() instanceof LivingEntity livingEntity) {
+            if (livingEntity.hasEffect(GGEffectRegistry.CURSED_IMMORTALITY)){
+
 
                 event.setCanceled(true);
-                livingEntity.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "The Mind Preserves")
-                        .withStyle(s -> s.withColor(TextColor.fromRgb(15556694))), true);
-                livingEntity.removeEffect(GGEffectRegistry.PRESERVED_STATE);
-                livingEntity.setHealth(5.0F);
-                livingEntity.playSound(GGSoundRegistry.CLOCK_TICKING.get(), 0.8f, 1.3F);
-            }}}
+
+                livingEntity.removeEffect(GGEffectRegistry.CURSED_IMMORTALITY);
+
+
+                livingEntity.setHealth(10.0F);
+
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 80));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 80));
+                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.ABYSSAL_SHROUD, 25));
+
+                livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), GGSoundRegistry.CURSED_REVIVE, SoundSource.NEUTRAL, .8F, 1.3F);
+
+
+                if (event.getEntity() instanceof ServerPlayer player){
+                    player.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "You're not done until I say so.")
+                     .withStyle(s -> s.withColor(TextColor.fromRgb(14806476))), true);
+                    MagicData magicData = MagicData.getPlayerMagicData(player);
+
+                    magicData.setMana(0);
+
+                }
+
+                }
+
+            }}
 
     @SubscribeEvent
     public static void FinalityOfDecay(MobEffectEvent.Expired event) {
@@ -94,16 +118,6 @@ public class ModEvents {
             }}}
 
 
-    @SubscribeEvent
-    public static void whyAreYouHittingYourself(LivingDamageEvent.Post event) {
-        var attacker = event.getSource().getDirectEntity();
-
-        if (attacker instanceof LivingEntity livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.CONFUSED)) {
-          ((LivingEntity) attacker).addEffect(new MobEffectInstance(MobEffects.HARM, 1, 0));
-        }
-
-
-    }
 
 
     private static boolean isUnderSunTick(Level level, LivingEntity entity) {

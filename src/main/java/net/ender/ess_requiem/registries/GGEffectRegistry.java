@@ -51,21 +51,6 @@ public class GGEffectRegistry {
 
 
 
-
-    //MIND EFFECTS
-
-    public static final DeferredHolder<MobEffect, MobEffect> CONFUSED = MOB_EFFECT_DEFERRED_REGISTER.register("confused",
-            ()-> new ConfusedEffect(MobEffectCategory.HARMFUL,16566413));
-
-    public static final DeferredHolder<MobEffect, MobEffect> THOUGHT = MOB_EFFECT_DEFERRED_REGISTER.register("thought",
-            ()-> new ThoughtEffect(MobEffectCategory.BENEFICIAL, 16773065));
-
-    public static final DeferredHolder<MobEffect, MobEffect> WEIGHED_DOWN = MOB_EFFECT_DEFERRED_REGISTER.register("weighed_down",
-            ()-> new WeighedDownEffect(MobEffectCategory.HARMFUL, 5533306));
-
-    public static final DeferredHolder<MobEffect, MobEffect> PRESERVED_STATE = MOB_EFFECT_DEFERRED_REGISTER.register("preserved_state",
-            ()-> new PreservedStateEffect(MobEffectCategory.NEUTRAL, 15094016));
-
     //Eldritch Effects
 
     public static final DeferredHolder<MobEffect, MobEffect> EBONY_ARMOR = MOB_EFFECT_DEFERRED_REGISTER.register("ebony_armor",

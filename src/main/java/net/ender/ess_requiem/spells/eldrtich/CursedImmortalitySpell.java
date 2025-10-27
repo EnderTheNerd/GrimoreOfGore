@@ -1,4 +1,4 @@
-package net.ender.ess_requiem.spells.mind;
+package net.ender.ess_requiem.spells.eldrtich;
 
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -6,55 +6,42 @@ import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import net.acetheeldritchking.aces_spell_utils.spells.ASSpellAnimations;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
-import net.ender.ess_requiem.registries.GGSchoolRegistry;
-import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
-import java.util.Optional;
 
 @AutoSpellConfig
-public class AMomentInTimeSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "a_moment_in_time");
+public class CursedImmortalitySpell extends AbstractSpell {
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "cursed_immortality");
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 15, 1)));
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)));
 
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.LEGENDARY)
-            .setSchoolResource(GGSchoolRegistry.MIND_RESOURCE)
+            .setSchoolResource(SchoolRegistry.ELDRITCH_RESOURCE)
             .setMaxLevel(1)
-            .setCooldownSeconds(300)
+            .setCooldownSeconds(180)
             .build();
 
-    public AMomentInTimeSpell() {
-        this.manaCostPerLevel = 0;
-        this.baseSpellPower = 15;
-        this.spellPowerPerLevel = 0;
+    public CursedImmortalitySpell() {
+        this.manaCostPerLevel = 40;
+        this.baseSpellPower = 10;
+        this.spellPowerPerLevel = 5;
         this.castTime = 0;
         this.baseManaCost = 400;
-    }
-
-    @Override
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(GGSoundRegistry.CLOCK_TICKING.get());
-    }
-
-    @Override
-    public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.empty();
     }
 
     @Override
@@ -75,18 +62,18 @@ public class AMomentInTimeSpell extends AbstractSpell {
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         int i = getDuration(baseSpellPower, entity);
-        entity.addEffect(new MobEffectInstance(GGEffectRegistry.PRESERVED_STATE, i, 0, false, false, true));
+        entity.addEffect(new MobEffectInstance(GGEffectRegistry.CURSED_IMMORTALITY, i, spellLevel -1, false, false, true));
 
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 15);
+        return (int) (getSpellPower(spellLevel, caster) * 20);
     }
 
 
     @Override
     public AnimationHolder getCastStartAnimation() {
-        return SpellAnimations.SELF_CAST_TWO_HANDS;
+        return ASSpellAnimations.ANIMATION_CLAP;
     }
 }

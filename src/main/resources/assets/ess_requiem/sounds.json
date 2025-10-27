@@ -47,5 +47,12 @@
     [
       "ess_requiem:pale_flame_end"
     ]
+  },
+
+  "cursed_revive": {
+    "subtitle": "sounds.ess_requiem.player_cursed_revive",
+    "sounds": [
+      "ess_requiem:cursed_revive"
+    ]
   }
 }

@@ -44,9 +44,7 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> DECAYING_WILL = registerSpell(new DecayingWillSpell());
     public static final Supplier <AbstractSpell> CORPSE_EXPLOSION = registerSpell(new CorpseExplosionSpell());
     public static final Supplier <AbstractSpell> FINALITY_OF_DECAY = registerSpell(new TheFinalityOfDecaySpell());
-    //CRAFTABLE MIND
 
-    //IMPLEMENTED, NOT FINISHED
 
     //CRAFTABLE ELDRITCH
     public static final Supplier <AbstractSpell> EBONY_ARMOR = registerSpell(new EbonyArmorSpell());
@@ -54,6 +52,7 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> SPIKES_OF_AGONY = registerSpell(new SpikesOfAgonySpell());
     public static final Supplier <AbstractSpell> TENTACLE_WHIP = registerSpell(new TentacleWhipSpell());
     public static final Supplier <AbstractSpell> PALE_FLAME = registerSpell(new PaleFlameSpell());
+    public static final Supplier <AbstractSpell> CURSED_IMMORTALITY = registerSpell(new CursedImmortalitySpell());
 
     //UNCRAFTABLE ICE
     public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());

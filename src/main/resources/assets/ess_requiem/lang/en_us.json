@@ -15,6 +15,7 @@
  "effect.ess_requiem.lord_of_frost": "Lord of the Final Frost",
  "effect.ess_requiem.finality_of_decay": "Finality Of Decay",
  "effect.ess_requiem.mark_of_decay": "Mark Of Decay",
+ "effect.ess_requiem.cursed_immortality": "Cursed Immortality",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -42,15 +43,6 @@
  "spell.ess_requiem.finality_of_decay": "The Finality of Decay",
  "spell.ess_requiem.finality_of_decay.guide": "Unleash a countdown upon a target. Once the countdown reaches zero, the target takes heavy damage, and begins to rot and wither away rapidly.",
 
- "spell.ess_requiem.weight_of_the_world": "Weight of the World",
- "spell.ess_requiem.weight_of_the_world.guide": "Unleash powerful mental energy, sending everything around you skyrocketing into the air.",
- "spell.ess_requiem.overload": "Overload",
- "spell.ess_requiem.overload.guide": "Project your chaotic and endless thoughts into a targets mind, damaging and confusing them. Being confused causes them to hit themselves when they attack.",
- "spell.ess_requiem.to_stand_before_me": "To Stand Before I",
- "spell.ess_requiem.to_stand_before_me.guide": "Channel your mind and unleash waves of mental energy, dramatically slowing down all they touch, as well as slowly hitting them with mental waves. ",
- "spell.ess_requiem.a_moment_in_time": "A Moment in Time",
- "spell.ess_requiem.a_moment_in_time.guide": "Using mental energy, pause your current state, preventing death once.",
-
  "spell.ess_requiem.ebony_armor": "Ebony Armor",
  "spell.ess_requiem.ebony_armor.guide": "Take on cursed Ebony Plating upon your body, enhancing all your physical aspects to the supreme. However, the plates shackle your spell casting, preventing it in full.",
  "spell.ess_requiem.protection_of_the_fallen": "Protection of the Fallen",
@@ -61,6 +53,8 @@
  "spell.ess_requiem.tentacle_whip.guide": "Send forth a singular tentacle to tear from the ground and whip a target, dealing damage.",
  "spell.ess_requiem.pale_flame": "Pale Flame",
  "spell.ess_requiem.pale_flame.guide": "A flame pure of all animosity, allows the user to channel their pain and rage into a swing, and receive the care of the pale flame. When below 40% HP doubles current flame damage, and on successful hit, gain abyssal shroud for a short time.",
+ "spell.ess_requiem.cursed_immortality": "Cursed Immortality",
+ "spell.ess_requiem.cursed_immortality.guide": "Channel the energy of a totem, albeit mildly warped, spending all of your mana on death to revive you.",
 
  "spell.ess_requiem.glacial_sculpting": "Glacial Sculpting",
  "spell.ess_requiem.glacial.sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",

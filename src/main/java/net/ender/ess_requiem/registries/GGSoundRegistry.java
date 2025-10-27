@@ -26,11 +26,12 @@ public class GGSoundRegistry {
     public static DeferredHolder<SoundEvent, SoundEvent> BONES_SHATTER = registerSoundEvent("bone_shatter");
 
 
-    //PALE FLAME
+    //ELDRITCH
     public static DeferredHolder<SoundEvent, SoundEvent> PALE_FLAME_START =registerSoundEvent("pale_flame_start");
 
     public static DeferredHolder<SoundEvent, SoundEvent> PALE_FLAME_END =registerSoundEvent("pale_flame_end");
 
+    public static DeferredHolder<SoundEvent, SoundEvent> CURSED_REVIVE = registerSoundEvent("cursed_revive");
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
