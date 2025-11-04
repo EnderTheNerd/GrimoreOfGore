@@ -65,7 +65,8 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> CURSED_VOW = MOB_EFFECT_DEFERRED_REGISTER.register("cursed_vow",
             () -> new CursedVowEffect(MobEffectCategory.NEUTRAL, 338225));
 
-
+    public static final DeferredHolder<MobEffect, MobEffect> EBONY_CATAPHRACT = MOB_EFFECT_DEFERRED_REGISTER.register("ebony_cataphract",
+            () -> new EbonyCataphractEffect(MobEffectCategory.NEUTRAL, 13111603));
 
 
     //ICE EFFECTS

@@ -52,15 +52,12 @@ public class ModEvents {
 
 
     @SubscribeEvent
-    public static void EbonyFury(LivingDamageEvent.Pre event) {
-
+    public static void CataphractWeaponTransformation(LivingDamageEvent.Pre event) {
         var sourceEntity = event.getSource().getEntity();
-
-
         if (sourceEntity instanceof ServerPlayer serverPlayer) {
             ItemStack mainhandItem = ((LivingEntity) serverPlayer).getMainHandItem();
 
-            if (serverPlayer.hasEffect(GGEffectRegistry.EBONY_ARMOR)) {
+            if (serverPlayer.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT)) {
                 if (mainhandItem.getItem() instanceof ScytheOfRottenDreams) {
                     serverPlayer.getInventory().setItem(serverPlayer.getInventory().selected, new ItemStack(GGItemRegistry.ARM_OF_DECAY.get()));
                 }
