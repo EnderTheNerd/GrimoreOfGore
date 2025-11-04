@@ -3,6 +3,7 @@ package net.ender.ess_requiem.events;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
+import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
@@ -10,13 +11,18 @@ import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.frozen_humanoid.FrozenHumanoid;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
+import io.redspace.ironsspellbooks.spells.eldritch.SculkTentaclesSpell;
+import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ArmOfDecay;
+import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ScytheOfRottenDreams;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
 
+import net.ender.ess_requiem.registries.GGItemRegistry;
 import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -29,6 +35,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -41,6 +50,24 @@ import java.util.Objects;
 @EventBusSubscriber
 public class ModEvents {
 
+
+    @SubscribeEvent
+    public static void EbonyFury(LivingDamageEvent.Pre event) {
+
+        var sourceEntity = event.getSource().getEntity();
+
+
+        if (sourceEntity instanceof ServerPlayer serverPlayer) {
+            ItemStack mainhandItem = ((LivingEntity) serverPlayer).getMainHandItem();
+
+            if (serverPlayer.hasEffect(GGEffectRegistry.EBONY_ARMOR)) {
+                if (mainhandItem.getItem() instanceof ScytheOfRottenDreams) {
+                    serverPlayer.getInventory().setItem(serverPlayer.getInventory().selected, new ItemStack(GGItemRegistry.ARM_OF_DECAY.get()));
+                }
+            }
+
+        }
+    }
 
     @SubscribeEvent
     public static void PactAttackDay(LivingDamageEvent.Post event) {
@@ -247,6 +274,22 @@ public class ModEvents {
             }
         }
     }
+
+
+    @SubscribeEvent
+    public static void CursedVow(SpellPreCastEvent event) {
+        var entity = event.getEntity();
+        MagicData magicData = MagicData.getPlayerMagicData(entity);
+        var school_type = magicData.getCastingSpell().getSpell().getSchoolType();
+        boolean hasVowActive = entity.hasEffect(GGEffectRegistry.CURSED_VOW);
+
+        if (school_type.equals(SchoolRegistry.ELDRITCH_RESOURCE)) {
+            event.setCanceled(true);
+        }
+
+
+    }
+
 
     public static String convertTicksToTime(int ticks) {
         // Convert ticks to seconds

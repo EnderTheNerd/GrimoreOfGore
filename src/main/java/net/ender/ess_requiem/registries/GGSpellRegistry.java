@@ -53,6 +53,8 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> TENTACLE_WHIP = registerSpell(new TentacleWhipSpell());
     public static final Supplier <AbstractSpell> PALE_FLAME = registerSpell(new PaleFlameSpell());
     public static final Supplier <AbstractSpell> CURSED_IMMORTALITY = registerSpell(new CursedImmortalitySpell());
+    public static final Supplier <AbstractSpell> ETERNAL_BATTLEFIELD = registerSpell(new EternalBattlefieldSpell());
+    public static final Supplier <AbstractSpell> TENTACLE_WHIRL = registerSpell(new TwilightAssaultSpell());
 
     //UNCRAFTABLE ICE
     public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());

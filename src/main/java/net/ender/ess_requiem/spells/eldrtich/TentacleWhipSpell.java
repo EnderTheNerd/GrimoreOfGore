@@ -71,7 +71,7 @@ public class TentacleWhipSpell extends AbstractSpell {
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData targetData) {
             var targetEntity = targetData.getTarget((ServerLevel) world);
             if (targetEntity != null) {
-                VoidTentacle whip = new VoidTentacle(world, entity, getDamage(spellLevel, entity));
+               VoidTentacle whip = new VoidTentacle(world, entity, getDamage(spellLevel, entity));
                 whip.setPos(targetEntity.position());
                 whip.setYRot(entity.getYRot());
                 whip.setDamage(getDamage(spellLevel, entity));

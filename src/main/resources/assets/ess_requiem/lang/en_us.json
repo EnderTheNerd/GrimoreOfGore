@@ -16,6 +16,7 @@
  "effect.ess_requiem.finality_of_decay": "Finality Of Decay",
  "effect.ess_requiem.mark_of_decay": "Mark Of Decay",
  "effect.ess_requiem.cursed_immortality": "Cursed Immortality",
+ "effect.ess_requiem.cursed_vow": "Cursed Vow",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -55,6 +56,10 @@
  "spell.ess_requiem.pale_flame.guide": "A flame pure of all animosity, allows the user to channel their pain and rage into a swing, and receive the care of the pale flame. When below 40% HP doubles current flame damage, and on successful hit, gain abyssal shroud for a short time.",
  "spell.ess_requiem.cursed_immortality": "Cursed Immortality",
  "spell.ess_requiem.cursed_immortality.guide": "Channel the energy of a totem, albeit mildly warped, spending all of your mana on death to revive you.",
+ "spell.ess_requiem.eternal_battlefield": "Eternal Battlefield",
+ "spell.ess_requiem.eternal_battlefield.guide": "Designate a target to fight in the eternal battlefield, creating an area where nothing can die, although reviving is said to drain the soul and disorient the mind.",
+ "spell.ess_requiem.twilight_assault": "Twilight Assault",
+ "spell.ess_requiem.twilight_assault.guide": "Mark targets, once all targets are marked, cloak yourself in invisibility and strike.",
 
  "spell.ess_requiem.glacial_sculpting": "Glacial Sculpting",
  "spell.ess_requiem.glacial.sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",

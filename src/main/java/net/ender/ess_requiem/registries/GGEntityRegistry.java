@@ -8,6 +8,7 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearEntity;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntity;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
 import net.ender.ess_requiem.entity.spells.corpse_puddle.CorpsePuddle;
+import net.ender.ess_requiem.entity.spells.eternal_battlefield.EternalBattlefield;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlame;
 import net.ender.ess_requiem.entity.spells.wretch_breath.WretchBreath;
 import net.minecraft.core.registries.Registries;
@@ -78,6 +79,12 @@ public class GGEntityRegistry {
                     .clientTrackingRange(64)
                     .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "pale_flame").toString()));
 
+
+    public static final DeferredHolder<EntityType<?>, EntityType<EternalBattlefield>> ETERNAL_BATTLEFIELD =
+            ENTITIES.register("eternal_battlefield", () -> EntityType.Builder.<EternalBattlefield>of(EternalBattlefield::new, MobCategory.MISC)
+                    .sized(4f, 1f)
+                    .clientTrackingRange(64)
+                    .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "eternal_battlefield").toString()));
 
 
 
