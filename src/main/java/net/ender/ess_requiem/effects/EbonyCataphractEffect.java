@@ -21,7 +21,7 @@ public class EbonyCataphractEffect extends MobEffect {
         this.addAttributeModifier(Attributes.MAX_HEALTH,ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "ebony_armor"),
                 8, AttributeModifier.Operation.ADD_VALUE);
         this.addAttributeModifier(Attributes.ATTACK_SPEED, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "ebony_armor"),
-                .18, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+                .2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         this.addAttributeModifier(Attributes.ARMOR_TOUGHNESS, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "ebony_armor"), .1,
                 AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         this.addAttributeModifier(AttributeRegistry.MANA_REGEN, ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "ebony_armor"), -1,

@@ -1,6 +1,6 @@
 {
  "effect.ess_requiem.undead_pact": "Undead Pact",
- "effect.ess_requiem.undead_rampage": "Undead Rampage",
+ "effect.ess_requiem.undead_rampage": "Rampage",
  "effect.ess_requiem.bane_of_the_dead": "Undead Bane",
  "effect.ess_requiem.strained": "Strained",
  "effect.ess_requiem.reaper": "Reaper",
@@ -39,9 +39,9 @@
  "spell.ess_requiem.necrotic_burst": "Necrotic Burst",
  "spell.ess_requiem.necrotic_burst.guide": "Release a burst of withering energy, empowered by the souls of the dead, damage and wither things around you in a radius.",
  "spell.ess_requiem.decaying_will": "Decaying Will",
- "spell.ess_requiem.decaying_will.guide": "Call upon decay itself to rebuild your summons should they fall using mana, as well as summoning an initial burst of powerful withering energy. Tales say a certain ring could stop you from decaying when using this spell.",
+ "spell.ess_requiem.decaying_will.guide": "Call upon decay itself to rebuild your summons should they fall using mana, as well as summoning an initial burst of powerful withering energy. Tales say a certain ring could stop you from decaying when using this spell. The Evolved form of Necrotic Burst. ",
  "spell.ess_requiem.corpse_explosion": "Corpse Explosion",
- "spell.ess_requiem.corpse_explosion.guide": "Violently explode the body of a summoned creature, obliterating it, and leaving a toxic puddle of blood behind.",
+ "spell.ess_requiem.corpse_explosion.guide": "Violently explode the body of a summoned creature, obliterating it, and leaving a toxic puddle of blood behind. The Evolved form of Sacrifice",
  "spell.ess_requiem.finality_of_decay": "The Finality of Decay",
  "spell.ess_requiem.finality_of_decay.guide": "Unleash a countdown upon a target. Once the countdown reaches zero, the target takes heavy damage, and begins to rot and wither away rapidly.",
 
@@ -61,6 +61,8 @@
  "spell.ess_requiem.eternal_battlefield.guide": "Designate a target to fight in the eternal battlefield, creating an area where nothing can die, although reviving is said to drain the soul and disorient the mind.",
  "spell.ess_requiem.twilight_assault": "Twilight Assault",
  "spell.ess_requiem.twilight_assault.guide": "Mark targets, once all targets are marked, cloak yourself in invisibility and strike.",
+ "spell.ess_requiem.ebony_cataphract": "Ebony Cataphract",
+ "spell.ess_requiem.ebony_cataphract.guide": "Take on Ebony Plates filled with hatred upon your body, have your stats enhanced to the extreme, but forget how to cast spells, and use advanced weaponry (no right click). The evolved form of Ebony armor.",
 
  "spell.ess_requiem.glacial_sculpting": "Glacial Sculpting",
  "spell.ess_requiem.glacial.sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",

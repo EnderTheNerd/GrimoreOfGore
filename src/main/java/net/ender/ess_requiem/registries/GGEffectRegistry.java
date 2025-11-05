@@ -68,6 +68,9 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> EBONY_CATAPHRACT = MOB_EFFECT_DEFERRED_REGISTER.register("ebony_cataphract",
             () -> new EbonyCataphractEffect(MobEffectCategory.NEUTRAL, 13111603));
 
+    public static final DeferredHolder<MobEffect, MobEffect> CATAPHRACT_TACKLE = MOB_EFFECT_DEFERRED_REGISTER.register("cataphract_tackle",
+            ()-> new CataphractTackleEffect(MobEffectCategory.BENEFICIAL, 13111603));
+
 
     //ICE EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_FROST = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_frost",

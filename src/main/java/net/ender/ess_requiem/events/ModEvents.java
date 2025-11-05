@@ -4,11 +4,14 @@ import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 
 import io.redspace.ironsspellbooks.entity.mobs.frozen_humanoid.FrozenHumanoid;
+import io.redspace.ironsspellbooks.player.SpinAttackType;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.spells.eldritch.SculkTentaclesSpell;
@@ -19,6 +22,7 @@ import net.ender.ess_requiem.registries.GGEffectRegistry;
 
 import net.ender.ess_requiem.registries.GGItemRegistry;
 import net.ender.ess_requiem.registries.GGSoundRegistry;
+import net.ender.ess_requiem.registries.GGSpellRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
@@ -44,6 +48,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.Objects;
 
@@ -272,22 +277,60 @@ public class ModEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void EbonyCataphract(SpellPreCastEvent event) {
+        var entity = event.getEntity();
+        boolean hasEbonyEffect = entity.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT);
+        if (entity instanceof ServerPlayer player && !player.level().isClientSide) {
+            if (hasEbonyEffect) {
+                event.setCanceled(true);
+                int time = Objects.requireNonNull(player.getEffect(GGEffectRegistry.EBONY_CATAPHRACT)).getDuration();
+                String formattedTime = convertTicksToTime(time);
+                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "A white hot rage fills your mind, and you cannot cast for : " + formattedTime)
+                        .withStyle(s -> s.withColor(TextColor.fromRgb(3289650))), true);
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
+                        SoundEvents.WARDEN_HEARTBEAT, SoundSource.PLAYERS, 0.3f, 1f);
+            }
+        }
+    }
 
     @SubscribeEvent
-    public static void CursedVow(SpellPreCastEvent event) {
+    public static void EbonyCataphract(PlayerInteractEvent.RightClickItem event) {
         var entity = event.getEntity();
-        MagicData magicData = MagicData.getPlayerMagicData(entity);
-        var school_type = magicData.getCastingSpell().getSpell().getSchoolType();
-        boolean hasVowActive = entity.hasEffect(GGEffectRegistry.CURSED_VOW);
+        boolean hasEbonyEffect = entity.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT);
+        if (entity instanceof ServerPlayer player && !player.level().isClientSide) {
+            if (hasEbonyEffect) {
+                event.setCanceled(true);
 
-        if (school_type.equals(SchoolRegistry.ELDRITCH_RESOURCE)) {
-            event.setCanceled(true);
+                int time = Objects.requireNonNull(player.getEffect(GGEffectRegistry.EBONY_CATAPHRACT)).getDuration();
+                String formattedTime = convertTicksToTime(time);
+                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "The Rage in your mind consumes you, you can't use this for: " + formattedTime)
+                        .withStyle(s -> s.withColor(TextColor.fromRgb(13111603))), true);
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
+                        SoundEvents.WARDEN_HEARTBEAT, SoundSource.PLAYERS, 0.3f, 1f);
+            }
         }
-
-
     }
 
 
+
+    @SubscribeEvent
+    public static void EbonyCataphract(LivingDamageEvent.Pre event) {
+
+        var attacker = event.getSource().getDirectEntity();
+
+        if (attacker instanceof ServerPlayer player && !player.level().isClientSide) {
+            boolean hasEbonyEffect = player.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT);
+            if (hasEbonyEffect) {
+                player.addEffect(new MobEffectInstance(GGEffectRegistry.CATAPHRACT_TACKLE, 10));
+            }
+        }
+    } // GGSpellRegistry.CATAPHRACT_TACKLE.get().castSpell(event.getEntity().level(), 5, (ServerPlayer) attacker, CastSource.SCROLL, false);
+
+
+
+
+    //THANKS ACE!!!
     public static String convertTicksToTime(int ticks) {
         // Convert ticks to seconds
         int totalSeconds = ticks / 20;
