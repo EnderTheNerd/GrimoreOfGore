@@ -54,5 +54,12 @@
     "sounds": [
       "ess_requiem:cursed_revive"
     ]
+  },
+
+  "ebony_cataphract_impact": {
+    "subtitle": "sounds.ess_requiem.cataphract_slam",
+    "sounds": [
+      "ess_requiem:ebony_cataphract_impact"
+    ]
   }
 }

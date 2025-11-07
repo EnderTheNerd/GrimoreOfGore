@@ -8,8 +8,10 @@ import net.ender.ess_requiem.spells.blood.*;
 import net.ender.ess_requiem.spells.blood.uncraftable.CorpseExplosionSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.DecayingWillSpell;
 import net.ender.ess_requiem.spells.blood.uncraftable.TheFinalityOfDecaySpell;
+import net.ender.ess_requiem.spells.cataphract_abilities.CataphractHeal;
+import net.ender.ess_requiem.spells.cataphract_abilities.CataphractSlam;
 import net.ender.ess_requiem.spells.eldrtich.*;
-import net.ender.ess_requiem.spells.eldrtich.uncraftable.CataphractTackle;
+import net.ender.ess_requiem.spells.cataphract_abilities.CataphractTackle;
 import net.ender.ess_requiem.spells.eldrtich.uncraftable.EbonyCataphractSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.LordOfTheFinalFrostSpell;
@@ -17,7 +19,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import javax.print.attribute.standard.Sides;
 import java.util.function.Supplier;
 
 @AutoSpellConfig
@@ -60,13 +61,17 @@ public class GGSpellRegistry {
 
     //UNCRAFTABLE ELDRITCH
     public static final Supplier <AbstractSpell> EBONY_CATAPHRACT = registerSpell(new EbonyCataphractSpell());
-    public static final Supplier <AbstractSpell> CATAPHRACT_TACKLE = registerSpell(new CataphractTackle());
+
 
 
     //UNCRAFTABLE ICE
     public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());
     public static final Supplier <AbstractSpell> LORD_OF_FROST = registerSpell(new LordOfTheFinalFrostSpell());
 
+    //CREATIVE ONLY/ABILITIES
+    public static final Supplier <AbstractSpell> CATAPHRACT_TACKLE = registerSpell(new CataphractTackle());
+    public static final Supplier <AbstractSpell> CATAPHRACT_SLAM = registerSpell(new CataphractSlam());
+    public static final Supplier <AbstractSpell> CATAPHRACT_HEAL = registerSpell(new CataphractHeal());
 
 
     public static void register(IEventBus eventBus)

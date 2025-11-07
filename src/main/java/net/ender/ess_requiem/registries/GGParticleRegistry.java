@@ -19,6 +19,12 @@ public class GGParticleRegistry {
 
     public static final Supplier<SimpleParticleType> CONFUSION_EYE_PARTICLE = PARTICLE_TYPES.register("the_eye", () -> new SimpleParticleType(false));
 
+    public static final Supplier<SimpleParticleType> CATAPHRACT_SHARD_PARTICLE = PARTICLE_TYPES.register("cataphract_shard", () -> new SimpleParticleType(false));
+
+    public static final Supplier<SimpleParticleType> CATAPHRACT_SPIRAL_PARTICLE = PARTICLE_TYPES.register("cataphract_spiral.json", () -> new SimpleParticleType(false));
+
+    public static final Supplier<SimpleParticleType> CATAPHRACT_STAR_ONE_PARTICLE = PARTICLE_TYPES.register("cataphract_star", () -> new SimpleParticleType(false));
+
     public static final Supplier<SimpleParticleType> WITHER_SKULL_SMALL = PARTICLE_TYPES.register("wither_skull_small", () -> new SimpleParticleType(false));
 
     public static final Supplier<SimpleParticleType> DARK_SLASH = PARTICLE_TYPES.register("dark_slash", () -> new SimpleParticleType(false));

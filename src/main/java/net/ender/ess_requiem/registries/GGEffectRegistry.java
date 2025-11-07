@@ -75,4 +75,14 @@ public class GGEffectRegistry {
     //ICE EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_FROST = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_frost",
             () -> new LordOfTheFinalFrost(MobEffectCategory.BENEFICIAL, 11131887));
+
+
+
+
+    //MISC EFFECTS
+    public static final DeferredHolder<MobEffect, MobEffect> ABILITY_COOLDOWN = MOB_EFFECT_DEFERRED_REGISTER.register("ability_cooldown",
+            ()-> new AbilityCooldownEffect(MobEffectCategory.HARMFUL, 789261));
 }
+
+
+

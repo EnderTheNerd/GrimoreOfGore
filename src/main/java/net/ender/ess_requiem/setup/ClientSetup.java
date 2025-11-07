@@ -11,9 +11,7 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlameRenderer;
-import net.ender.ess_requiem.particle.ConfusionEyeParticle;
-import net.ender.ess_requiem.particle.DarkSlashParticle;
-import net.ender.ess_requiem.particle.WitherSkullSmallParticle;
+import net.ender.ess_requiem.particle.*;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
 import net.ender.ess_requiem.registries.GGParticleRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -46,6 +44,10 @@ public class ClientSetup {
         event.registerSpriteSet(GGParticleRegistry.CONFUSION_EYE_PARTICLE.get(), ConfusionEyeParticle.Provider::new);
         event.registerSpriteSet(GGParticleRegistry.WITHER_SKULL_SMALL.get(), WitherSkullSmallParticle.Provider::new);
         event.registerSpriteSet(GGParticleRegistry.DARK_SLASH.get(), DarkSlashParticle.Provider::new);
+        event.registerSpriteSet(GGParticleRegistry.CATAPHRACT_SHARD_PARTICLE.get(), CataphractShardParticle.Provider::new);
+        event.registerSpriteSet(GGParticleRegistry.CATAPHRACT_SPIRAL_PARTICLE.get(), CataphractSpiralParticle.Provider::new);
+        event.registerSpriteSet(GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), CataphractStarOneParticle.Provider::new);
+
 
 
     }

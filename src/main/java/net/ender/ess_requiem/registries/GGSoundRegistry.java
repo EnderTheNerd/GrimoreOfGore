@@ -33,6 +33,8 @@ public class GGSoundRegistry {
 
     public static DeferredHolder<SoundEvent, SoundEvent> CURSED_REVIVE = registerSoundEvent("cursed_revive");
 
+    public static DeferredHolder<SoundEvent, SoundEvent> EBONY_CATAPHRACT_IMPACT = registerSoundEvent("ebony_cataphract_impact");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
         return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent

@@ -9,7 +9,9 @@ import io.redspace.ironsspellbooks.mixin.LivingEntityAccessor;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 
+import net.ender.ess_requiem.registries.GGParticleRegistry;
 import net.ender.ess_requiem.registries.GGSchoolRegistry;
+import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.ender.ess_requiem.registries.GGSpellRegistry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -64,7 +66,7 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
                 double distanceSqr = entity.distanceToSqr(livingEntity.position());
                 if (ignore != entity.getUUID() && distanceSqr < explosionRadiusSqr && entity.canBeHitByProjectile() && Utils.hasLineOfSight(level, losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
-                    float damage = 15;
+                    float damage = 10;
                     DamageSources.applyDamage(entity, damage, GGSpellRegistry.CATAPHRACT_TACKLE.get().getDamageSource(livingEntity));
                 }
             }
@@ -74,10 +76,9 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
             var x = livingEntity.getX();
             var y = livingEntity.getY() + 1;
             var z = livingEntity.getZ();
-            MagicManager.spawnParticles(level, ParticleHelper.BLOOD, x, y, z, 25, .08, .08, .08, 0.3, false);
-            MagicManager.spawnParticles(level, ParticleTypes.ASH, x, y, z, 75, .1, .1, .1, .5, false);
+            MagicManager.spawnParticles(level, GGParticleRegistry.CATAPHRACT_SHARD_PARTICLE.get(), x, y, z, 25, .08, .08, .08, 0.3, false);
             MagicManager.spawnParticles(level, new BlastwaveParticleOptions(GGSchoolRegistry.BLOOD.get().getTargetingColor(), explosionRadius), x, y + .15f + .165f, z, 1, 0, 0, 0, 0, true);
-            level.playSound(null, x, y, z, SoundEvents.WITHER_HURT, livingEntity.getSoundSource(), 4, 0.8f);
+            level.playSound(null, x, y, z, GGSoundRegistry.EBONY_CATAPHRACT_IMPACT, livingEntity.getSoundSource(), 4, 0.8f);
             return false;
         }
         livingEntity.fallDistance = 0;
@@ -89,11 +90,11 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
         var level = entity.level();
         for (int i = 0; i < 2; i++) {
             Vec3 random = Utils.getRandomVec3(.2);
-            level.addParticle(ParticleHelper.BLOOD, entity.getRandomX(0.75), entity.getY() + Utils.getRandomScaled(0.75), entity.getRandomZ(0.75), random.x, random.y, random.z);
+            level.addParticle(GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), entity.getRandomX(0.75), entity.getY() + Utils.getRandomScaled(0.75), entity.getRandomZ(0.75), random.x, random.y, random.z);
         }
         for (int i = 0; i < 4; i++) {
             Vec3 random = Utils.getRandomVec3(.2);
-            level.addParticle(ParticleTypes.ASH, entity.getRandomX(0.75), entity.getY() + Utils.getRandomScaled(0.75), entity.getRandomZ(0.75), random.x, random.y, random.z);
+            level.addParticle(GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), entity.getRandomX(0.75), entity.getY() + Utils.getRandomScaled(0.75), entity.getRandomZ(0.75), random.x, random.y, random.z);
         }
     }
 

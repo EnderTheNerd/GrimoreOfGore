@@ -278,59 +278,32 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void EbonyCataphract(SpellPreCastEvent event) {
+    public static void EbonyCataphractTackle(SpellPreCastEvent event) {
         var entity = event.getEntity();
         boolean hasEbonyEffect = entity.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT);
         if (entity instanceof ServerPlayer player && !player.level().isClientSide) {
             if (hasEbonyEffect) {
                 event.setCanceled(true);
-                int time = Objects.requireNonNull(player.getEffect(GGEffectRegistry.EBONY_CATAPHRACT)).getDuration();
-                String formattedTime = convertTicksToTime(time);
-                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "A white hot rage fills your mind, and you cannot cast for : " + formattedTime)
-                        .withStyle(s -> s.withColor(TextColor.fromRgb(3289650))), true);
-                player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                        SoundEvents.WARDEN_HEARTBEAT, SoundSource.PLAYERS, 0.3f, 1f);
+                GGSpellRegistry.CATAPHRACT_TACKLE.get().castSpell(event.getEntity().level(), 1, (ServerPlayer) player, CastSource.SPELLBOOK, true);
             }
         }
     }
 
     @SubscribeEvent
-    public static void EbonyCataphract(PlayerInteractEvent.RightClickItem event) {
+    public static void EbonyCataphractSlam(PlayerInteractEvent.RightClickBlock event) {
         var entity = event.getEntity();
         boolean hasEbonyEffect = entity.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT);
         if (entity instanceof ServerPlayer player && !player.level().isClientSide) {
             if (hasEbonyEffect) {
-                event.setCanceled(true);
-
-                int time = Objects.requireNonNull(player.getEffect(GGEffectRegistry.EBONY_CATAPHRACT)).getDuration();
-                String formattedTime = convertTicksToTime(time);
-                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "The Rage in your mind consumes you, you can't use this for: " + formattedTime)
-                        .withStyle(s -> s.withColor(TextColor.fromRgb(13111603))), true);
-                player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                        SoundEvents.WARDEN_HEARTBEAT, SoundSource.PLAYERS, 0.3f, 1f);
+                if (player.isCrouching()) {
+                    GGSpellRegistry.CATAPHRACT_HEAL.get().castSpell(event.getEntity().level(), 1, (ServerPlayer) player, CastSource.SPELLBOOK, true);
+                } else {
+                    GGSpellRegistry.CATAPHRACT_SLAM.get().castSpell(event.getEntity().level(), 1, (ServerPlayer) player, CastSource.SPELLBOOK, true);
+                }
             }
         }
     }
-
-
-
-    @SubscribeEvent
-    public static void EbonyCataphract(LivingDamageEvent.Pre event) {
-
-        var attacker = event.getSource().getDirectEntity();
-
-        if (attacker instanceof ServerPlayer player && !player.level().isClientSide) {
-            boolean hasEbonyEffect = player.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT);
-            if (hasEbonyEffect) {
-                player.addEffect(new MobEffectInstance(GGEffectRegistry.CATAPHRACT_TACKLE, 10));
-            }
-        }
-    } // GGSpellRegistry.CATAPHRACT_TACKLE.get().castSpell(event.getEntity().level(), 5, (ServerPlayer) attacker, CastSource.SCROLL, false);
-
-
-
-
-    //THANKS ACE!!!
+//THANKS ACE!!!
     public static String convertTicksToTime(int ticks) {
         // Convert ticks to seconds
         int totalSeconds = ticks / 20;

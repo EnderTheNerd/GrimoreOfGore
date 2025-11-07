@@ -18,9 +18,16 @@
  "effect.ess_requiem.cursed_immortality": "Cursed Immortality",
  "effect.ess_requiem.cursed_vow": "Cursed Vow",
  "effect.ess_requiem.ebony_cataphract": "Ebony Cataphract",
+ "effect.ess_requiem.cataphract_tackle": "Tackling",
+ "effect.ess_requiem.ability_cooldown": "Ability Cooldown",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
+
+
+ "spell.ess_requiem.cataphract_tackle": "Cataphract Tackle (CREATIVE ONLY)",
+ "spell.ess_requiem.cataphract_slam": "Cataphract Slam (CREATIVE ONLY)",
+
 
  "spell.ess_requiem.pact_of_the_dead": "Pact of the Dead",
  "spell.ess_requiem.pact_of_the_dead.guide": "A vile pact with an undead long dead. During the night, imbue your attacks with a violent and powerful rampage, and during the day, wither and burn for your atrocities.",
@@ -62,7 +69,8 @@
  "spell.ess_requiem.twilight_assault": "Twilight Assault",
  "spell.ess_requiem.twilight_assault.guide": "Mark targets, once all targets are marked, cloak yourself in invisibility and strike.",
  "spell.ess_requiem.ebony_cataphract": "Ebony Cataphract",
- "spell.ess_requiem.ebony_cataphract.guide": "Take on Ebony Plates filled with hatred upon your body, have your stats enhanced to the extreme, but forget how to cast spells, and use advanced weaponry (no right click). The evolved form of Ebony armor.",
+ "spell.ess_requiem.ebony_cataphract.guide": "Take on Ebony Plates filled with hatred upon your body, have your stats enhanced to the extreme. Instead of being able to cast spells, trying to cast spells will cause you to violently lunge forward, damaging what you hit. Trying to 'right click' will cause you to slam the ground violently",
+
 
  "spell.ess_requiem.glacial_sculpting": "Glacial Sculpting",
  "spell.ess_requiem.glacial.sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",
@@ -76,6 +84,7 @@
  "ui.ess_requiem.rampage_summon": "1 Rampage Summon",
  "ui.ess_requiem.summon_exploded": "Summon reduced to nothingness",
  "ui.enders_spells.marked_for_decay": "You've been marked for decay, rid yourself of the effect or suffer.",
+ "ui.ess_requiem.on_cooldown": "Ability is on Cooldown",
 
  "creativetab.ess_requiem.rotten_sickle": "ESS Requiem",
 

@@ -26,7 +26,7 @@ public class EbonyCataphractSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 32, 1)));
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 38, 1)));
 
     }
 
@@ -39,7 +39,7 @@ public class EbonyCataphractSpell extends AbstractSpell {
 
     public EbonyCataphractSpell() {
         this.manaCostPerLevel = 0;
-        this.baseSpellPower = 22;
+        this.baseSpellPower = 30;
         this.spellPowerPerLevel = 0;
         this.castTime = 0;
         this.baseManaCost = 500;
@@ -69,7 +69,7 @@ public class EbonyCataphractSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 32);
+        return (int) (getSpellPower(spellLevel, caster) * 38);
     }
 
     @Override
