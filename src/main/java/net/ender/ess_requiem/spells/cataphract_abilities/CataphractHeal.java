@@ -46,11 +46,11 @@ public class CataphractHeal extends AbstractSpell {
             .build();
 
     public CataphractHeal() {
-        this.manaCostPerLevel = 5;
+        this.manaCostPerLevel = 0;
         this.baseSpellPower = 1;
         this.spellPowerPerLevel = 1;
         this.castTime = 0;
-        this.baseManaCost = 30;
+        this.baseManaCost = 0;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class CataphractHeal extends AbstractSpell {
                 double theta = Math.toRadians(360 / count) * i;
                 x = Math.cos(theta) * radius;
                 z = Math.sin(theta) * radius;
-                entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 4));
+                entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 50, 4));
                 entity.addEffect(new MobEffectInstance(GGEffectRegistry.ABILITY_COOLDOWN, 650));
                 MagicManager.spawnParticles(world, GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), entity.position().x + x, entity.position().y, entity.position().z + z, 1, 0, 0, 0, 0.1, false);
             }

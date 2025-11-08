@@ -1,5 +1,14 @@
 {
   "textures": [
-    "ess_requiem:cataphract_star_1"
+    "ess_requiem:star_1",
+    "ess_requiem:star_2",
+    "ess_requiem:star_3",
+    "ess_requiem:star_4",
+    "ess_requiem:star_4",
+    "ess_requiem:star_5",
+    "ess_requiem:star_6",
+    "ess_requiem:star_7",
+    "ess_requiem:star_8",
+    "ess_requiem:star_9"
   ]
 }

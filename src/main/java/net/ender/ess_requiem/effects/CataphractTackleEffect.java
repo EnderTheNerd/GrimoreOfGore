@@ -1,5 +1,6 @@
 package net.ender.ess_requiem.effects;
 
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
@@ -7,6 +8,7 @@ import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import io.redspace.ironsspellbooks.mixin.LivingEntityAccessor;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
+import io.redspace.ironsspellbooks.registries.ParticleRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 
 import net.ender.ess_requiem.registries.GGParticleRegistry;
@@ -21,6 +23,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
 
 
 import java.util.List;
@@ -30,6 +33,7 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
     public CataphractTackleEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
+
 
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
@@ -43,7 +47,6 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
         if (!list.isEmpty()) {
             for (Entity entity : list) {
                 if (DamageSources.applyDamage(entity, amplifier, GGSpellRegistry.CATAPHRACT_TACKLE.get().getDamageSource(livingEntity))) {
-                    //Guarantee that the entity receives i-frames, since we are damaging every tick
                     entity.invulnerableTime = 20;
                     hit = true;
                     ignore = entity.getUUID();
@@ -58,7 +61,7 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
             hit = true;
         }
         if (hit) {
-            float explosionRadius = 4;
+            float explosionRadius = 3;
             var explosionRadiusSqr = explosionRadius * explosionRadius;
             var entities = level.getEntities(livingEntity, livingEntity.getBoundingBox().inflate(explosionRadius));
             Vec3 losPoint = Utils.raycastForBlock(level, livingEntity.position(), livingEntity.position().add(0, 1, 0), ClipContext.Fluid.NONE).getLocation();
@@ -66,7 +69,7 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
                 double distanceSqr = entity.distanceToSqr(livingEntity.position());
                 if (ignore != entity.getUUID() && distanceSqr < explosionRadiusSqr && entity.canBeHitByProjectile() && Utils.hasLineOfSight(level, losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
-                    float damage = 10;
+                    float damage = 10F;
                     DamageSources.applyDamage(entity, damage, GGSpellRegistry.CATAPHRACT_TACKLE.get().getDamageSource(livingEntity));
                 }
             }
@@ -76,14 +79,17 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
             var x = livingEntity.getX();
             var y = livingEntity.getY() + 1;
             var z = livingEntity.getZ();
-            MagicManager.spawnParticles(level, GGParticleRegistry.CATAPHRACT_SHARD_PARTICLE.get(), x, y, z, 25, .08, .08, .08, 0.3, false);
-            MagicManager.spawnParticles(level, new BlastwaveParticleOptions(GGSchoolRegistry.BLOOD.get().getTargetingColor(), explosionRadius), x, y + .15f + .165f, z, 1, 0, 0, 0, 0, true);
+            MagicManager.spawnParticles(level, ParticleHelper.BLOOD, x, y, z, 25, .08, .08, .08, 0.3, false);
+            MagicManager.spawnParticles(level, GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), x, y, z, 25, .08, .08, .08, 0.3, false);
+            MagicManager.spawnParticles(level, new BlastwaveParticleOptions(GGSchoolRegistry.BLOOD.get().getTargetingColor(), explosionRadius), x, y + .15f, z, 1, 0, 0, 0, 0, true);
             level.playSound(null, x, y, z, GGSoundRegistry.EBONY_CATAPHRACT_IMPACT, livingEntity.getSoundSource(), 4, 0.8f);
             return false;
         }
         livingEntity.fallDistance = 0;
         return true;
     }
+
+
 
     @Override
     public void clientTick(LivingEntity entity, MobEffectInstance instance) {
@@ -92,11 +98,8 @@ public class CataphractTackleEffect extends MagicMobEffect implements ISyncedMob
             Vec3 random = Utils.getRandomVec3(.2);
             level.addParticle(GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), entity.getRandomX(0.75), entity.getY() + Utils.getRandomScaled(0.75), entity.getRandomZ(0.75), random.x, random.y, random.z);
         }
-        for (int i = 0; i < 4; i++) {
-            Vec3 random = Utils.getRandomVec3(.2);
-            level.addParticle(GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), entity.getRandomX(0.75), entity.getY() + Utils.getRandomScaled(0.75), entity.getRandomZ(0.75), random.x, random.y, random.z);
-        }
     }
+
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {

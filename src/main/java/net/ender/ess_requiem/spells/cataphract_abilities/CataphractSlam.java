@@ -59,11 +59,11 @@ public class CataphractSlam extends AbstractSpell {
             .build();
 
     public CataphractSlam() {
-        this.manaCostPerLevel = 15;
+        this.manaCostPerLevel = 0;
         this.baseSpellPower = 8;
         this.spellPowerPerLevel = 3;
         this.castTime = 16;
-        this.baseManaCost = 30;
+        this.baseManaCost = 0;
     }
 
     @Override
