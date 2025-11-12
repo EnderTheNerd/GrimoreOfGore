@@ -119,6 +119,7 @@ public class CataphractSlam extends AbstractSpell {
             MagicManager.spawnParticles(level, new BlastwaveParticleOptions(SchoolRegistry.BLOOD.get().getTargetingColor(), radius * 2),
                     particleLocation.x, particleLocation.y, particleLocation.z, 1, 0, 0, 0, 0, true);
             MagicManager.spawnParticles(level, ParticleHelper.BLOOD, particleLocation.x, particleLocation.y, particleLocation.z, 50, 0, 0, 0, 1, false);
+            MagicManager.spawnParticles(level, ParticleTypes.ELECTRIC_SPARK, particleLocation.x, particleLocation.y, particleLocation.z, 50, 0, 0, 0, 1, false);
             MagicManager.spawnParticles(level, GGParticleRegistry.CATAPHRACT_STAR_ONE_PARTICLE.get(), particleLocation.x, particleLocation.y, particleLocation.z, 50, 0, 0, 0, 1, false);
             var entities = level.getEntities(entity, AABB.ofSize(smiteLocation, radius * 2, radius * 4, radius * 2));
             var damageSource = this.getDamageSource(entity);
@@ -164,6 +165,21 @@ public class CataphractSlam extends AbstractSpell {
     @Override
     public AnimationHolder getCastFinishAnimation() {
         return AnimationHolder.pass();
+    }
+
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        return false;
+    }
+
+    @Override
+    public boolean allowCrafting() {
+        return false;
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return false;
     }
 }
 

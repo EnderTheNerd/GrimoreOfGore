@@ -17,6 +17,7 @@ import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.spells.eldritch.SculkTentaclesSpell;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ArmOfDecay;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ScytheOfRottenDreams;
+import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.MidnightEmbrace;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
 
@@ -47,6 +48,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
@@ -63,12 +65,17 @@ public class ModEvents {
             ItemStack mainhandItem = ((LivingEntity) serverPlayer).getMainHandItem();
 
             if (serverPlayer.hasEffect(GGEffectRegistry.EBONY_CATAPHRACT)) {
-                if (mainhandItem.getItem() instanceof ScytheOfRottenDreams) {
-                    serverPlayer.getInventory().setItem(serverPlayer.getInventory().selected, new ItemStack(GGItemRegistry.ARM_OF_DECAY.get()));
-                }
-            }
+                if (mainhandItem.getItem() instanceof MidnightEmbrace) {
+                    serverPlayer.getInventory().setItem(serverPlayer.getInventory().selected, new ItemStack(GGItemRegistry.BROKEN_PROMISE.get()));
+                    serverPlayer.level().playSound(null, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), GGSoundRegistry.MIDNIGHT_EMBRACE_GLASS_SHATTER, SoundSource.NEUTRAL, .8F, 1.3F);
+                    serverPlayer.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "Your sword shatters as if it was made of glass.")
+                                .withStyle(s -> s.withColor(TextColor.fromRgb(10032177))), true);
 
+                }
+
+            }
         }
+
     }
 
     @SubscribeEvent
@@ -85,12 +92,54 @@ public class ModEvents {
     }
 
     @SubscribeEvent
+    public static void VeilAttack(LivingDamageEvent.Pre event) {
+        var attacker = event.getSource().getDirectEntity();
+        if (attacker instanceof ServerPlayer livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.NIGHT_VEIL) && isUnderMoonTick(attacker.level(), (LivingEntity) attacker) && livingAttacker.hasEffect(MobEffectRegistry.TRUE_INVISIBILITY)) {
+            event.setNewDamage(event.getOriginalDamage() * 2.5F);
+        }
+    }
+
+
+
+    @SubscribeEvent
     public static void PactAttackNight(LivingDamageEvent.Post event) {
         var attacker = event.getSource().getDirectEntity();
         if (attacker instanceof ServerPlayer livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.UNDEAD_PACT) && isUnderMoonTick(attacker.level(), (LivingEntity) attacker)) {
             livingAttacker.addEffect(new MobEffectInstance(GGEffectRegistry.UNDEAD_RAMPAGE, 60, 0));
         }
     }
+
+    @SubscribeEvent
+    public static void Damned(LivingDamageEvent.Pre event) {
+        var attacker = event.getSource().getDirectEntity();
+        if (attacker instanceof ServerPlayer livingAttacker && livingAttacker.hasEffect(GGEffectRegistry.DAMNED)) {
+            MagicData magicData = MagicData.getPlayerMagicData(livingAttacker);
+            if (magicData.getMana() < 100) {
+             event.setNewDamage(0);
+            }
+            magicData.setMana(magicData.getMana() - 25);
+        }
+    }
+
+
+
+    @SubscribeEvent
+    public static void BastionOfLight(LivingIncomingDamageEvent event) {
+        var livingEntity = event.getEntity();
+        if (livingEntity instanceof ServerPlayer player && player.hasEffect(GGEffectRegistry.BASTION_OF_LIGHT)) {
+            MagicData magicData = MagicData.getPlayerMagicData(livingEntity);
+            if (magicData.getMana() > 250) {
+               event.setCanceled(true);
+                livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundRegistry.CLEANSE_CAST, SoundSource.NEUTRAL, .8F, 1.3F);
+                magicData.setMana(magicData.getMana() - 100);
+            }
+            else {
+                event.setCanceled(false);
+            }
+
+        }
+    }
+
 
 
 
@@ -164,15 +213,13 @@ public class ModEvents {
 
     private static boolean isUnderMoonTick(Level level, LivingEntity entity) {
         if (level.isNight() && !level.isClientSide) {
-            if ( level.isNight()) {
-                return true;
-            }
+            return level.isNight();
+        }
+        else {
+            return false;
         }
 
-        return false;
     }
-
-
     @SubscribeEvent
     public static void Reaper(LivingDeathEvent event) {
 
@@ -181,7 +228,7 @@ public class ModEvents {
                 MagicData magicData = MagicData.getPlayerMagicData(player);
 
                 if (player.hasEffect(GGEffectRegistry.REAPER) && magicData.getMana() > 100) {
-                    magicData.setMana(magicData.getMana() + 50);
+                    magicData.setMana(magicData.getMana() + 150);
                 }
                 player.addEffect(new MobEffectInstance(MobEffects.HEAL, 1));
 
@@ -269,7 +316,7 @@ public class ModEvents {
                 event.setCanceled(true);
                 int time = Objects.requireNonNull(player.getEffect(GGEffectRegistry.EBONY_ARMOR)).getDuration();
                 String formattedTime = convertTicksToTime(time);
-                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "Your body trembles, and your spells do not work. Keep attacking for : " + formattedTime)
+                player.displayClientMessage(Component.literal(ChatFormatting.BOLD + "Your body trembles, and your spells do not work for : " + formattedTime)
                         .withStyle(s -> s.withColor(TextColor.fromRgb(3289650))), true);
                 player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
                         SoundEvents.WITHER_HURT, SoundSource.PLAYERS, 0.3f, 1f);

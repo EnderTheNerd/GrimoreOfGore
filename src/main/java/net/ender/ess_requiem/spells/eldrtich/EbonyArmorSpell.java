@@ -39,8 +39,8 @@ public class EbonyArmorSpell extends AbstractSpell {
 
     public EbonyArmorSpell() {
         this.manaCostPerLevel = 25;
-        this.baseSpellPower = 10;
-        this.spellPowerPerLevel = 2;
+        this.baseSpellPower = 15;
+        this.spellPowerPerLevel = 3;
         this.castTime = 0;
         this.baseManaCost = 200;
     }

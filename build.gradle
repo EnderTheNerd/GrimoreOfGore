@@ -145,7 +145,7 @@ configurations {
 
 dependencies {
     // ISS ***************************************************************************************************
-    implementation "curse.maven:irons-spells-n-spellbooks-855414:6834357"
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:7114204"
 
 
 

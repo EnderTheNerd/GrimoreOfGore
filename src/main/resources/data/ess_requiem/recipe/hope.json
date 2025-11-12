@@ -1,0 +1,35 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "ess_requiem:fragment_of_clarity"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:divine_pearl"
+    },
+    "C": {
+      "item": "minecraft:gold_ingot"
+    },
+    "D": {
+      "item": "ess_requiem:broken_promise"
+    },
+    "E": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+
+    "BCA",
+    "EDC",
+    "EEB"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:hope"
+  }
+}

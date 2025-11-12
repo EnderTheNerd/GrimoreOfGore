@@ -1,0 +1,37 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:arcane_ingot"
+    },
+
+    "B": {
+      "item": "minecraft:polished_deepslate"
+    },
+
+    "C": {
+      "item": "minecraft:stick"
+    },
+
+    "D": {
+      "item": "minecraft:echo_shard"
+    },
+    "E": {
+      "item": "minecraft:red_wool"
+    }
+  },
+  "pattern": [
+
+    "  B",
+    "ABD",
+    "CE "
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:dark_whisper"
+  }
+}

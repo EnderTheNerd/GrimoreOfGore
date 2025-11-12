@@ -55,11 +55,12 @@ public class PaleFlameSpell extends AbstractSpell {
 
     public PaleFlameSpell() {
         this.manaCostPerLevel = 15;
-        this.baseSpellPower = 38;
+        this.baseSpellPower = 20;
         this.spellPowerPerLevel = 5;
         this.castTime = 10;
         this.baseManaCost = 120;
     }
+
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
@@ -104,9 +105,42 @@ public class PaleFlameSpell extends AbstractSpell {
         final float MAX_HEALTH = entity.getMaxHealth();
         float baseHealth = entity.getHealth();
         double percent = (baseHealth / MAX_HEALTH) * 100;
-        int i = getDuration(baseSpellPower, entity)/2;
-        if (percent <= 100) {
+        if (percent <= 40) {
             float radius = 3.25f;
+            float distance = 1.9f;
+            Vec3 forward = entity.getForward();
+            Vec3 hitLocation = entity.position().add(0, entity.getBbHeight() * .3f, 0).add(forward.scale(distance));
+            var entities = level.getEntities(entity, AABB.ofSize(hitLocation, radius * 2, radius, radius * 2));
+            var damageSource = this.getDamageSource(entity);
+            for (
+
+                    Entity targetEntity : entities) {
+                if (targetEntity instanceof LivingEntity && targetEntity.isAlive() && entity.isPickable() && targetEntity.position().subtract(entity.getEyePosition()).dot(forward) >= 0 && entity.distanceToSqr(targetEntity) < radius * radius && Utils.hasLineOfSight(level, entity.getEyePosition(), targetEntity.getBoundingBox().getCenter(), true)) {
+                    Vec3 offsetVector = targetEntity.getBoundingBox().getCenter().subtract(entity.getEyePosition());
+                    if (offsetVector.dot(forward) >= 0) {
+                        if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity) * 2, damageSource)) {
+                            ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.GLOWING, 120, 1));
+                            ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 1));
+                            EnchantmentHelper.doPostAttackEffects((ServerLevel) level, targetEntity, damageSource);
+                            entity.addEffect(new MobEffectInstance(MobEffectRegistry.ABYSSAL_SHROUD, 50));
+                        }
+                    }
+                }
+            }
+            boolean mirrored = playerMagicData.getCastingEquipmentSlot().equals(SpellSelectionManager.OFFHAND);
+            PaleFlame pale = new PaleFlame(level, mirrored); {
+            pale.setDamage(getDamage(spellLevel, entity) * 2);}
+            pale.moveTo(hitLocation);
+            pale.setYRot(entity.getYRot());
+            pale.setXRot(entity.getXRot());
+            level.addFreshEntity(pale);
+            level.getEntities(entity, entity.getBoundingBox().inflate(radius, 4, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
+                super.onCast(level, spellLevel, entity, castSource, playerMagicData);
+
+            });
+
+        }
+       else {  float radius = 3.25f;
             float distance = 1.9f;
             Vec3 forward = entity.getForward();
             Vec3 hitLocation = entity.position().add(0, entity.getBbHeight() * .3f, 0).add(forward.scale(distance));
@@ -128,30 +162,24 @@ public class PaleFlameSpell extends AbstractSpell {
                 }
             }
             boolean mirrored = playerMagicData.getCastingEquipmentSlot().equals(SpellSelectionManager.OFFHAND);
-            PaleFlame pale = new PaleFlame(level, mirrored);
-            if (percent <= 40) {pale.setDamage(getDamage(spellLevel, entity) * 2);}
+            PaleFlame pale = new PaleFlame(level, mirrored); {
+                pale.setDamage(getDamage(spellLevel, entity) * 2);}
             pale.moveTo(hitLocation);
             pale.setYRot(entity.getYRot());
             pale.setXRot(entity.getXRot());
             level.addFreshEntity(pale);
             level.getEntities(entity, entity.getBoundingBox().inflate(radius, 4, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
-
-
                 super.onCast(level, spellLevel, entity, castSource, playerMagicData);
 
             });
 
         }
 
-
     }
-
-
 
     private float getDamage(int spellLevel, LivingEntity entity) {
         return getSpellPower(spellLevel, entity) + getWeaponDamage(entity);
     }
-
 
     private float getWeaponDamage(LivingEntity entity) {
         if (entity == null) {
@@ -165,7 +193,6 @@ public class PaleFlameSpell extends AbstractSpell {
         return weaponDamage;
     }
 
-
     private String getDamageText(int spellLevel, LivingEntity entity) {
         if (entity != null) {
             float weaponDamage = Utils.getWeaponDamage(entity);
@@ -178,7 +205,6 @@ public class PaleFlameSpell extends AbstractSpell {
         }
         return "" + getSpellPower(spellLevel, entity);
     }
-
 
     public int getDuration(int spellLevel, LivingEntity caster) {
         return (int) (getSpellPower(spellLevel, caster) * 25);

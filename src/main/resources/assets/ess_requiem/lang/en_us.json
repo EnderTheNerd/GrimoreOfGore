@@ -20,6 +20,8 @@
  "effect.ess_requiem.ebony_cataphract": "Ebony Cataphract",
  "effect.ess_requiem.cataphract_tackle": "Tackling",
  "effect.ess_requiem.ability_cooldown": "Ability Cooldown",
+ "effect.ess_requiem.night_veil": "Night Veil",
+ "effect.ess_requiem.damned": "Damned",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -27,6 +29,7 @@
 
  "spell.ess_requiem.cataphract_tackle": "Cataphract Tackle (CREATIVE ONLY)",
  "spell.ess_requiem.cataphract_slam": "Cataphract Slam (CREATIVE ONLY)",
+ "spell.ess_requiem.cataphract_heal": "Cataphract Heal (CREATIVE ONLY)",
 
 
  "spell.ess_requiem.pact_of_the_dead": "Pact of the Dead",
@@ -69,13 +72,22 @@
  "spell.ess_requiem.twilight_assault": "Twilight Assault",
  "spell.ess_requiem.twilight_assault.guide": "Mark targets, once all targets are marked, cloak yourself in invisibility and strike.",
  "spell.ess_requiem.ebony_cataphract": "Ebony Cataphract",
- "spell.ess_requiem.ebony_cataphract.guide": "Take on Ebony Plates filled with hatred upon your body, have your stats enhanced to the extreme. Instead of being able to cast spells, trying to cast spells will cause you to violently lunge forward, damaging what you hit. Trying to 'right click' will cause you to slam the ground violently",
+ "spell.ess_requiem.ebony_cataphract.guide": "Take on Ebony Plates filled with hatred upon your body, have your stats enhanced to the extreme. Instead of being able to cast spells, trying to cast spells will cause you to violently lunge forward, damaging what you hit. Trying to 'right click' will cause you to slam the ground violently, sneaking and 'right clicking' causes you to rapidly heal",
+ "spell.ess_requiem.nights_cover": "Under the Veil of Night",
+ "spell.ess_requiem.nights_cover.guide": "Can only be cast at night. Mark multiple targets to be struck by pale flames, and beat by tentacles. When target are struck, emit a smokescreen and gain invisibility, for a short while after, all attacks dealt while under true invisibility deal 2.5x damage. The Evolved form of Twilight Assault",
+ "spell.ess_requiem.damnation": "Damnation of the Black Flame",
+ "spell.ess_requiem.damnation.guide": "Charge up a swing, and mark a spherical radius around yourself. Once the windup is complete, hurt everything in the sphere for 1/2 of the main damage, and anything hit by the black flames for the full damage. Entities who get hit are inflicted with damned, making all attacks cost mana.",
 
 
  "spell.ess_requiem.glacial_sculpting": "Glacial Sculpting",
- "spell.ess_requiem.glacial.sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",
+ "spell.ess_requiem.glacial_sculpting.guide": "Crush a summon with a glacial statue, exploding them, and leaving a frozen statue behind.",
  "spell.ess_requiem.lord_of_the_final_frost": "Lord of the Final Frost",
- "spell.ess_requiem.lord_of_the_fina_frost.guide": "A frozen version of decaying will. They say a frozen Queen of the North created it. Summons who die violently explode in ice.",
+ "spell.ess_requiem.lord_of_the_final_frost.guide": "A frozen version of decaying will. They say a frozen Queen of the North created it. Summons who die violently explode in ice.",
+
+ "spell.ess_requiem.bastion_of_light": "Bastion of Light",
+ "spell.ess_requiem.bastion_of_light.guide": "Become Light itself, attacks phasing through your body like nothing. Although each would be attack spends hefty mana to block, and if you drop below 250 mana, the effect stops working.",
+ "spell.ess_requiem.overwhelming_light": "Overwhelming Light",
+ "spell.ess_requiem.overwhelming_light.guide": "Overwhelm targets with light, striking multiple targets down with powerful sunbeams, and chasing them down with powerful wisps. Can only be cast during the day.",
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
@@ -85,6 +97,8 @@
  "ui.ess_requiem.summon_exploded": "Summon reduced to nothingness",
  "ui.enders_spells.marked_for_decay": "You've been marked for decay, rid yourself of the effect or suffer.",
  "ui.ess_requiem.on_cooldown": "Ability is on Cooldown",
+ "ui.ess_requiem.not_night": "It is not night time.",
+ "ui.ess_requiem.not_day": "It is not day time",
 
  "creativetab.ess_requiem.rotten_sickle": "ESS Requiem",
 
@@ -92,9 +106,18 @@
  "item.ess_requiem.whispering_harvester": "Whispering Harvester",
  "item.ess_requiem.scythe_of_rotten_dreams": "Scythe of Rotten Dreams",
  "item.ess_requiem.scythe_of_frozen_dreams": "Scythe of Frozen Dreams",
+ "item.ess_requiem.arm_of_decay": "Arm of Decay",
  "item.ess_requiem.nameless_ring": "Nameless Ring",
  "item.ess_requiem.nameless_ring.desc": "The ring of an unnamed king. You feel the power of decay within.",
- "item.ess_requiem.arm_of_decay": "Arm of Decay",
+ "item.ess_requiem.cataphract_ring": "Cataphract Ring",
+ "item.ess_requiem.cataphract_ring.desc": "A thorny red ring imbued with hate. They say the strength you receive from it would allow you to shatter blades even as thick as the Midnight Embrace.",
+ "item.ess_requiem.dark_whisper": "Dark Whisper",
+ "item.ess_requiem.midnight_embrace": "Midnight Embrace",
+ "item.ess_requiem.broken_promise": "Broken Promise",
+ "item.ess_requiem.inevitability": "Inevitability",
+ "item.ess_requiem.hope": "Hope",
+
+
  "item.ess_requiem.fragment_of_clarity": "Fragment of Clarity",
  "item.ess_requiem.completed_clarity": "Completed Clarity",
 
@@ -106,7 +129,16 @@
  "death.attack.ess_requiem.skull_mass": "%1$s was reduced to a pile of bone meal by %2$s's skull mass",
  "death.attack.ess_requiem.decaying_will": "%1$s felt the might of %2$s's decaying power",
  "death.attack.ess_requiem.claw": "%1$s was ripped apart by %2$s",
- "death.attack.ess_requiem.bone_claw": "%1$s was ripped into tiny small pieces by %2$s",
+ "death.attack.ess_requiem.bone_claw": "%1$s was ripped into tiny pieces by %2$s",
+ "death.attack.ess_requiem.overwhelming_light": "%1$s was reduced to photons %2$s",
+ "death.attack.ess_requiem.pale_flame": "%1$s had their soul burned by %2$s",
+ "death.attack.ess_requiem.spikes_of_agony": "%1$s was agonizingly impaled by %2$s",
+ "death.attack.ess_requiem.twilight_assault": "%1$s cut in half in the dark by %2$s",
+ "death.attack.ess_requiem.nights_cover": "%1$s ripped to nothingness in the dark by %2$s",
+ "death.attack.ess_requiem.damnation": "%1$s was faced with inevitability by %2$s",
+ "death.attack.ess_requiem.cataphract_tackle": "%1$s tackled into the ground by %2$s",
+ "death.attack.ess_requiem.cataphract_slam": "%1$s had their face smashed in by %2$s",
+
 
  "school.ess_requiem.mind": "Mind"
 }

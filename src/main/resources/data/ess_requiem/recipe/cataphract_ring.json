@@ -1,0 +1,35 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:cooldown_ring"
+    },
+
+    "B": {
+      "item": "minecraft:redstone_block"
+    },
+
+    "C": {
+      "item": "irons_spellbooks:mithril_ingot"
+    },
+
+    "D": {
+      "item": "minecraft:redstone"
+    }
+
+  },
+  "pattern": [
+
+    "BDB",
+    "CAC",
+    "BDB"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:cataphract_ring"
+  }
+}

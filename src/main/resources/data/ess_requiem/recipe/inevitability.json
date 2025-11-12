@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "ess_requiem:completed_clarity"
+  },
+  "base": {
+    "item": "ess_requiem:broken_promise"
+  },
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:inevitability"
+  },
+  "template": {
+    "item": "minecraft:echo_shard"
+  }
+}

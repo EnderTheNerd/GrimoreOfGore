@@ -1,0 +1,35 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:deepslate_mithril_ore"
+    },
+
+    "B": {
+      "item": "minecraft:polished_deepslate"
+    },
+
+    "C": {
+      "item": "minecraft:echo_shard"
+    },
+
+    "D": {
+      "item": "ess_requiem:dark_whisper"
+    }
+
+  },
+  "pattern": [
+
+    "BCB",
+    "ABC",
+    "DAB"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:midnight_embrace"
+  }
+}

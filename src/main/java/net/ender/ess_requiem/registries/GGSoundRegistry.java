@@ -35,6 +35,12 @@ public class GGSoundRegistry {
 
     public static DeferredHolder<SoundEvent, SoundEvent> EBONY_CATAPHRACT_IMPACT = registerSoundEvent("ebony_cataphract_impact");
 
+    public static DeferredHolder<SoundEvent, SoundEvent> MIDNIGHT_EMBRACE_GLASS_SHATTER = registerSoundEvent("midnight_embrace_shatter_glass");
+
+    public static DeferredHolder<SoundEvent, SoundEvent> BLACK_FLAME_WINDUP = registerSoundEvent("black_flame_windup");
+
+    public static DeferredHolder<SoundEvent, SoundEvent> BLACK_FLAME_FINISH = registerSoundEvent("black_flame_finish");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
         return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent

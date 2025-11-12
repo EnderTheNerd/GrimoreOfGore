@@ -32,7 +32,9 @@ public class EternalBattlefieldSpell extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.radius", getRadius(spellLevel, caster)));
+        return List.of(
+                Component.translatable("ui.irons_spellbooks.radius", getRadius(spellLevel, caster)),
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster) * 40, 1)));
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()

@@ -2,6 +2,7 @@ package net.ender.ess_requiem.registries;
 
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.AutoSpellConfig;
+import io.redspace.ironsspellbooks.spells.lightning.BallLightningSpell;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
 import net.ender.ess_requiem.spells.blood.*;
@@ -12,7 +13,11 @@ import net.ender.ess_requiem.spells.cataphract_abilities.CataphractHeal;
 import net.ender.ess_requiem.spells.cataphract_abilities.CataphractSlam;
 import net.ender.ess_requiem.spells.eldrtich.*;
 import net.ender.ess_requiem.spells.cataphract_abilities.CataphractTackle;
+import net.ender.ess_requiem.spells.eldrtich.uncraftable.DamnationSpell;
 import net.ender.ess_requiem.spells.eldrtich.uncraftable.EbonyCataphractSpell;
+import net.ender.ess_requiem.spells.eldrtich.uncraftable.UnderTheCoverOfNightSpell;
+import net.ender.ess_requiem.spells.holy.uncraftable.BastionOfLightSpell;
+import net.ender.ess_requiem.spells.holy.uncraftable.OverwhelmingLightSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.LordOfTheFinalFrostSpell;
 import net.neoforged.bus.api.IEventBus;
@@ -57,12 +62,16 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> PALE_FLAME = registerSpell(new PaleFlameSpell());
     public static final Supplier <AbstractSpell> CURSED_IMMORTALITY = registerSpell(new CursedImmortalitySpell());
     public static final Supplier <AbstractSpell> ETERNAL_BATTLEFIELD = registerSpell(new EternalBattlefieldSpell());
-    public static final Supplier <AbstractSpell> TENTACLE_WHIRL = registerSpell(new TwilightAssaultSpell());
+    public static final Supplier <AbstractSpell> TWILIGHT_ASSAULT = registerSpell(new TwilightAssaultSpell());
 
     //UNCRAFTABLE ELDRITCH
     public static final Supplier <AbstractSpell> EBONY_CATAPHRACT = registerSpell(new EbonyCataphractSpell());
+    public static final Supplier <AbstractSpell> NIGHT_VEIL = registerSpell(new UnderTheCoverOfNightSpell());
+    public static final Supplier <AbstractSpell> DAMNATION = registerSpell(new DamnationSpell());
 
-
+    //UNCRAFTABLE HOLY
+    public static final Supplier<AbstractSpell> BASTION_OF_LIGHT = registerSpell(new BastionOfLightSpell());
+    public static final Supplier<AbstractSpell> OVERWHELMING_LIGHT = registerSpell(new OverwhelmingLightSpell());
 
     //UNCRAFTABLE ICE
     public static final Supplier <AbstractSpell> GLACIAL_SCULPTING = registerSpell(new GlacialStatueSpell());

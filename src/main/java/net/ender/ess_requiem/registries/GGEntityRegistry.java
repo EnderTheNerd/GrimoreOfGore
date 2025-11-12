@@ -4,6 +4,9 @@ import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
 import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullEntity;
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassEntity;
+import net.ender.ess_requiem.entity.spells.black_flame.BlackFlameLarge;
+import net.ender.ess_requiem.entity.spells.black_flame.BlackFlameMedium;
+import net.ender.ess_requiem.entity.spells.black_flame.BlackFlameNormal;
 import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearEntity;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntity;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
@@ -79,6 +82,23 @@ public class GGEntityRegistry {
                     .clientTrackingRange(64)
                     .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "pale_flame").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<BlackFlameNormal>> BLACK_FLAME_REGULAR =
+            ENTITIES.register("black_flame_normal", () -> EntityType.Builder.<BlackFlameNormal>of(BlackFlameNormal::new, MobCategory.MISC)
+                    .sized(5f, 1f)
+                    .clientTrackingRange(64)
+                    .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "black_flame_normal").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BlackFlameMedium>> BLACK_FLAME_MEDIUM =
+            ENTITIES.register("black_flame_medium", () -> EntityType.Builder.<BlackFlameMedium>of(BlackFlameMedium::new, MobCategory.MISC)
+                    .sized(7f, 1f)
+                    .clientTrackingRange(64)
+                    .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "black_flame_medium").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BlackFlameLarge>> BLACK_FLAME_LARGE =
+            ENTITIES.register("black_flame_large", () -> EntityType.Builder.<BlackFlameLarge>of(BlackFlameLarge::new, MobCategory.MISC)
+                    .sized(12f, 1f)
+                    .clientTrackingRange(64)
+                    .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "black_flame_large").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<EternalBattlefield>> ETERNAL_BATTLEFIELD =
             ENTITIES.register("eternal_battlefield", () -> EntityType.Builder.<EternalBattlefield>of(EternalBattlefield::new, MobCategory.MISC)

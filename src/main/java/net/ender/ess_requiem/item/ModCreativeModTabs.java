@@ -33,6 +33,13 @@ public class ModCreativeModTabs {
                         output.accept(GGItemRegistry.SCYTHE_OF_FROZEN_DREAMS);
                         output.accept(GGItemRegistry.ARM_OF_DECAY);
                         output.accept(GGItemRegistry.NAMELESS_RING_CURIO);
+                        output.accept(GGItemRegistry.CATAPHRACT_RING_CURIO);
+                        output.accept(GGItemRegistry.DARK_WHISPER);
+                        output.accept(GGItemRegistry.MIDNIGHT_EMBRACE);
+                        output.accept(GGItemRegistry.BROKEN_PROMISE);
+                        output.accept(GGItemRegistry.HOPE);
+                        output.accept(GGItemRegistry.INEVITABILITY);
+
 
                     })
 

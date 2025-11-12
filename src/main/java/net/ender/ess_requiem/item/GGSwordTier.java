@@ -1,5 +1,6 @@
 package net.ender.ess_requiem.item;
 
+import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.function.Supplier;
 
@@ -53,10 +55,33 @@ public class GGSwordTier implements Tier, IronsWeaponTier {
 
 
 
+   //ELDRITCH
+   public static ExtendedWeaponTier DARK_WHISPER = new ExtendedWeaponTier(450, 4f, -2.1f, 15,
+           BlockTags.INCORRECT_FOR_IRON_TOOL,
+           () -> Ingredient.of(Items.POLISHED_DEEPSLATE),
+           new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+   public static ExtendedWeaponTier MIDNIGHT_WHISPER = new ExtendedWeaponTier(630, 6f, -2.3f, 20,
+            BlockTags.INCORRECT_FOR_IRON_TOOL,
+            () -> Ingredient.of(Items.POLISHED_DEEPSLATE),
+            new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ExtendedWeaponTier BROKEN_PROMISE = new ExtendedWeaponTier(2400, 11f, -2.6f, 15,
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            () -> Ingredient.of(Items.POLISHED_DEEPSLATE),
+            new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ExtendedWeaponTier INEVITABILITY = new ExtendedWeaponTier(3400, 13f, -2.5f, 15,
+            BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
+            () -> Ingredient.of(Items.POLISHED_DEEPSLATE),
+            new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ALObjects.Attributes.ARMOR_PIERCE, .10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    //HOLY
+    public static ExtendedWeaponTier HOPE = new ExtendedWeaponTier(2600, 10f, -2.7f, 30,
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            () -> Ingredient.of(ItemRegistry.DIVINE_PEARL.get()),
+            new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     int uses;
     float damage;

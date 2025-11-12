@@ -6,6 +6,7 @@ import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullModel;
 import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullRenderer;
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassModel;
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassRenderer;
+import net.ender.ess_requiem.entity.spells.black_flame.BlackFlameRenderer;
 import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearModel;
 import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
@@ -29,6 +30,9 @@ public class ClientSetup {
     public static void rendererRegister(EntityRenderersEvent.RegisterRenderers event ) {
 
         event.registerEntityRenderer(GGEntityRegistry.PALE_FLAME.get(), PaleFlameRenderer::new);
+        event.registerEntityRenderer(GGEntityRegistry.BLACK_FLAME_REGULAR.get(), BlackFlameRenderer::new);
+        event.registerEntityRenderer(GGEntityRegistry.BLACK_FLAME_MEDIUM.get(), BlackFlameRenderer::new);
+        event.registerEntityRenderer(GGEntityRegistry.BLACK_FLAME_LARGE.get(), BlackFlameRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.CLAW_ENTITY.get(), ClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.BONE_CLAW_ENTITY.get(), BoneClawEntityRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.WRETCH_BREATH_PROJECTILE.get(), NoopRenderer::new);
@@ -37,6 +41,7 @@ public class ClientSetup {
         event.registerEntityRenderer(GGEntityRegistry.HOPPING_SKULL.get(), context -> {return new HoppingSkullRenderer(context, new HoppingSkullModel());});
         event.registerEntityRenderer(GGEntityRegistry.SKULL_MASS.get(), context -> {return new SkullMassRenderer(context, new SkullMassModel());});
         event.registerEntityRenderer(GGEntityRegistry.BONE_SPEAR.get(), context -> {return new BoneSpearRenderer(context, new BoneSpearModel());});
+
     }
 
     @SubscribeEvent

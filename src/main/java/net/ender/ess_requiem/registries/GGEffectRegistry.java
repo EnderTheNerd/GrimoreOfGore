@@ -71,6 +71,18 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> CATAPHRACT_TACKLE = MOB_EFFECT_DEFERRED_REGISTER.register("cataphract_tackle",
             ()-> new CataphractTackleEffect(MobEffectCategory.BENEFICIAL, 13111603));
 
+    public static final DeferredHolder<MobEffect, MobEffect> NIGHT_VEIL = MOB_EFFECT_DEFERRED_REGISTER.register("night_veil",
+            ()-> new NightVeilEffect(MobEffectCategory.BENEFICIAL, 2632510));
+
+
+    //DAMN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public static final DeferredHolder<MobEffect, MobEffect> DAMNED = MOB_EFFECT_DEFERRED_REGISTER.register("damned",
+        ()-> new DamnationEffect(MobEffectCategory.HARMFUL, 526604));
+
+    //HOLY EFFECTS
+    public static final DeferredHolder<MobEffect, MobEffect> BASTION_OF_LIGHT = MOB_EFFECT_DEFERRED_REGISTER.register("bastion_of_light",
+            ()-> new BastionOfLightEffect(MobEffectCategory.BENEFICIAL, 15118905));
+
 
     //ICE EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> LORD_OF_FROST = MOB_EFFECT_DEFERRED_REGISTER.register("lord_of_frost",

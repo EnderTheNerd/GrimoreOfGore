@@ -61,5 +61,23 @@
     "sounds": [
       "ess_requiem:ebony_cataphract_impact"
     ]
+  },
+  "midnight_embrace_shatter_glass": {
+    "subtitle": "sounds.ess_requiem.midnight_sword_shatter",
+    "sounds": [
+      "ess_requiem:midnight_embrace_shatter_glass"
+    ]
+  },
+  "black_flame_windup": {
+    "subtitle": "sounds.ess_requiem.black_flame_windup",
+    "sounds": [
+      "ess_requiem:black_flame_windup"
+    ]
+  },
+  "black_flame_finish": {
+    "subtitle": "sounds.ess_requiem.black_flame_finish",
+    "sounds": [
+      "ess_requiem:black_flame_finish"
+    ]
   }
 }
