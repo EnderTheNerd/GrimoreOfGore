@@ -79,5 +79,11 @@
     "sounds": [
       "ess_requiem:black_flame_finish"
     ]
+  },
+  "parry": {
+    "subtitle": "sounds.ess_requiem.parry",
+    "sounds": [
+      "ess_requiem:parry"
+    ]
   }
 }

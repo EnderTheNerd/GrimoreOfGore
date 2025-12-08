@@ -145,9 +145,7 @@ configurations {
 
 dependencies {
     // ISS ***************************************************************************************************
-    implementation "curse.maven:irons-spells-n-spellbooks-855414:7114204"
-
-
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:7271541"
 
     //NEAT
     implementation "curse.maven:neat-238372:5838045"
@@ -167,7 +165,7 @@ dependencies {
     implementation "curse.maven:placebo-283644:6446766"
 
     //ACE
-    implementation "curse.maven:aces-spell-utils-1299492:6999813"
+    implementation "curse.maven:aces-spell-utils-1299492:7196103"
 
     //BIG MAN GAMETECH
     implementation "curse.maven:gtbcs-spelllib-1194714:6164512"

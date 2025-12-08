@@ -7,5 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class GGTags {
-    public static final TagKey<Item> MIND_FOCUS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "mind_focus"));
+    public static final TagKey<Item> BLADE_FOCUS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "blade_focus"));
+    public static final TagKey<Item> DIVINE_FOCUS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "divine_focus"));
 }

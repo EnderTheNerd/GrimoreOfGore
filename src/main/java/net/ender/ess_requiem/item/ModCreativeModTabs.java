@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -39,6 +40,11 @@ public class ModCreativeModTabs {
                         output.accept(GGItemRegistry.BROKEN_PROMISE);
                         output.accept(GGItemRegistry.HOPE);
                         output.accept(GGItemRegistry.INEVITABILITY);
+                        output.accept((ItemLike) GGItemRegistry.BLADEMASTER_HELMET);
+                        output.accept((ItemLike) GGItemRegistry.BLADEMASTER_CHESTPLATE);
+                        output.accept((ItemLike) GGItemRegistry.BLADEMASTER_LEGGINGS);
+                        output.accept((ItemLike) GGItemRegistry.BLADEMASTER_BOOTS);
+
 
 
                     })

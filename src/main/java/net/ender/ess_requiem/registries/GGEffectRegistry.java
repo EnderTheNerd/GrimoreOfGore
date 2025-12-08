@@ -89,7 +89,9 @@ public class GGEffectRegistry {
             () -> new LordOfTheFinalFrost(MobEffectCategory.BENEFICIAL, 11131887));
 
 
-
+    //SPELLBLADE
+    public static final DeferredHolder<MobEffect, MobEffect> PARRYING = MOB_EFFECT_DEFERRED_REGISTER.register("parrying",
+            () -> new ParryingEffect(MobEffectCategory.BENEFICIAL, 15355541));
 
     //MISC EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> ABILITY_COOLDOWN = MOB_EFFECT_DEFERRED_REGISTER.register("ability_cooldown",

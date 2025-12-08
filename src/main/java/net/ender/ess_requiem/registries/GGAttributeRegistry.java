@@ -22,9 +22,11 @@ public class GGAttributeRegistry {
         ATTRIBUTES.register(eventBus);
     }
 
-    public static final DeferredHolder<Attribute, Attribute> MIND_SPELL_POWER = newPowerAttribute("mind");
+    public static final DeferredHolder<Attribute, Attribute> BLADE_SPELL_POWER = newPowerAttribute("spellblade");
 
-    public static final DeferredHolder<Attribute, Attribute> MIND_MAGIC_RESIST = newResistanceAttribute("mind");
+    public static final DeferredHolder<Attribute, Attribute> BLADE_MAGIC_RESIST = newResistanceAttribute("spellblade");
+
+
 
     @SubscribeEvent
     public static void modifyEntityAttributes(EntityAttributeModificationEvent e) {

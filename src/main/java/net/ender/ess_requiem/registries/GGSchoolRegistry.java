@@ -43,17 +43,19 @@ public class GGSchoolRegistry extends SchoolRegistry {
         return null;
     }
 
-    public static final ResourceLocation MIND_RESOURCE = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "mind");
+    public static final ResourceLocation BLADE_RESOURCE = ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "blade");
 
-    public static final Supplier<SchoolType> MIND = (Supplier<SchoolType>) registerSchool(new SchoolType(
-            MIND_RESOURCE,
-            GGTags.MIND_FOCUS,
-            Component.translatable("school.ess_requiem.mind").withColor(15556694),
-            GGAttributeRegistry.MIND_SPELL_POWER,
-            GGAttributeRegistry.MIND_MAGIC_RESIST,
-            GGSoundRegistry.MIND_GENERIC_CAST,
-            GGDamageTypes.MIND_MAGIC
+    public static final Supplier<SchoolType> SPELLBLADE = (Supplier<SchoolType>) registerSchool(new SchoolType(
+            BLADE_RESOURCE,
+            GGTags.BLADE_FOCUS,
+            Component.translatable("school.ess_requiem.spellblade").withColor(15355541),
+            GGAttributeRegistry.BLADE_SPELL_POWER,
+            GGAttributeRegistry.BLADE_MAGIC_RESIST,
+            SoundRegistry.DEAD_KING_SWING,
+            GGDamageTypes.BLADE_MAGIC
     ));
+
+
 
 
 }

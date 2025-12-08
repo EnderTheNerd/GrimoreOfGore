@@ -22,6 +22,8 @@
  "effect.ess_requiem.ability_cooldown": "Ability Cooldown",
  "effect.ess_requiem.night_veil": "Night Veil",
  "effect.ess_requiem.damned": "Damned",
+ "effect.ess_requiem.ebony_armor": "Ebony Armor",
+ "effect.ess_requiem.bastion_of_light": "Bastion of Light",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -89,6 +91,16 @@
  "spell.ess_requiem.overwhelming_light": "Overwhelming Light",
  "spell.ess_requiem.overwhelming_light.guide": "Overwhelm targets with light, striking multiple targets down with powerful sunbeams, and chasing them down with powerful wisps. Can only be cast during the day.",
 
+
+ "spell.ess_requiem.slash": "Slash",
+ "spell.ess_requiem.slash.guide": "Tense your muscles with magic, and swing your weapon with enhanced strength.",
+ "spell.ess_requiem.slam": "Slam",
+ "spell.ess_requiem.slam.guide": "Slam the ground violently with your weapon, sending a small shockwave off impact. Strike close for hitting things with your actual blade on the downswing does additional damage.",
+ "spell.ess_requiem.quick_slice": "Quick Slice",
+ "spell.ess_requiem.quick_slice.guide": "Choose a target, instantly teleport to them, slashing them to do damage.",
+ "spell.ess_requiem.uppercut": "Uppercut",
+ "spell.ess_requiem.uppercut.guide": "Swing your weapon upward, anything hit by this gets flung backward into the air.",
+
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
  "ui.ess_requiem.rampage_damage": "%d Rampage Damage",
@@ -116,6 +128,11 @@
  "item.ess_requiem.broken_promise": "Broken Promise",
  "item.ess_requiem.inevitability": "Inevitability",
  "item.ess_requiem.hope": "Hope",
+ "item.ess_requiem.blademaster_helmet": "Blademaster Helmet",
+ "item.ess_requiem.blademaster_chestplate": "Blademaster Chestplate",
+ "item.ess_requiem.blademaster_leggings": "Blademaster Leggings",
+ "item.ess_requiem.blademaster_boots": "Blademaster Boots",
+
 
 
  "item.ess_requiem.fragment_of_clarity": "Fragment of Clarity",
@@ -139,6 +156,8 @@
  "death.attack.ess_requiem.cataphract_tackle": "%1$s tackled into the ground by %2$s",
  "death.attack.ess_requiem.cataphract_slam": "%1$s had their face smashed in by %2$s",
 
+ "attribute.irons_spellbooks.spellblade_spell_power": "Blade Spell Power",
 
- "school.ess_requiem.mind": "Mind"
+ "school.ess_requiem.spellblade": "Spellblade",
+ "school.ess_requiem.divine": "Divine"
 }

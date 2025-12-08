@@ -41,6 +41,9 @@ public class GGSoundRegistry {
 
     public static DeferredHolder<SoundEvent, SoundEvent> BLACK_FLAME_FINISH = registerSoundEvent("black_flame_finish");
 
+    //SPELLBLADE
+    public static DeferredHolder<SoundEvent, SoundEvent> PARRY = registerSoundEvent("parry");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
         return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent

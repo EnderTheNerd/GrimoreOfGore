@@ -20,6 +20,7 @@ import net.ender.ess_requiem.spells.holy.uncraftable.BastionOfLightSpell;
 import net.ender.ess_requiem.spells.holy.uncraftable.OverwhelmingLightSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.LordOfTheFinalFrostSpell;
+import net.ender.ess_requiem.spells.spellblade.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -68,6 +69,13 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> EBONY_CATAPHRACT = registerSpell(new EbonyCataphractSpell());
     public static final Supplier <AbstractSpell> NIGHT_VEIL = registerSpell(new UnderTheCoverOfNightSpell());
     public static final Supplier <AbstractSpell> DAMNATION = registerSpell(new DamnationSpell());
+
+    //CRAFTABLE SPELLBLADE
+    public static final Supplier <AbstractSpell> SLASH = registerSpell(new SlashSpell());
+    public static final Supplier <AbstractSpell> SLAM = registerSpell(new SlamSpell());
+    public static final Supplier <AbstractSpell> QUICK_SLICE = registerSpell(new QuickSliceSpell());
+    public static final Supplier <AbstractSpell> UPPERCUT = registerSpell(new UppercutSpell());
+    public static final Supplier <AbstractSpell> PARRY = registerSpell(new SwordStanceSpell());
 
     //UNCRAFTABLE HOLY
     public static final Supplier<AbstractSpell> BASTION_OF_LIGHT = registerSpell(new BastionOfLightSpell());

@@ -13,10 +13,13 @@ import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.frozen_humanoid.FrozenHumanoid;
 import io.redspace.ironsspellbooks.player.SpinAttackType;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
+import io.redspace.ironsspellbooks.registries.ParticleRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.spells.eldritch.SculkTentaclesSpell;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ArmOfDecay;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ScytheOfRottenDreams;
+import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.BrokenPromise;
 import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.MidnightEmbrace;
 import net.ender.ess_requiem.registries.GGEffectRegistry;
 
@@ -28,6 +31,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -39,13 +43,18 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ProjectileDeflection;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
@@ -75,6 +84,40 @@ public class ModEvents {
 
             }
         }
+
+    }
+
+    @SubscribeEvent
+    public static void WeaponCombining(PlayerInteractEvent.RightClickItem event) {
+        var entity = event.getEntity();
+        if (entity instanceof ServerPlayer serverPlayer) {
+            ItemStack mainhandItem = ((LivingEntity) serverPlayer).getMainHandItem();
+            ItemStack offhandItem = ((LivingEntity) serverPlayer).getOffhandItem();
+            if (mainhandItem.getItem() instanceof BrokenPromise && offhandItem.getItem() instanceof ScytheOfRottenDreams) {
+                    serverPlayer.getInventory().setItem(serverPlayer.getInventory().selected, new ItemStack(GGItemRegistry.ARM_OF_DECAY.get()));
+                    serverPlayer.getInventory().offhand.clear();
+
+                }
+
+            }
+
+
+    }
+
+    @SubscribeEvent
+    public static void UncombiningWeapons(PlayerInteractEvent.RightClickItem event) {
+        var entity = event.getEntity();
+        if (entity instanceof ServerPlayer serverPlayer) {
+            ItemStack mainhandItem = ((LivingEntity) serverPlayer).getMainHandItem();
+            ItemStack offhandItem = ((LivingEntity) serverPlayer).getOffhandItem();
+            if (mainhandItem.getItem() instanceof ArmOfDecay) {
+                serverPlayer.getInventory().setItem(serverPlayer.getInventory().selected, new ItemStack(GGItemRegistry.SCYTHE_OF_ROTTEN_DREAMS.get()));
+                serverPlayer.getInventory().setItem(serverPlayer.getInventory().getFreeSlot(), new ItemStack(GGItemRegistry.BROKEN_PROMISE.get()));
+
+            }
+
+        }
+
 
     }
 
@@ -140,9 +183,30 @@ public class ModEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void ParryMelee(LivingIncomingDamageEvent event) {
+        var livingEntity = event.getEntity();
+        if (livingEntity instanceof ServerPlayer player && player.hasEffect(GGEffectRegistry.PARRYING)) {
+            event.setCanceled(true);
+            MagicManager.spawnParticles(livingEntity.level(), ParticleHelper.FIERY_SPARKS, livingEntity.getX(), livingEntity.getY() + 1, livingEntity.getZ(), 30, 0, 0, 0, 1, false);
+            livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), GGSoundRegistry.PARRY, SoundSource.NEUTRAL, .8F, 1.3F);
 
+        }
 
+        }
 
+    @SubscribeEvent
+    public static void ParryRanged(ProjectileImpactEvent event) {
+        var parried_projectile = event.getProjectile();
+        if (event.getRayTraceResult() instanceof EntityHitResult result && result.getEntity() instanceof LivingEntity entity) {
+             if (entity.hasEffect(GGEffectRegistry.PARRYING)){
+                 event.setCanceled(true);
+                 entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), GGSoundRegistry.PARRY, SoundSource.NEUTRAL, .8F, 1.3F);
+                 event.getProjectile().deflect(ProjectileDeflection.AIM_DEFLECT, entity, entity, entity instanceof Player);
+                 MagicManager.spawnParticles(entity.level(), ParticleHelper.FIERY_SPARKS, entity.getX(), entity.getY() + 1, entity.getZ(), 50, 0, 0, 0, 1, false);
+             }
+        }
+    }
     @SubscribeEvent
     public static void CursedRevive(LivingDeathEvent event) {
         if (event.getEntity() instanceof LivingEntity livingEntity) {

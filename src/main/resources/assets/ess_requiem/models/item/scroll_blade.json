@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ess_requiem:item/scroll_mind"
+    "layer0": "ess_requiem:item/scroll_blade"
   }
 }

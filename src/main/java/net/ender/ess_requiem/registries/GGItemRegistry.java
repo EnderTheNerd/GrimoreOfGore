@@ -1,8 +1,10 @@
 package net.ender.ess_requiem.registries;
 
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
+import net.ender.ess_requiem.item.armor.BlademasterArmorItem;
 import net.ender.ess_requiem.item.curio.CataphractRingCurio;
 import net.ender.ess_requiem.item.curio.NamelessRingCurio;
 import net.ender.ess_requiem.item.sword_tier.BloodWeapons.ArmOfDecay;
@@ -15,6 +17,7 @@ import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.Inevitability;
 import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.MidnightEmbrace;
 import net.ender.ess_requiem.item.sword_tier.HolyWeapons.Hope;
 import net.ender.ess_requiem.item.sword_tier.IceWeapons.ScytheOfFrozenDreams;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -56,6 +59,12 @@ public class GGItemRegistry {
     public static final DeferredItem<CurioBaseItem> NAMELESS_RING_CURIO = ITEMS.register("nameless_ring", NamelessRingCurio::new);
 
     public static final DeferredItem<CurioBaseItem> CATAPHRACT_RING_CURIO = ITEMS.register("cataphract_ring", CataphractRingCurio::new);
+
+    //SPELLBLADE
+    public static final DeferredHolder<Item, Item> BLADEMASTER_HELMET = ITEMS.register("blademaster_helmet", () -> new BlademasterArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(37))));
+    public static final DeferredHolder<Item, Item> BLADEMASTER_CHESTPLATE = ITEMS.register("blademaster_chestplate", () -> new BlademasterArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(37))));
+    public static final DeferredHolder<Item, Item> BLADEMASTER_LEGGINGS = ITEMS.register("blademaster_leggings", () -> new BlademasterArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(37))));
+    public static final DeferredHolder<Item, Item> BLADEMASTER_BOOTS = ITEMS.register("blademaster_boots", () -> new BlademasterArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(37))));
 
     public static Collection<DeferredHolder<Item, ? extends Item>> getItems() {
         return ITEMS.getEntries();
