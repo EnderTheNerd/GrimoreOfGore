@@ -4,6 +4,7 @@ package net.ender.ess_requiem.setup;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
 import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullEntity;
+
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassEntity;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -18,5 +19,7 @@ public class CommonSetup {
         // You can technically do KeeperEntity.prepareAttributes().build() to get the attributes of the OG entity as an option
         event.put(GGEntityRegistry.HOPPING_SKULL.get(), HoppingSkullEntity.createAttributes().build());
         event.put(GGEntityRegistry.SKULL_MASS.get(), SkullMassEntity.createAttributes().build());
+
     }
+
 }

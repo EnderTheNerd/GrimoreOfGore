@@ -13,6 +13,7 @@ import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
 import net.ender.ess_requiem.entity.spells.corpse_puddle.CorpsePuddle;
 import net.ender.ess_requiem.entity.spells.eternal_battlefield.EternalBattlefield;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlame;
+import net.ender.ess_requiem.entity.spells.summoned_weapon.SoulmasterSwordEntity;
 import net.ender.ess_requiem.entity.spells.wretch_breath.WretchBreath;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -66,6 +67,13 @@ public class GGEntityRegistry {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "hopping_skull").toString())
+            );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulmasterSwordEntity>> SOULMASTER_SWORD =
+            ENTITIES.register("soulmaster_sword", () -> EntityType.Builder.<SoulmasterSwordEntity>of(SoulmasterSwordEntity::new, MobCategory.CREATURE)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "soulmaster_sword").toString())
             );
 
     public static final DeferredHolder<EntityType<?>, EntityType<SkullMassEntity>> SKULL_MASS =
