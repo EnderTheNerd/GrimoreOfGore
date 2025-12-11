@@ -13,7 +13,7 @@ import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
 import net.ender.ess_requiem.entity.spells.corpse_puddle.CorpsePuddle;
 import net.ender.ess_requiem.entity.spells.eternal_battlefield.EternalBattlefield;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlame;
-import net.ender.ess_requiem.entity.spells.summoned_weapon.SoulmasterSwordEntity;
+import net.ender.ess_requiem.entity.mobs.summoned_weapon.SoulmasterSwordEntity;
 import net.ender.ess_requiem.entity.spells.wretch_breath.WretchBreath;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

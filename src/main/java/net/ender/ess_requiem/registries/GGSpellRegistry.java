@@ -76,6 +76,7 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> QUICK_SLICE = registerSpell(new QuickSliceSpell());
     public static final Supplier <AbstractSpell> UPPERCUT = registerSpell(new UppercutSpell());
     public static final Supplier <AbstractSpell> PARRY = registerSpell(new SwordStanceSpell());
+    public static final Supplier <AbstractSpell> SOULMASTER = registerSpell(new SoulmasterSummonSpell());
 
     //UNCRAFTABLE HOLY
     public static final Supplier<AbstractSpell> BASTION_OF_LIGHT = registerSpell(new BastionOfLightSpell());

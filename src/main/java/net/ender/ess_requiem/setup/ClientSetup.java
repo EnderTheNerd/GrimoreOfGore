@@ -13,6 +13,8 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearRenderer;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntityRenderer;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlameRenderer;
+import net.ender.ess_requiem.entity.mobs.summoned_weapon.SoulmasterSwordModel;
+import net.ender.ess_requiem.entity.mobs.summoned_weapon.SoulmasterSwordRenderer;
 import net.ender.ess_requiem.particle.*;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
 import net.ender.ess_requiem.registries.GGParticleRegistry;
@@ -22,9 +24,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import software.bernie.geckolib.model.GeoModel;
-
-import java.util.function.Supplier;
 
 @EventBusSubscriber(modid = EndersSpellsAndStuffRequiem.MOD_ID, value = Dist.CLIENT)
 
@@ -42,6 +41,7 @@ public class ClientSetup {
         event.registerEntityRenderer(GGEntityRegistry.WRETCH_BREATH_PROJECTILE.get(), NoopRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.CORPSE_PUDDLE.get(), NoopRenderer::new);
         event.registerEntityRenderer(GGEntityRegistry.ETERNAL_BATTLEFIELD.get(), NoopRenderer::new);
+        event.registerEntityRenderer(GGEntityRegistry.SOULMASTER_SWORD.get(), context -> {return new SoulmasterSwordRenderer(context, new SoulmasterSwordModel());});
         event.registerEntityRenderer(GGEntityRegistry.HOPPING_SKULL.get(), context -> {return new HoppingSkullRenderer(context, new HoppingSkullModel());});
         event.registerEntityRenderer(GGEntityRegistry.SKULL_MASS.get(), context -> {return new SkullMassRenderer(context, new SkullMassModel());});
         event.registerEntityRenderer(GGEntityRegistry.BONE_SPEAR.get(), context -> {return new BoneSpearRenderer(context, new BoneSpearModel());});
