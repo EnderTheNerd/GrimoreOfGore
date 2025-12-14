@@ -203,7 +203,6 @@ public class ModEvents {
                  event.setCanceled(true);
                  entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), GGSoundRegistry.PARRY, SoundSource.NEUTRAL, .8F, 1.3F);
                  event.getProjectile().deflect(ProjectileDeflection.AIM_DEFLECT, entity, entity, entity instanceof Player);
-                 MagicManager.spawnParticles(entity.level(), ParticleHelper.FIERY_SPARKS, entity.getX(), entity.getY() + 1, entity.getZ(), 50, 0, 0, 0, 1, false);
              }
         }
     }

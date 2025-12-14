@@ -1,13 +1,16 @@
 package net.ender.ess_requiem.entity.mobs.summoned_weapon;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
 import io.redspace.ironsspellbooks.entity.mobs.goals.melee.AttackAnimationData;
 import io.redspace.ironsspellbooks.entity.mobs.wizards.GenericAnimatedWarlockAttackGoal;
+import io.redspace.ironsspellbooks.util.OwnerHelper;
 import net.ender.ess_requiem.registries.GGEntityRegistry;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -24,7 +27,9 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements IMagicSummon, IAnimatedAttacker {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -33,6 +38,7 @@ public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements I
 
     public SoulmasterSwordEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+
         this.moveControl = new FlyingMoveControl(this, 20, true);
         this.lookControl = createLookControl();
     }
@@ -62,7 +68,7 @@ public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements I
                 .add(Attributes.MAX_HEALTH, 30.0)
                 .add(Attributes.FOLLOW_RANGE, 50)
                 .add(Attributes.FLYING_SPEED, 2.5)
-                .add(Attributes.ENTITY_INTERACTION_RANGE, 4)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, 2.5)
                 .add(Attributes.MOVEMENT_SPEED, .5);
 
     }
@@ -80,7 +86,7 @@ public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements I
 
     public SoulmasterSwordEntity(Level level, LivingEntity owner) {
         this(GGEntityRegistry.SOULMASTER_SWORD.get(), level);
-
+        setSummoner(owner);
     }
     @Override
     protected void registerGoals() {
@@ -103,6 +109,24 @@ public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements I
         this.targetSelector.addGoal(3, new GenericCopyOwnerTargetGoal(this, this::getSummoner));
         this.targetSelector.addGoal(4, (new GenericHurtByTargetGoal(this, (entity) -> entity == getSummoner())).setAlertOthers());
         this.targetSelector.addGoal(5, new GenericProtectOwnerTargetGoal(this, this::getSummoner));
+    }
+
+    @Override
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        if (this.tickCount % 8 == 0) {
+
+            var owner = getSummoner();
+            var target = getTarget();
+            var trackEntity = target == null ? owner : target;
+            var targetY = trackEntity == null ? Utils.moveToRelativeGroundLevel(level(), this.position(), 3).y + 1 : trackEntity.getY() + 1;
+            var f = targetY - getY();
+            var force = Math.clamp(f * 0.05, -0.15, 0.15);
+            this.setDeltaMovement(this.getDeltaMovement().add(0, force, 0));
+        }
+        if (this.tickCount % 80 == 0) {
+            heal(1);
+        }
     }
 
 
@@ -161,5 +185,33 @@ public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements I
         return this.tickCount;
     }
 
+
+    protected LivingEntity cachedSummoner;
+    protected UUID summonerUUID;
+
+    @Override
+    public LivingEntity getSummoner() {
+        return OwnerHelper.getAndCacheOwner(level(), cachedSummoner, summonerUUID);
+    }
+
+
+    public void setSummoner(@Nullable LivingEntity owner) {
+        if (owner != null) {
+            this.summonerUUID = owner.getUUID();
+            this.cachedSummoner = owner;
+        }
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag pCompound) {
+        super.readAdditionalSaveData(pCompound);
+        this.summonerUUID = OwnerHelper.deserializeOwner(pCompound);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+        OwnerHelper.serializeOwner(pCompound, summonerUUID);
+    }
 }
 

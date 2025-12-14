@@ -77,6 +77,8 @@ public class GGItemRegistry {
     public static final DeferredItem<Item> FRAGMENT_OF_CLARITY = ITEMS.register("fragment_of_clarity",
             () -> new Item(new Item.Properties().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())));
 
+    public static final DeferredItem<Item> SPELLBLADE_RUNE = ITEMS.register("spellblade_rune",
+            () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> COMPLETED_CLARITY = ITEMS.register("completed_clarity",
             () -> new Item(new Item.Properties().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())));

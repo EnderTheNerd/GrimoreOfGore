@@ -27,6 +27,7 @@
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
+ "entity.ess_requiem.soulmaster_sword": "Soulmaster Sword",
 
 
  "spell.ess_requiem.cataphract_tackle": "Cataphract Tackle (CREATIVE ONLY)",
@@ -100,6 +101,10 @@
  "spell.ess_requiem.quick_slice.guide": "Choose a target, instantly teleport to them, slashing them to do damage.",
  "spell.ess_requiem.uppercut": "Uppercut",
  "spell.ess_requiem.uppercut.guide": "Swing your weapon upward, anything hit by this gets flung backward into the air.",
+ "spell.ess_requiem.sword_stance": "Sword Stance",
+ "spell.ess_requiem.sword_stance.guide": "Take a very defensive stance, with perfect timing block any attack, and reflect all projectiles",
+ "spell.ess_requiem.soulmaster_summon": "Conjure Blademaster Spirit",
+ "spell.ess_requiem.soulmaster_summon.guide": "Summon a magical sword. The sword's damage matches the weapon in your hand's damage when you summon it.",
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
@@ -132,6 +137,7 @@
  "item.ess_requiem.blademaster_chestplate": "Blademaster Chestplate",
  "item.ess_requiem.blademaster_leggings": "Blademaster Leggings",
  "item.ess_requiem.blademaster_boots": "Blademaster Boots",
+ "item.ess_requiem.spellblade_rune": "Spellblade Rune",
 
 
 

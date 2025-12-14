@@ -1,0 +1,30 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "irons_spellbooks:arcane_essence"
+    },
+
+    "B": {
+      "item": "ess_requiem:spellblade_rune"
+    },
+
+    "C": {
+      "item": "irons_spellbooks:wizard_helmet"
+    }
+  },
+  "pattern": [
+
+    "CB ",
+    "A  ",
+    "   "
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:blademaster_helmet"
+  }
+}

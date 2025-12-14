@@ -1,0 +1,27 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:blank_rune"
+    }
+
+  },
+  "pattern": [
+
+    "AAA",
+    "ABA",
+    "AAA"
+
+  ],
+  "result": {
+    "count": 1,
+    "id":"ess_requiem:spellblade_rune"
+  }
+}
