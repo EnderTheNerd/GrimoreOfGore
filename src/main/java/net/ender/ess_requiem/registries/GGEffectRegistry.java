@@ -93,6 +93,9 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> PARRYING = MOB_EFFECT_DEFERRED_REGISTER.register("parrying",
             () -> new ParryingEffect(MobEffectCategory.BENEFICIAL, 15355541));
 
+    public static final DeferredHolder<MobEffect, MobEffect> HONED_EDGE = MOB_EFFECT_DEFERRED_REGISTER.register("honed_edge",
+            () -> new HonedEdgeEffect(MobEffectCategory.BENEFICIAL, 23123312));
+
     //MISC EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> ABILITY_COOLDOWN = MOB_EFFECT_DEFERRED_REGISTER.register("ability_cooldown",
             ()-> new AbilityCooldownEffect(MobEffectCategory.HARMFUL, 789261));

@@ -67,9 +67,9 @@ public class SoulmasterSwordEntity  extends AbstractSpellCastingMob implements I
                 .add(Attributes.ATTACK_DAMAGE, 0)
                 .add(Attributes.MAX_HEALTH, 30.0)
                 .add(Attributes.FOLLOW_RANGE, 50)
-                .add(Attributes.FLYING_SPEED, 2.5)
-                .add(Attributes.ENTITY_INTERACTION_RANGE, 2.5)
-                .add(Attributes.MOVEMENT_SPEED, .5);
+                .add(Attributes.FLYING_SPEED, 3)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, 3.5)
+                .add(Attributes.MOVEMENT_SPEED, .8);
 
     }
 

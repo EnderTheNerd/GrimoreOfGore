@@ -12,6 +12,7 @@ import net.ender.ess_requiem.entity.spells.claw.ClawEntity;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
 import net.ender.ess_requiem.entity.spells.corpse_puddle.CorpsePuddle;
 import net.ender.ess_requiem.entity.spells.eternal_battlefield.EternalBattlefield;
+import net.ender.ess_requiem.entity.spells.overwhelming_force.OverwhelmingForce;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlame;
 import net.ender.ess_requiem.entity.mobs.summoned_weapon.SoulmasterSwordEntity;
 import net.ender.ess_requiem.entity.spells.wretch_breath.WretchBreath;
@@ -113,6 +114,13 @@ public class GGEntityRegistry {
                     .sized(4f, 1f)
                     .clientTrackingRange(64)
                     .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "eternal_battlefield").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<OverwhelmingForce>> OVERWHELMING_FORCE=
+            ENTITIES.register("overwhelm", () -> EntityType.Builder.<OverwhelmingForce>of(OverwhelmingForce::new, MobCategory.MISC)
+                    .sized(8f, 1f)
+                    .clientTrackingRange(64)
+                    .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "overwhelm").toString()));
+
 
 
 

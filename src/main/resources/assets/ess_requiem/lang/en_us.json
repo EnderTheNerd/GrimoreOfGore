@@ -24,6 +24,7 @@
  "effect.ess_requiem.damned": "Damned",
  "effect.ess_requiem.ebony_armor": "Ebony Armor",
  "effect.ess_requiem.bastion_of_light": "Bastion of Light",
+ "effect.ess_requiem.honed_edge": "Honed Edge",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -105,6 +106,8 @@
  "spell.ess_requiem.sword_stance.guide": "Take a very defensive stance, with perfect timing block any attack, and reflect all projectiles",
  "spell.ess_requiem.soulmaster_summon": "Conjure Blademaster Spirit",
  "spell.ess_requiem.soulmaster_summon.guide": "Summon a magical sword. The sword's damage matches the weapon in your hand's damage when you summon it.",
+ "spell.ess_requiem.hone_edge": "Hone Edge",
+ "spell.ess_requiem.hone_edge.guide": "Sharpen the edge of your sword with magical energy, increasing the damage of your attacks.",
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",
