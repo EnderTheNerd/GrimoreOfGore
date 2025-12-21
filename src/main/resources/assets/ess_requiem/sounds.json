@@ -85,5 +85,11 @@
     "sounds": [
       "ess_requiem:parry"
     ]
+  },
+  "overwhelming_impact": {
+    "subtitle": "sounds.ess_requiem.overwhelming_parry",
+    "sounds": [
+      "ess_requiem:overwhelming_force_impact"
+    ]
   }
 }

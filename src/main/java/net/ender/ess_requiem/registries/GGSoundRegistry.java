@@ -44,6 +44,8 @@ public class GGSoundRegistry {
     //SPELLBLADE
     public static DeferredHolder<SoundEvent, SoundEvent> PARRY = registerSoundEvent("parry");
 
+    public static DeferredHolder<SoundEvent, SoundEvent> OVERWHELMING_IMPACT = registerSoundEvent("overwhelming_impact");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
         return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent

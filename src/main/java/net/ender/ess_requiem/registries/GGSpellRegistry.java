@@ -77,6 +77,8 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> UPPERCUT = registerSpell(new UppercutSpell());
     public static final Supplier <AbstractSpell> PARRY = registerSpell(new SwordStanceSpell());
     public static final Supplier <AbstractSpell> SOULMASTER = registerSpell(new SoulmasterSummonSpell());
+    public static final Supplier <AbstractSpell> OVERWHELMING = registerSpell(new OverwhelmingForceSpell());
+    public static final Supplier <AbstractSpell> HONE_EDGE = registerSpell(new HoneEdgeSpell());
 
     //UNCRAFTABLE HOLY
     public static final Supplier<AbstractSpell> BASTION_OF_LIGHT = registerSpell(new BastionOfLightSpell());

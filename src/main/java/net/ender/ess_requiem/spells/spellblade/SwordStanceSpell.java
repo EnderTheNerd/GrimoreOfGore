@@ -16,7 +16,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 
 import net.minecraft.world.entity.LivingEntity;
 
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
 
 
 @AutoSpellConfig
@@ -37,6 +40,19 @@ public class SwordStanceSpell extends AbstractSpell {
         this.spellPowerPerLevel = 0;
         this.castTime = 2;
         this.baseManaCost = 65;
+    }
+
+    @Override
+    public boolean canBeInterrupted(@Nullable Player player) {
+        return false;
+    }
+
+
+
+    @Override
+    public int getEffectiveCastTime(int spellLevel, @Nullable LivingEntity entity) {
+        //due to animation timing, we do not want cast time attribute to affect this spell
+        return getCastTime(spellLevel);
     }
 
     @Override

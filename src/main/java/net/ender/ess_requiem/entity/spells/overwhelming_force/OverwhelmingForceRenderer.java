@@ -15,13 +15,13 @@ import org.joml.Matrix4f;
 
 import java.util.Random;
 
-public class OverwhelmingForceRenderer  extends EntityRenderer<OverwhelmingForce> {
+public class OverwhelmingForceRenderer extends EntityRenderer<OverwhelmingForce> {
 
     private static final ResourceLocation[] TEXTURES = {
-            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/spells/overwhelming_force/overwhelming_strike1.png"),
-            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/spells/overwhelming_force/overwhelming_strike2.png"),
-            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/spells/overwhelming_force/overwhelming_strike3.png"),
-            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/spells/overwhelming_force/overwhelming_strike4.png"),
+            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/overwhelming_force/overwhelming_strike1.png"),
+            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/overwhelming_force/overwhelming_strike2.png"),
+            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/overwhelming_force/overwhelming_strike3.png"),
+            ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "textures/entity/overwhelming_force/overwhelming_strike4.png"),
     };
 
     public OverwhelmingForceRenderer(EntityRendererProvider.Context context) {

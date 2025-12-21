@@ -96,6 +96,15 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> HONED_EDGE = MOB_EFFECT_DEFERRED_REGISTER.register("honed_edge",
             () -> new HonedEdgeEffect(MobEffectCategory.BENEFICIAL, 23123312));
 
+    public static final DeferredHolder<MobEffect, MobEffect> SOUL_STRENGTH = MOB_EFFECT_DEFERRED_REGISTER.register("soul_strength",
+            () -> new SoulStrengthEffect(MobEffectCategory.BENEFICIAL, 23123312));
+
+    public static final DeferredHolder<MobEffect, MobEffect> FADING = MOB_EFFECT_DEFERRED_REGISTER.register("fading",
+            () -> new FadingEffect(MobEffectCategory.NEUTRAL, 9128311));
+
+    public static final DeferredHolder<MobEffect, MobEffect> UNDYING_DREAD = MOB_EFFECT_DEFERRED_REGISTER.register("undying_dread",
+            () -> new UndyingDreadEffect(MobEffectCategory.BENEFICIAL, 15632035));
+
     //MISC EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> ABILITY_COOLDOWN = MOB_EFFECT_DEFERRED_REGISTER.register("ability_cooldown",
             ()-> new AbilityCooldownEffect(MobEffectCategory.HARMFUL, 789261));
