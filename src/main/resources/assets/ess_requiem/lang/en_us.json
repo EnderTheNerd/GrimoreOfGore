@@ -28,6 +28,7 @@
  "effect.ess_requiem.soul_strength": "Soul Strength",
  "effect.ess_requiem.fading": "Fading",
  "effect.ess_requiem.undying_dread": "Undying Dread",
+ "effect.ess_requiem.stunned": "Stunned",
 
  "entity.ess_requiem.hopping_skull": "Cursed Skull",
  "entity.ess_requiem.skull_mass": "Skull Mass",
@@ -113,6 +114,9 @@
  "spell.ess_requiem.hone_edge.guide": "Sharpen the edge of your weapon with magical energy, increasing the damage of your attacks.",
  "spell.ess_requiem.overwhelming_force": "Overwhelming Force",
  "spell.ess_requiem.overwhelming_force.guide": "Swing your weapon with catastrophic strength, tearing your muscle fibers making you more vulnerable to damage, whilst stunning whatever it hits.",
+ "spell.ess_requiem.undying_dread": "Undying Dread",
+ "spell.ess_requiem.undying_dread.guide": "Strengthen the will of your soul, if you are killed when your soul is strengthened, delay your death by 2 minutes, while also gaining immense strength. Once those 2 minutes are up, instantly die.",
+
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
  "ui.ess_requiem.desperate_damage": "%d Desperation Damage",

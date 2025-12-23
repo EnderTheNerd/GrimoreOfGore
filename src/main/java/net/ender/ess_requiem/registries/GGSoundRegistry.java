@@ -46,6 +46,8 @@ public class GGSoundRegistry {
 
     public static DeferredHolder<SoundEvent, SoundEvent> OVERWHELMING_IMPACT = registerSoundEvent("overwhelming_impact");
 
+    public static DeferredHolder<SoundEvent, SoundEvent> SURVIVING = registerSoundEvent("surviving");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
         return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent

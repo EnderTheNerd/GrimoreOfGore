@@ -105,6 +105,10 @@ public class GGEffectRegistry {
     public static final DeferredHolder<MobEffect, MobEffect> UNDYING_DREAD = MOB_EFFECT_DEFERRED_REGISTER.register("undying_dread",
             () -> new UndyingDreadEffect(MobEffectCategory.BENEFICIAL, 15632035));
 
+    public static final DeferredHolder<MobEffect, MobEffect> STUNNED = MOB_EFFECT_DEFERRED_REGISTER.register("stunned",
+            () -> new StunnedEffect(MobEffectCategory.HARMFUL, 3020845));
+
+
     //MISC EFFECTS
     public static final DeferredHolder<MobEffect, MobEffect> ABILITY_COOLDOWN = MOB_EFFECT_DEFERRED_REGISTER.register("ability_cooldown",
             ()-> new AbilityCooldownEffect(MobEffectCategory.HARMFUL, 789261));

@@ -1,5 +1,7 @@
 package net.ender.ess_requiem.events;
 
+import dev.shadowsoffire.apothic_attributes.api.ALObjects;
+import io.redspace.ironsspellbooks.api.events.SpellOnCastEvent;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 
@@ -43,6 +45,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
@@ -59,6 +62,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.Objects;
@@ -240,9 +244,81 @@ public class ModEvents {
             }}
 
     @SubscribeEvent
-    public static void FinalityOfDecay(MobEffectEvent.Expired event) {
+    public static void UndyneReference(LivingDeathEvent event) {
         if (event.getEntity() instanceof LivingEntity livingEntity) {
-            if (livingEntity.hasEffect(GGEffectRegistry.FINALITY_OF_DECAY)) {
+            if (livingEntity.hasEffect(GGEffectRegistry.SOUL_STRENGTH)){
+                event.setCanceled(true);
+
+                livingEntity.removeEffect(GGEffectRegistry.SOUL_STRENGTH);
+
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 100));
+                livingEntity.addEffect(new MobEffectInstance(GGEffectRegistry.FADING, 100));
+                livingEntity.addEffect(new MobEffectInstance(GGEffectRegistry.UNDYING_DREAD, 2500));
+
+
+                livingEntity.setHealth(livingEntity.getMaxHealth());
+
+
+                livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), GGSoundRegistry.SURVIVING, SoundSource.NEUTRAL, .8F, 1.3F);
+
+                if (event.getEntity() instanceof ServerPlayer player){
+                    player.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "Not...Yet..I won't...die..here")
+                            .withStyle(s -> s.withColor(TextColor.fromRgb(3020845))), true);
+                }
+
+            }
+
+        }}
+
+    @SubscribeEvent
+    public static void UndyneReference2(MobEffectEvent.Expired event) {
+        assert event.getEffectInstance() != null;
+        if (event.getEffectInstance().is(GGEffectRegistry.UNDYING_DREAD) && event.getEntity() instanceof ServerPlayer player)
+    {
+        player.kill();
+
+        player.displayClientMessage(Component.literal(ChatFormatting.ITALIC + "Even that...wasn't strong enough...")
+                .withStyle(s -> s.withColor(TextColor.fromRgb(13383279))), true);
+
+    }
+
+
+    }
+
+
+    @SubscribeEvent
+    public static void FadingDisable(LivingIncomingDamageEvent event) {
+        var livingEntity = event.getEntity();
+        if (livingEntity instanceof ServerPlayer player && player.hasEffect(GGEffectRegistry.FADING)) {
+            event.setCanceled(true);
+        }
+
+    }
+
+    @SubscribeEvent
+    public static void FadingDisable2(SpellPreCastEvent event) {
+        var livingEntity = event.getEntity();
+        if (livingEntity instanceof ServerPlayer player && player.hasEffect(GGEffectRegistry.FADING)) {
+            event.setCanceled(true);
+        }
+
+    }
+
+    @SubscribeEvent
+    public static void FadingDisable3(AttackEntityEvent event) {
+        var livingEntity = event.getEntity();
+        if (livingEntity instanceof ServerPlayer player && player.hasEffect(GGEffectRegistry.FADING)) {
+            event.setCanceled(true);
+        }
+
+    }
+
+    @SubscribeEvent
+    public static void FinalityOfDecay(MobEffectEvent.Expired event) {
+        assert event.getEffectInstance() != null;
+        if (event.getEffectInstance().is(GGEffectRegistry.FINALITY_OF_DECAY) && event.getEntity() instanceof LivingEntity livingEntity)
+        {
 
 
                 livingEntity.hurt(livingEntity.damageSources().magic(), 15);
@@ -256,10 +332,7 @@ public class ModEvents {
                         .withStyle(s -> s.withColor(TextColor.fromRgb(15556694))), true);
                     serverPlayer.playSound(GGSoundRegistry.CLOCK_TICKING.get(), 0.8f, 1.3F);
                 }
-            }}}
-
-
-
+            }}
 
     private static boolean isUnderSunTick(Level level, LivingEntity entity) {
         if (level.isDay() && !level.isClientSide) {

@@ -91,5 +91,11 @@
     "sounds": [
       "ess_requiem:overwhelming_force_impact"
     ]
+  },
+  "surviving": {
+    "subtitle": "sounds.ess_requiem.surviving",
+    "sounds": [
+      "ess_requiem:holding_strong"
+    ]
   }
 }

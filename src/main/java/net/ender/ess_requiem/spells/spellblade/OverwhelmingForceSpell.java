@@ -12,6 +12,7 @@ import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.spells.ASSpellAnimations;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 import net.ender.ess_requiem.entity.spells.overwhelming_force.OverwhelmingForce;
+import net.ender.ess_requiem.registries.GGEffectRegistry;
 import net.ender.ess_requiem.registries.GGSchoolRegistry;
 import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.core.component.DataComponents;
@@ -113,7 +114,7 @@ public class OverwhelmingForceSpell extends AbstractSpell {
                 Vec3 offsetVector = targetEntity.getBoundingBox().getCenter().subtract(entity.getEyePosition());
                 if (offsetVector.dot(forward) >= 0) {
                     if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity), damageSource)) {
-
+                        ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(GGEffectRegistry.STUNNED, 60));
                         EnchantmentHelper.doPostAttackEffects((ServerLevel) level, targetEntity, damageSource);
                     }
                 }
@@ -129,7 +130,7 @@ public class OverwhelmingForceSpell extends AbstractSpell {
 
 
 
-            entity.addEffect(new MobEffectInstance(ALObjects.MobEffects.SUNDERING, (int) (getSpellPower(spellLevel, entity) * 20), spellLevel + 1, false, false, true));
+            entity.addEffect(new MobEffectInstance(ALObjects.MobEffects.SUNDERING, (int) (getSpellPower(spellLevel, entity) * 20), spellLevel -1, false, false, true));
 
             super.onCast(level, spellLevel, entity, castSource, playerMagicData);
 
