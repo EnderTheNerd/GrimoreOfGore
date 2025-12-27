@@ -1,0 +1,6 @@
+{
+  "amount": 0.05,
+  "attribute": "ess_requiem:spellblade_spell_power",
+  "containerItem": "ess_requiem:spellblade_upgrade_orb",
+  "operation": "add_multiplied_base"
+}

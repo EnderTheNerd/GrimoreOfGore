@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+
+    "A": {
+      "item": "ess_requiem:spellblade_rune"
+    },
+
+    "B": {
+      "item": "irons_spellbooks:upgrade_orb"
+    }
+  },
+  "pattern": [
+
+    "AAA",
+    "ABA",
+    "AAA"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "ess_requiem:spellblade_upgrade_orb"
+  }
+}

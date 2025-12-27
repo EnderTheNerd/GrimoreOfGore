@@ -41,6 +41,7 @@ public class ModCreativeModTabs {
                         output.accept(GGItemRegistry.HOPE);
                         output.accept(GGItemRegistry.INEVITABILITY);
                         output.accept(GGItemRegistry.SPELLBLADE_RUNE);
+                        output.accept((ItemLike) GGItemRegistry.SPELLBLADE_UPGRADE_ORB);
                         output.accept((ItemLike) GGItemRegistry.BLADEMASTER_HELMET);
                         output.accept((ItemLike) GGItemRegistry.BLADEMASTER_CHESTPLATE);
                         output.accept((ItemLike) GGItemRegistry.BLADEMASTER_LEGGINGS);

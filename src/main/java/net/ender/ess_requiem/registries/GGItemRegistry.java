@@ -1,6 +1,8 @@
 package net.ender.ess_requiem.registries;
 
+import io.redspace.ironsspellbooks.item.UpgradeOrbItem;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
@@ -19,6 +21,7 @@ import net.ender.ess_requiem.item.sword_tier.HolyWeapons.Hope;
 import net.ender.ess_requiem.item.sword_tier.IceWeapons.ScytheOfFrozenDreams;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -66,9 +69,10 @@ public class GGItemRegistry {
     public static final DeferredHolder<Item, Item> BLADEMASTER_LEGGINGS = ITEMS.register("blademaster_leggings", () -> new BlademasterArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(37))));
     public static final DeferredHolder<Item, Item> BLADEMASTER_BOOTS = ITEMS.register("blademaster_boots", () -> new BlademasterArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(37))));
 
-    public static Collection<DeferredHolder<Item, ? extends Item>> getItems() {
-        return ITEMS.getEntries();
-    }
+ public static final DeferredHolder<Item, Item> SPELLBLADE_UPGRADE_ORB = ITEMS.register("spellblade_upgrade_orb",
+         () -> new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, GGUpgradeOrbRegistry.SPELLBLADE_SPELL_POWER)));
+
+
 
 
 
@@ -82,6 +86,11 @@ public class GGItemRegistry {
 
     public static final DeferredItem<Item> COMPLETED_CLARITY = ITEMS.register("completed_clarity",
             () -> new Item(new Item.Properties().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())));
+
+
+ public static Collection<DeferredHolder<Item, ? extends Item>> getItems() {
+  return ITEMS.getEntries();
+ }
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

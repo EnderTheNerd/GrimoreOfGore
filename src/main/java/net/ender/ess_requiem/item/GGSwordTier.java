@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
 import io.redspace.ironsspellbooks.item.weapons.IronsWeaponTier;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
+import net.ender.ess_requiem.registries.GGAttributeRegistry;
 import net.ender.ess_requiem.registries.GGItemRegistry;
 import net.ender.ess_requiem.registries.GGSoundRegistry;
 import net.minecraft.tags.BlockTags;
@@ -82,6 +83,44 @@ public class GGSwordTier implements Tier, IronsWeaponTier {
             BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
             () -> Ingredient.of(ItemRegistry.DIVINE_PEARL.get()),
             new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+
+    //SPELLBLADE
+    public static ExtendedWeaponTier POTENTIAL = new ExtendedWeaponTier(250, 5f, -2.2f, 15,
+            BlockTags.INCORRECT_FOR_IRON_TOOL,
+            () -> Ingredient.of(Items.IRON_INGOT),
+            new AttributeContainer(GGAttributeRegistry.BLADE_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ExtendedWeaponTier PRACTICE = new ExtendedWeaponTier(540, 7f, -2.1f, 20,
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+        () -> Ingredient.of(GGItemRegistry.SPELLBLADE_RUNE),
+            new AttributeContainer(GGAttributeRegistry.BLADE_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ExtendedWeaponTier EXPERTISE = new ExtendedWeaponTier(2500, 12f, -1.9f, 35,
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            () -> Ingredient.of(GGItemRegistry.SPELLBLADE_RUNE),
+            new AttributeContainer(GGAttributeRegistry.BLADE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+
+    public static ExtendedWeaponTier INTERTWINED_PEAK = new ExtendedWeaponTier(5000, 15f, -2f, 0,
+            BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
+            () -> Ingredient.of(GGItemRegistry.FRAGMENT_OF_CLARITY),
+            new AttributeContainer(GGAttributeRegistry.BLADE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ALObjects.Attributes.PROT_PIERCE, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ExtendedWeaponTier SKYFALLS_CAUSE = new ExtendedWeaponTier(5000, 16f, -2.2f, 0,
+            BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
+            () -> Ingredient.of(GGItemRegistry.FRAGMENT_OF_CLARITY),
+            new AttributeContainer(GGAttributeRegistry.BLADE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ExtendedWeaponTier SWIFT_DEMISE = new ExtendedWeaponTier(5000, 14f, -1.8f, 0,
+            BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
+            () -> Ingredient.of(GGItemRegistry.FRAGMENT_OF_CLARITY),
+            new AttributeContainer(GGAttributeRegistry.BLADE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ALObjects.Attributes.DODGE_CHANCE, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+
 
     int uses;
     float damage;
