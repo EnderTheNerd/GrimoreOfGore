@@ -116,6 +116,10 @@
  "spell.ess_requiem.overwhelming_force.guide": "Swing your weapon with catastrophic strength, tearing your muscle fibers making you more vulnerable to damage, whilst stunning whatever it hits.",
  "spell.ess_requiem.undying_dread": "Undying Dread",
  "spell.ess_requiem.undying_dread.guide": "Strengthen the will of your soul, if you are killed when your soul is strengthened, delay your death by 2 minutes, while also gaining immense strength. Once those 2 minutes are up, instantly die.",
+ "spell.ess_requiem.dismantle": "Dismantle",
+ "spell.ess_requiem.dismantle.guide": "Tense your muscles with magic, swinging your weapon, and unleashing a wave of furious slashes. The ranged slashes do half the damage of your original swing. The evolved form of slash.",
+ "spell.ess_requiem.cleave": "Cleave",
+ "spell.ess_requiem.cleave.guide": "Violently Slam your sword into the ground, enhanced with magic hatred, deal more damage towards those with extra mana. The shockwave deals half the damage of the sword's downslam. The evolved form of slam.",
 
 
  "ui.enders_spells.not_empty_hand": "You try and flex your claws, yet something's in the way.",
@@ -151,6 +155,8 @@
  "item.ess_requiem.blademaster_boots": "Blademaster Boots",
  "item.ess_requiem.spellblade_rune": "Spellblade Rune",
  "item.ess_requiem.spellblade_upgrade_orb": "Spellblade Upgrade Orb",
+ "item.ess_requiem.potential": "Potential",
+ "item.ess_requiem.practice": "Practice",
 
 
 
@@ -176,7 +182,7 @@
  "death.attack.ess_requiem.cataphract_slam": "%1$s had their face smashed in by %2$s",
 
  "attribute.irons_spellbooks.spellblade_spell_power": "Blade Spell Power",
+ "attribute.irons_spellbooks.spellblade_magic_resist": "Blade Magic Resist",
 
- "school.ess_requiem.spellblade": "Spellblade",
- "school.ess_requiem.divine": "Divine"
+ "school.ess_requiem.spellblade": "Spellblade"
 }

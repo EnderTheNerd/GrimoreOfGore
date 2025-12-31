@@ -97,5 +97,11 @@
     "sounds": [
       "ess_requiem:holding_strong"
     ]
+  },
+  "spellblade_cut": {
+    "subtitle": "sounds.ess_requiem.cut",
+    "sounds": [
+      "ess_requiem:spellblade_cut_ranged"
+    ]
   }
 }

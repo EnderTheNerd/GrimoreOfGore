@@ -28,4 +28,9 @@ public class GGParticleRegistry {
     public static final Supplier<SimpleParticleType> WITHER_SKULL_SMALL = PARTICLE_TYPES.register("wither_skull_small", () -> new SimpleParticleType(false));
 
     public static final Supplier<SimpleParticleType> DARK_SLASH = PARTICLE_TYPES.register("dark_slash", () -> new SimpleParticleType(false));
+
+    public static final Supplier<SimpleParticleType> BIG_SLASH_LEFT = PARTICLE_TYPES.register("big_slash_left", () -> new SimpleParticleType(false));
+
+    public static final Supplier<SimpleParticleType> BIG_SLASH_RIGHT = PARTICLE_TYPES.register("big_slash_right", () -> new SimpleParticleType(false));
+
 }

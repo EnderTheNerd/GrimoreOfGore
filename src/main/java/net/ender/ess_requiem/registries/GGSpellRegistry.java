@@ -2,7 +2,6 @@ package net.ender.ess_requiem.registries;
 
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.AutoSpellConfig;
-import io.redspace.ironsspellbooks.spells.lightning.BallLightningSpell;
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
 import net.ender.ess_requiem.spells.blood.*;
@@ -21,6 +20,9 @@ import net.ender.ess_requiem.spells.holy.uncraftable.OverwhelmingLightSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.GlacialStatueSpell;
 import net.ender.ess_requiem.spells.ice.uncraftable.LordOfTheFinalFrostSpell;
 import net.ender.ess_requiem.spells.spellblade.*;
+import net.ender.ess_requiem.spells.spellblade.uncraftable.CleaveSpell;
+import net.ender.ess_requiem.spells.spellblade.uncraftable.DismantleSpell;
+import net.ender.ess_requiem.spells.spellblade.uncraftable.MalevolentSlashingSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -79,6 +81,11 @@ public class GGSpellRegistry {
     public static final Supplier <AbstractSpell> SOULMASTER = registerSpell(new SoulmasterSummonSpell());
     public static final Supplier <AbstractSpell> OVERWHELMING = registerSpell(new OverwhelmingForceSpell());
     public static final Supplier <AbstractSpell> HONE_EDGE = registerSpell(new HoneEdgeSpell());
+
+    //UNCRAFTABLE SPELLBLADE
+    public static final Supplier <AbstractSpell> DISMANTLE = registerSpell(new DismantleSpell());
+    public static final Supplier <AbstractSpell> CLEAVE = registerSpell(new CleaveSpell());
+    public static final Supplier <AbstractSpell> MALEVOLENT_SLASHING = registerSpell(new MalevolentSlashingSpell());
 
     //UNCRAFTABLE HOLY
     public static final Supplier<AbstractSpell> BASTION_OF_LIGHT = registerSpell(new BastionOfLightSpell());

@@ -19,6 +19,8 @@ import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.Inevitability;
 import net.ender.ess_requiem.item.sword_tier.EldritchWeapons.MidnightEmbrace;
 import net.ender.ess_requiem.item.sword_tier.HolyWeapons.Hope;
 import net.ender.ess_requiem.item.sword_tier.IceWeapons.ScytheOfFrozenDreams;
+import net.ender.ess_requiem.item.sword_tier.SpellbladeWeapons.Potential;
+import net.ender.ess_requiem.item.sword_tier.SpellbladeWeapons.Practice;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -69,9 +71,11 @@ public class GGItemRegistry {
     public static final DeferredHolder<Item, Item> BLADEMASTER_LEGGINGS = ITEMS.register("blademaster_leggings", () -> new BlademasterArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(37))));
     public static final DeferredHolder<Item, Item> BLADEMASTER_BOOTS = ITEMS.register("blademaster_boots", () -> new BlademasterArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(37))));
 
- public static final DeferredHolder<Item, Item> SPELLBLADE_UPGRADE_ORB = ITEMS.register("spellblade_upgrade_orb",
+    public static final DeferredHolder<Item, Item> SPELLBLADE_UPGRADE_ORB = ITEMS.register("spellblade_upgrade_orb",
          () -> new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, GGUpgradeOrbRegistry.SPELLBLADE_SPELL_POWER)));
 
+    public static final DeferredItem<Item> POTENTIAL = ITEMS.register("potential", Potential::new);
+    public static final DeferredItem<Item> PRACTICE = ITEMS.register("practice", Practice::new);
 
 
 

@@ -165,9 +165,9 @@ dependencies {
     implementation "curse.maven:placebo-283644:6446766"
 
     //ACE
-    implementation "curse.maven:aces-spell-utils-1299492:7196103"
+    implementation "curse.maven:aces-spell-utils-1299492:7382269"
 
-    //BIG MAN GAMETECH
+    //MEGA CORPORATIONS
     implementation "curse.maven:gtbcs-spelllib-1194714:6164512"
 
     // GECKOLIB ***************************************************************************************************

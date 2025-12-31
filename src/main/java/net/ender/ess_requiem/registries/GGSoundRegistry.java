@@ -25,7 +25,6 @@ public class GGSoundRegistry {
 
     public static DeferredHolder<SoundEvent, SoundEvent> BONES_SHATTER = registerSoundEvent("bone_shatter");
 
-
     //ELDRITCH
     public static DeferredHolder<SoundEvent, SoundEvent> PALE_FLAME_START =registerSoundEvent("pale_flame_start");
 
@@ -47,6 +46,8 @@ public class GGSoundRegistry {
     public static DeferredHolder<SoundEvent, SoundEvent> OVERWHELMING_IMPACT = registerSoundEvent("overwhelming_impact");
 
     public static DeferredHolder<SoundEvent, SoundEvent> SURVIVING = registerSoundEvent("surviving");
+
+    public static DeferredHolder<SoundEvent, SoundEvent> SPELLBLADE_CUT_RANGED = registerSoundEvent("spellblade_cut");
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {

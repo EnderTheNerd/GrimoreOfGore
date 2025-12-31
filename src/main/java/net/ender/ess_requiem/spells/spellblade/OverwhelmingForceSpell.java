@@ -51,7 +51,7 @@ public class OverwhelmingForceSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.EPIC)
             .setSchoolResource(GGSchoolRegistry.BLADE_RESOURCE)
             .setMaxLevel(3)
-            .setCooldownSeconds(180)
+            .setCooldownSeconds(90)
             .build();
 
     public OverwhelmingForceSpell() {

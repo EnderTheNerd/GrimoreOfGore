@@ -46,6 +46,8 @@ public class ModCreativeModTabs {
                         output.accept((ItemLike) GGItemRegistry.BLADEMASTER_CHESTPLATE);
                         output.accept((ItemLike) GGItemRegistry.BLADEMASTER_LEGGINGS);
                         output.accept((ItemLike) GGItemRegistry.BLADEMASTER_BOOTS);
+                        output.accept(GGItemRegistry.POTENTIAL);
+                        output.accept(GGItemRegistry.PRACTICE);
 
                     })
 

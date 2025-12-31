@@ -3,6 +3,7 @@ package net.ender.ess_requiem.setup;
 
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
+import net.ender.ess_requiem.entity.mobs.battle_standard.BattleStandardEntity;
 import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullEntity;
 
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassEntity;
@@ -21,6 +22,7 @@ public class CommonSetup {
         event.put(GGEntityRegistry.HOPPING_SKULL.get(), HoppingSkullEntity.createAttributes().build());
         event.put(GGEntityRegistry.SKULL_MASS.get(), SkullMassEntity.createAttributes().build());
         event.put(GGEntityRegistry.SOULMASTER_SWORD.get(), SoulmasterSwordEntity.createAttributes().build());
+        event.put(GGEntityRegistry.BATTLE_STANDARD.get(), BattleStandardEntity.createAttributes().build());
 
     }
 

@@ -2,6 +2,8 @@ package net.ender.ess_requiem.registries;
 
 import net.ender.ess_requiem.EndersSpellsAndStuffRequiem;
 
+import net.ender.ess_requiem.entity.mobs.battle_standard.BattleStandardEntity;
+import net.ender.ess_requiem.entity.mobs.gilded_weapon.GildedWeaponEntity;
 import net.ender.ess_requiem.entity.mobs.hopping_skull.HoppingSkullEntity;
 import net.ender.ess_requiem.entity.mobs.skull_mass.SkullMassEntity;
 import net.ender.ess_requiem.entity.spells.black_flame.BlackFlameLarge;
@@ -11,10 +13,12 @@ import net.ender.ess_requiem.entity.spells.bone_spear.BoneSpearEntity;
 import net.ender.ess_requiem.entity.spells.claw.ClawEntity;
 import net.ender.ess_requiem.entity.spells.bone_claw.BoneClawEntity;
 import net.ender.ess_requiem.entity.spells.corpse_puddle.CorpsePuddle;
+import net.ender.ess_requiem.entity.spells.dismantle.DismantleProjectile;
 import net.ender.ess_requiem.entity.spells.eternal_battlefield.EternalBattlefield;
 import net.ender.ess_requiem.entity.spells.overwhelming_force.OverwhelmingForce;
 import net.ender.ess_requiem.entity.spells.pale_flame.PaleFlame;
 import net.ender.ess_requiem.entity.mobs.summoned_weapon.SoulmasterSwordEntity;
+import net.ender.ess_requiem.entity.spells.spellblade_cut.SpellbladeCutProjectile;
 import net.ender.ess_requiem.entity.spells.wretch_breath.WretchBreath;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -77,11 +81,26 @@ public class GGEntityRegistry {
                     .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "soulmaster_sword").toString())
             );
 
+    public static final DeferredHolder<EntityType<?>, EntityType<GildedWeaponEntity>> GILDED_SWORD =
+            ENTITIES.register("gilded_sword", () -> EntityType.Builder.<GildedWeaponEntity>of(GildedWeaponEntity::new, MobCategory.CREATURE)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "gilded_sword").toString())
+            );
+
     public static final DeferredHolder<EntityType<?>, EntityType<SkullMassEntity>> SKULL_MASS =
             ENTITIES.register("skull_mass", () -> EntityType.Builder.<SkullMassEntity>of(SkullMassEntity::new, MobCategory.CREATURE)
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "skull_mass").toString())
+            );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BattleStandardEntity>> BATTLE_STANDARD =
+            ENTITIES.register("battle_standard", () -> EntityType.Builder.<BattleStandardEntity>of(BattleStandardEntity::new, MobCategory.CREATURE)
+                    .sized(1f, 3f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "battle_standard").toString())
+
             );
 
 
@@ -121,8 +140,20 @@ public class GGEntityRegistry {
                     .clientTrackingRange(64)
                     .build( ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "overwhelm").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<DismantleProjectile>> DISMANTLE =
+            ENTITIES.register("dismantle", () -> EntityType.Builder.<DismantleProjectile>of(DismantleProjectile::new, MobCategory.MISC)
+                    .sized(5f, 2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "dismantle").toString())
+            );
 
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SpellbladeCutProjectile>> SPELLBLADE_CUT =
+            ENTITIES.register("spellblade_cut", () -> EntityType.Builder.<SpellbladeCutProjectile>of(SpellbladeCutProjectile::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(EndersSpellsAndStuffRequiem.MOD_ID, "spellblade_cut").toString())
+            );
 
 }
 
